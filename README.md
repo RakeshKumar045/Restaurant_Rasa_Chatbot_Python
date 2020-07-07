@@ -50,7 +50,7 @@ rasa run actions # expose the nlu model
 
 rasa train core # train core model
 
-####### OR
+##### OR
 rasa train -vv -dump-stories --force 
 
 rasa run actions # expose the core model
@@ -63,8 +63,8 @@ rasa test core # Evaluate core model
 
 
 
-#Run Chatbot:
-###Terminal 1:
+# Run Chatbot:
+### Terminal 1:
 rasa init --no-prompt #note : do not run this command
 
 ### Start directly from here
