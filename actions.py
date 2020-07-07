@@ -41,7 +41,7 @@ class ActionSearchRestaurants(Action):
 
 		d = json.loads(results)
 
-		print("Type 6 : ", d)
+		print("Type    6 : ", d)
 
 		response = ""
 		if d['results_found'] == 0:
