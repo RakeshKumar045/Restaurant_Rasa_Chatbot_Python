@@ -5,7 +5,7 @@ from flask_mail import Mail, Message
 
 mail_user_name = "rakesh.sit0045@gmail.com"
 sender_mail = "27002rakesh@gmail.com"
-sender_trishala_mail = "trishla.singh35@gmail.com"
+sender_trishala_mail = "trishla.singh035@gmail.com"
 sender_raka_mail = "raka006184@gmail.com"
 mail_password = "Rakeshkumar7340@096*"
 
@@ -39,20 +39,11 @@ def send():
 def send_image_body():
     msg = Message("Hi! Welcome to Flask Mail!", sender=mail_user_name, recipients=[sender_mail, sender_trishala_mail])
 
-    with app.open_resource("triraka.jpg") as fp:
-        msg.attach("triraka.jpg", "image/jpg", fp.read())
-
-    with app.open_resource("s1.jpg") as fp:
-        msg.attach("s1.jpg", "image/jpg", fp.read())
-
     with app.open_resource("s2.jpg") as fp:
         msg.attach("s2.jpg", "image/jpg", fp.read())
 
     with app.open_resource("s3.jpg") as fp:
         msg.attach("s3.jpg", "image/jpg", fp.read())
-
-    with app.open_resource("s4.jpg") as fp:
-        msg.attach("s4.jpg", "image/jpg", fp.read())
 
     msg.body = "This is the email body"
 
@@ -92,42 +83,16 @@ def send_image_body():
         <table align="center" border="0" cellpadding="20" cellspacing="0" >
             <tr><td>
         <table align="center" border="0" cellspacing="0" width="300">
-        
-          
+                
                 <tr>
                     <td align="center">
-                    <p class="paragraph">“Sexy Ladies Trishala , Do you like my magic, Code also work in your laptop”  <b>- TriRaka</b> </p>
+                    <p class="paragraph">“1st image : Beautiful” </p>
                     </td>
                 </tr>
                 
                 <tr>
                     <td align="center">
-                    <p class="paragraph">“1st image : sexy and hottie couple” </p>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td align="center">
-                    <p class="paragraph">“2nd image : queen is taking rest” </p>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td align="center">
-                    <p class="paragraph">“3rd image: auntie is sleeping ”  </p>
-                    </td>
-                </tr>
-                
-                
-                  <tr>
-                    <td align="center">
-                    <p class="paragraph">“4th image : Daku sunny leone look” </p>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td align="center">
-                    <p class="paragraph">“5th image: chasmish madam  ” </p>
+                    <p class="paragraph">“2nd image : So Cute” </p>
                     </td>
                 </tr>
         </tr>
@@ -160,7 +125,7 @@ def internal_error(error):
 # @app.route("/")
 # def send():
 #     msg = Message("Hi! Welcome to Flask Mail!", sender=mail_user_name, recipients=[sender_mail, sender_trishala_mail])
-#     msg.body = "Trishala maate ko pranam"
+#     msg.body = "Message from Bot"
 #     mail.send(msg)
 #     print("Mail sent")
 #     # return "Please check you email,Sent"
