@@ -1,80 +1,29 @@
-# FlaskMail
-# How to Send Emails using Python
+# Assignment : Foodie Restaurant Search
+## @Rakesh Kumar and @ Trishala Singh
 
-Have you ever wondered how companies like Medium send millions of Emails to their massive user-base in minutes? And how they make it look so visually appealing which basically looks like a website in a mail?
-![](https://cdn-images-1.medium.com/max/2000/1*fRrwI-_ekP4PkQ4TDtYUyw.png)
+#### Email ID : rakesh.sit045@gmail.com
+#### Linkedin ID : https://www.linkedin.com/in/rakesh-kumar-gupta-52b77ab4/
 
-Let's write a few lines of Python code that will allow us to sent emails to 1000's of people at once just by running that python script.
-##  💻 Lets pip First
-We are going to use Flask and Flask-mail to do this. So open your command prompt & do.
-`pip install Flask Flask-Mail`
+#### Email ID : trishla.singh35@gmail.com
+#### Linkedin ID : https://www.linkedin.com/in/trishala-singh-1255522a/ 
 
-# Code 
-You only need 3  easy steps for this:
-## 1. Create a Flask App
-Let's start by creating a Flask app. 
-![](https://cdn-images-1.medium.com/max/880/1*5ukhuSn0sBHrr_O-1QwZCA.png)
+###Model Experiement:
+1) XGBoost
+2) LightGBM
+3) CatBoost
 
+#### This project has 68.98% accuracy with a rank of 201 in Janta Hackathon (15-May-2020).
+#### Problem Statement : MOBILITY ANALYTICS -https://datahack.analyticsvidhya.com/contest/janatahack-mobility-analytics/#ProblemStatementhttps://datahack.analyticsvidhya.com/contest/janatahack-mobility-analytics/#ProblemStatement
 
-We will be using mail variable to manage the features the instance "Mail" present in the [Flask-Mail](https://pythonhosted.org/Flask-Mail/) library.
+Welcome to Sigma Cab Private Limited - a cab aggregator service.
 
+Their customers can download their app on smartphones and book a cab from any where in the cities they operate in.
+They,in turn search for cabs from various service providers and provide the best option to their client across available options. 
+They have been in operation for little less than a year now.During this period, they have captured surge_pricing_type from the service providers.
+You have been hired by Sigma Cabs as a Data Scientist and have been asked to build a predictive model, which could help them in predicting the surge_pricing_type pro-actively.
+This would in turn help them in matching the right cabs with the right customers quickly and efficiently.
 
-## 2. Add Your Details
-![](https://cdn-images-1.medium.com/max/880/1*JLI7SZLMZToRvZBzWkhmvA.png)
-## 3. Compose & Send [Simple]
-![](https://cdn-images-1.medium.com/max/1100/1*VrejNCUcPEIIJEqajR3fKQ.png)
-![](https://cdn-images-1.medium.com/max/1100/1*WIhi84XNh1vdaxkiqRKmfA.png)
-## 🍓 Compose & Send [Advanced]
-By using .html instead of .body you can use different html tags and add .svg, .png too.  I am using <img> argument to add image using Url.
+### Contact us any time, If you are having any queries.
 
+## Thank you for reaching out to us on Github. 
 
-## 🍓 Compose & Send [Pro]
-Now that we know how add text & image. We can use different .html tags in combination with text and images to make it impressive like any other company Email. Also add <button> </button> redirecting users to your new websites.
-
-
-![](https://cdn-images-1.medium.com/max/880/1*8xMggon62Wwp8R1qCI-P9w.png)
-
-
-
-
-## How can I Send Personalized Email to 1000's of Users?!
-## Automate Mails
-_(like)_ **Change User's Name** -  Use python to go through a .txt or excel document of your user base and parse through all the names one by one and replace it in the mail.
-
-
-
-**!dea:** You can also change all the "he" to "she" or vice-versa depending on the gender.
-
-## How can I Attach Files with the Mail ?!
-### Attaching Files
-Here we are attaching image.png file present in the same folder.
-```
-with app.open_resource("image.png") as fp:
-    msg.attach("image.png", "image/png", fp.read())
-```
-
-
-##Error , Please check below link
-    1) https://stackoverflow.com/questions/16512592/login-credentials-not-working-with-gmail-smtp
-2) https://myaccount.google.com/lesssecureapps
-
-## 💁 Keep in Mind
-Since our code is not a full fledged app at this point, you may need to toggle your Gmail Setting.
-
-![](https://cdn-images-1.medium.com/max/880/1*vd0kXIICbB9OvfupIDg4ew.png)
-
-
-***
-### routes
-* index
-* * related info 
-* send_mail
-* * Send an email to respective recipients
-***
-### captures
-#### Index
-![Image index](./static/index.png "epidemiological model")
-#### Success
-![Image success](./static/success.png "epidemiological model")
-#### Error
-![Image error](./static/error.png "epidemiological model")
