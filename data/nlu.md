@@ -30,11 +30,16 @@
 - hello
 - hi
 - good morning
+- good morning sir
+- good afternoon
+- good afternoon sir
 - good evening
+- good evening sir
 - dear sir
-- hi
-- hi
-- hello
+- hi sir
+- hello sir
+- hey sir
+
 
 ## intent:restaurant_search
 - i'm looking for a place to eat
@@ -78,12 +83,30 @@
 
 ## synonym:4
 - four
+- char
+
+## synonym:2
+- two
+- do
+- du
+
 
 ## synonym:Delhi
 - New Delhi
+- New Dili
+- New Dilli
+- Old Delhi
+- Old Dili
+- Old Dilli
+- Dili
+- Dilli
 
 ## synonym:bangalore
 - Bengaluru
+
+## synonym:mumbai
+- bombai
+- bumbai
 
 ## synonym:chinese
 - chines
@@ -99,6 +122,7 @@
 
 ## regex:greet
 - hey[^\s]*
+- hi[^\s]*
 
 ## regex:pincode
 - [0-9]{6}
