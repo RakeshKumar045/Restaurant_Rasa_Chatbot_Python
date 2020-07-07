@@ -1,3 +1,24 @@
+# flask-emails
+The flask-emails extension is a simple way to send email messages from Flask application. It is a wrapper for python-emails.
+
+### Features :
+1) Email message abstraction with html and text part, with inline attachments, etc.
+
+2) Email body template rendering
+
+3) Email HTML body transform methods: css inlining, image inlining, etc.
+
+4) SMTP backends
+
+5) DKIM signature
+
+6) Configured via Flask application config
+
+
+#### Note : 
+There are another flask extension Flask-Mail which solves almost same problems. I guess flask-emails solves little more problems.
+
+
 # FlaskMail
 # How to Send Emails using Python
 
