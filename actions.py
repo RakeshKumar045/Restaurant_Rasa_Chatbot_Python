@@ -9,6 +9,7 @@ from rasa_sdk.events import SlotSet
 import zomatopy
 
 
+# Action search
 class ActionSearchRestaurants(Action):
 	def name(self):
 		return 'action_search_restaurants'
