@@ -13,9 +13,9 @@ Note:  Your chatbot will be evaluated through Command Prompt Line, not through S
 
 
 
-# Library Installation
+# Library Installation :
 
-### Create New Environment Variable
+### Create New Environment Variable :
 check no of env : conda env list or conda info --envs
 
 create : conda create -n RasaEnv python=3.7 anaconda
@@ -26,7 +26,7 @@ conda deactivate
 
 conda env remove --name ENVIRONMENT
 
-### Required Libraries
+### Required Libraries :
 pip install rasa 
 
 pip install rasa[spacy]
@@ -35,9 +35,9 @@ python -m spacy download en_core_web_md
 ##### OR
 python -m spacy link en_core_web_md en
 
-### NLU
+### NLU : 
 
-##### Rasa NLU Run:
+##### Rasa NLU Run :
 rasa train nlu # train nlu model
 
 rasa shell nlu # test nlu model
@@ -46,7 +46,7 @@ rasa test nlu # Evaluate nlu model
 
 rasa run actions # expose the nlu model 
 
-##### Rasa Core Run:
+##### Rasa Core Run :
 
 rasa train core # train core model
 
@@ -63,22 +63,22 @@ rasa test core # Evaluate core model
 
 
 
-# Run Chatbot:
-### Terminal 1:
+# Run Chatbot :
+### Terminal 1 :
 rasa init --no-prompt #note : do not run this command
 
-### Start directly from here
+### Start directly from here :
 rasa run -m models --enable-api --cors "*" --debug
 
-### Terminal 2:
+### Terminal 2 :
 ./ngrok http 5005 #linux
 
 ngrok http 5005 #windows
  
 ##### Expose URL : http://a1becb115fae.ngrok.io  # check url in googel browser(copy and paste in  google chrome) : Hello from Rasa: 1.10.3
  
-# Deployment:
-### Slack:
+# Deployment :
+### Slack :
 End url : /webhooks/slack/webhook
 
 Link 1: https://api.slack.com/
@@ -92,7 +92,7 @@ End url : /webhooks/facebook/webhook
 
 Reference video Link : https://www.youtube.com/watch?v=tFYS6JVYNTI
 
-### Telegram:
+### Telegram :
 End url : /webhooks/telegram/webhook
 
 Reference video Link: https://www.youtube.com/watch?v=eDDZ8IsH7Es
