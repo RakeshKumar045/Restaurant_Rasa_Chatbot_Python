@@ -47,6 +47,12 @@ We will be using mail variable to manage the features the instance "Mail" presen
 ![](https://cdn-images-1.medium.com/max/1100/1*VrejNCUcPEIIJEqajR3fKQ.png)
 ![](https://cdn-images-1.medium.com/max/1100/1*WIhi84XNh1vdaxkiqRKmfA.png)
 
+#### Run :
+python mail.py
+
+#### OR Run Jupyter file :
+expose jupyter server : jupyter notebook 
+
 #### 🍓 Compose & Send [Advanced]
 By using .html instead of .body you can use different html tags and add .svg, .png too.  I am using <img> argument to add image using Url.
 
@@ -56,7 +62,6 @@ Now that we know how add text & image. We can use different .html tags in combi
 
 
 ![](https://cdn-images-1.medium.com/max/880/1*8xMggon62Wwp8R1qCI-P9w.png)
-
 
 
 
