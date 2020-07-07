@@ -7,8 +7,8 @@
 - ok
 - great
 - right, thank you
-- correct
-- great choice
+- correct !
+- great choice!
 - sounds really good
 - thanks
 - thanks
@@ -16,6 +16,7 @@
 ## intent:goodbye
 - bye
 - goodbye
+- see you again. 
 - good bye
 - stop
 - end
@@ -33,7 +34,7 @@
 - good evening
 - dear sir
 - hi
-- hi
+- hola
 - hello
 
 ## intent:restaurant_search
@@ -84,6 +85,7 @@
 
 ## synonym:bangalore
 - Bengaluru
+- Bangaluru
 
 ## synonym:chinese
 - chines

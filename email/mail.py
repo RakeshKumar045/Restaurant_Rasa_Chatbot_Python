@@ -9,7 +9,7 @@ mail_password = "Rakeshkumar7340@096*"
 
 # Reciever
 receiver_rakesh_mail = "27002rakesh@gmail.com"
-receiver_trishala_mail = "trishla.singh035@gmail.com"
+receiver_trishala_mail = "trishla.singh35@gmail.com"
 receiver_raka_mail = "raka006184@gmail.com"
 
 # Initialize the app.
