@@ -19,8 +19,8 @@ The flask-emails extension is a simple way to send email messages from Flask app
 There are another flask extension Flask-Mail which solves almost same problems. I guess flask-emails solves little more problems.
 
 
-# FlaskMail
-# How to Send Emails using Python
+# FlaskMail :
+### How to Send Emails using Python
 
 Have you ever wondered how companies like Medium send millions of Emails to their massive user-base in minutes? And how they make it look so visually appealing which basically looks like a website in a mail?
 ![](https://cdn-images-1.medium.com/max/2000/1*fRrwI-_ekP4PkQ4TDtYUyw.png)
