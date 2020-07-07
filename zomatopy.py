@@ -19,6 +19,7 @@ class Zomato:
         """
         headers = {'Accept': 'application/json', 'user-key': self.user_key}
         r = (requests.get(base_url + "categories", headers=headers).content).decode("utf-8")
+
         a = ast.literal_eval(r)
 
         self.is_key_invalid(a)
@@ -27,6 +28,8 @@ class Zomato:
         categories = {}
         for category in a['categories']:
             categories.update({category['categories']['id']: category['categories']['name']})
+
+        print("Test   1 ")
 
         return categories
 

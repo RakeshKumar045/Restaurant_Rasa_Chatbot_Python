@@ -4,18 +4,19 @@
 - yeah
 - indeed
 - that's right
-- ok
-- great
+- Ok
+- great!
 - right, thank you
-- correct
-- great choice
-- sounds really good
+- correct !
+- great choice!
+- sounds really good.
 - thanks
 - thanks
 
 ## intent:goodbye
 - bye
 - goodbye
+- see you again. 
 - good bye
 - stop
 - end
@@ -31,9 +32,10 @@
 - hi
 - good morning
 - good evening
-- dear sir
+- dear pal
+- Hey Buddy!
 - hi
-- hi
+- hola
 - hello
 
 ## intent:restaurant_search
@@ -78,12 +80,29 @@
 
 ## synonym:4
 - four
+- char
+
+## synonym:2
+- two
+- do
+- du
 
 ## synonym:Delhi
 - New Delhi
+- New Dili
+- New Dilli
+- Old Delhi
+- Old Dili
+- Old Dilli
+- Dili
+- Dilli
 
+## synonym:Mumbai
+- bombai
+- bumbai
 ## synonym:bangalore
 - Bengaluru
+- Bangaluru
 
 ## synonym:chinese
 - chines
@@ -99,6 +118,7 @@
 
 ## regex:greet
 - hey[^\s]*
+- hi[^\s]*
 
 ## regex:pincode
 - [0-9]{6}

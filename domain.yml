@@ -14,6 +14,10 @@ slots:
     type: text
   location:
     type: text
+  price:
+    type: text
+  people:
+    type: number
 templates:
   utter_ask_cuisine:
     - buttons:
@@ -29,6 +33,25 @@ templates:
   utter_ask_howcanhelp:
     - text: how can I help you?
   utter_ask_location:
+    - buttons:
+        - payload: Ahmedabad
+          title: Ahmedabad
+        - payload: Bangalore
+          title: Bangalore
+        - payload: Chennai
+          title: Chennai
+        - payload: Delhi
+          title: Delhi
+        - payload: Hyderabad
+          title: Hyderabad
+        - payload: Kolkata
+          title: Kolkata
+        - payload: Mumbai
+          title: Mumbai
+        - payload: Pune
+          title: Pune
+        - payload: Others
+          title: Others
     - text: In what location?
   utter_default:
     - text: i cannot understand
@@ -36,9 +59,11 @@ templates:
     - text: goodbye :(
     - text: Bye-bye
   utter_greet:
-    - text: hey there! How may i help you
+    - text: hey there! How may i help you ?
     - text: Hi, How can I help you!
-    - text: Hey, How is it going. How May I help you Today
+    - text: Hey, How is it going. How May I help you Today?
+    - text: Hey there ! feeling famished ? how can I help you ?
+    - text: hello sunshine ! what I information can fetch for you ?
 actions:
   - action_search_restaurants
   - utter_ask_cuisine
