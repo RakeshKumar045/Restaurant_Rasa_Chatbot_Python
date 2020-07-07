@@ -53,7 +53,7 @@ class ActionSearchRestaurants(Action):
 
 		dispatcher.utter_message("-----" + response)
 
-		print("Type 7 : ", response)
+		print("Type 7   : ", response)
 		print("Type 8 : ", [SlotSet('location', loc)])
 
 		return [SlotSet('location', loc)]
