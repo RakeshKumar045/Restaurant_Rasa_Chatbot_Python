@@ -28,8 +28,31 @@ templates:
       text: what kind of cuisine would you like?
   utter_ask_howcanhelp:
     - text: how can I help you?
+
   utter_ask_location:
+    - buttons:
+        - payload: Ahmedabad
+          title: Ahmedabad
+        - payload: Bangalore
+          title: Bangalore
+        - payload: Chennai
+          title: Chennai
+        - payload: Delhi
+          title: Delhi
+        - payload: Hyderabad
+          title: Hyderabad
+        - payload: Kolkata
+          title: Kolkata
+        - payload: Mumbai
+          title: Mumbai
+        - payload: Pune
+          title: Pune
+        - payload: Others
+          title: Others
     - text: In what location?
+
+
+
   utter_default:
     - text: i cannot understand
   utter_goodbye:
