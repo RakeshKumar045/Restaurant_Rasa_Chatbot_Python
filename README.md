@@ -1,4 +1,4 @@
-# Assignment : Foodie RestauraYou’ll be evaluated on the following submission:
+# Assignment : Foodie Restaurant You’ll be evaluated on the following submission:
 
 Submit the entire folder of your chatbot code as a zip file: It should have all the data files, python files with codes, your saved models etc. The model should run on our CLI without any modifications. Your model will be evaluated on some test cases, similar to the ones shared with you.
 
