@@ -9,7 +9,7 @@
 - right, thank you
 - correct !
 - great choice!
-- sounds really good
+- sounds really good.
 - thanks
 - thanks
 
@@ -32,7 +32,8 @@
 - hi
 - good morning
 - good evening
-- dear sir
+- dear pal
+- Hey Buddy!
 - hi
 - hola
 - hello
@@ -79,10 +80,26 @@
 
 ## synonym:4
 - four
+- char
+
+## synonym:2
+- two
+- do
+- du
 
 ## synonym:Delhi
 - New Delhi
+- New Dili
+- New Dilli
+- Old Delhi
+- Old Dili
+- Old Dilli
+- Dili
+- Dilli
 
+## synonym:Mumbai
+- bombai
+- bumbai
 ## synonym:bangalore
 - Bengaluru
 - Bangaluru
@@ -101,6 +118,7 @@
 
 ## regex:greet
 - hey[^\s]*
+- hi[^\s]*
 
 ## regex:pincode
 - [0-9]{6}
