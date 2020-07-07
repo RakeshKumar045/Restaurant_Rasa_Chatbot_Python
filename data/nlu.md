@@ -4,7 +4,7 @@
 - yeah
 - indeed
 - that's right
-- ok
+- Ok
 - great!
 - right, thank you
 - correct !
