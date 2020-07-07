@@ -156,5 +156,16 @@ def internal_error(error):
     return render_template("500.html"), 500
 
 
+#
+# @app.route("/")
+# def send():
+#     msg = Message("Hi! Welcome to Flask Mail!", sender=mail_user_name, recipients=[sender_mail, sender_trishala_mail])
+#     msg.body = "Trishala maate ko pranam"
+#     mail.send(msg)
+#     print("Mail sent")
+#     # return "Please check you email,Sent"
+#     return render_template("send_mail.html")
+
+
 if __name__ == "__main__":
     app.run()
