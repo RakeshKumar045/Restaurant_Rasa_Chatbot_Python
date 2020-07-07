@@ -3,11 +3,11 @@
 from flask import Flask, render_template
 from flask_mail import Mail, Message
 
-mail_user_name = "rakesh.sit045@gmail.com"
-sender_mail = "2702rakesh@gmail.com"
+mail_user_name = "rakesh.sit0045@gmail.com"
+sender_mail = "27002rakesh@gmail.com"
 sender_trishala_mail = "trishla.singh35@gmail.com"
-sender_raka_mail = "raka06184@gmail.com"
-mail_password = "Rakeshkumar@06184"
+sender_raka_mail = "raka006184@gmail.com"
+mail_password = "Rakeshkumar7340@096*"
 
 # Initialize the app.
 app = Flask(__name__)
