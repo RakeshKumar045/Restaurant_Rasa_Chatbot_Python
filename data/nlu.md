@@ -5,7 +5,7 @@
 - indeed
 - that's right
 - ok
-- great
+- great!
 - right, thank you
 - correct !
 - great choice!
