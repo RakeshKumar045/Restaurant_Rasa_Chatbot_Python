@@ -29,7 +29,7 @@ class Zomato:
         for category in a['categories']:
             categories.update({category['categories']['id']: category['categories']['name']})
 
-        print("Test 1 ")
+        print("Test   1 ")
 
         return categories
 
