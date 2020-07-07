@@ -32,11 +32,12 @@ pip install rasa
 pip install rasa[spacy]
 
 python -m spacy download en_core_web_md
-######## OR
+##### OR
 python -m spacy link en_core_web_md en
 
 ### NLU
-######## Rasa NLU Run:
+
+##### Rasa NLU Run:
 rasa train nlu # train nlu model
 
 rasa shell nlu # test nlu model
@@ -45,8 +46,10 @@ rasa test nlu # Evaluate nlu model
 
 rasa run actions # expose the nlu model 
 
-####### Rasa Core Run:
+##### Rasa Core Run:
+
 rasa train core # train core model
+
 ####### OR
 rasa train -vv -dump-stories --force 
 
@@ -56,7 +59,7 @@ rasa shell  # test core model
 
 rasa test core # Evaluate core model
 
-####### Note : actions server run in terminal 1 and test model in terminal 2
+##### Note : actions server run in terminal 1 and test model in terminal 2
 
 
 
@@ -64,10 +67,10 @@ rasa test core # Evaluate core model
 ###Terminal 1:
 rasa init --no-prompt #note : do not run this command
 
-###Start directly from here
+### Start directly from here
 rasa run -m models --enable-api --cors "*" --debug
 
-###Terminal 2:
+### Terminal 2:
 ./ngrok http 5005 #linux
 
 ngrok http 5005 #windows
