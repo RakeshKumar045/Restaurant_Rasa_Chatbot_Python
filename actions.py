@@ -19,14 +19,30 @@ class ActionSearchRestaurants(Action):
 		zomato = zomatopy.initialize_app(config)
 		loc = tracker.get_slot('location')
 		cuisine = tracker.get_slot('cuisine')
+
+		print("Type 1 : ", loc)
+		print("Type 2 : ", cuisine)
+
 		location_detail = zomato.get_location(loc, 1)
+
+		print("Type 3 : ", location_detail)
+
 		d1 = json.loads(location_detail)
+
+		print("Type 4 : ", d1)
+
 		lat = d1["location_suggestions"][0]["latitude"]
 		lon = d1["location_suggestions"][0]["longitude"]
 		cuisines_dict = {'bakery': 5, 'chinese': 25, 'cafe': 30, 'italian': 55, 'biryani': 7, 'north indian': 50,
 						 'south indian': 85}
 		results = zomato.restaurant_search("", lat, lon, str(cuisines_dict.get(cuisine)), 5)
+
+		print("Type 5 : ", results)
+
 		d = json.loads(results)
+
+		print("Type 6 : ", d)
+
 		response = ""
 		if d['results_found'] == 0:
 			response = "no results"
@@ -36,4 +52,8 @@ class ActionSearchRestaurants(Action):
 						   restaurant['restaurant']['location']['address'] + "\n"
 
 		dispatcher.utter_message("-----" + response)
+
+		print("Type 7 : ", response)
+		print("Type 8 : ", [SlotSet('location', loc)])
+
 		return [SlotSet('location', loc)]
