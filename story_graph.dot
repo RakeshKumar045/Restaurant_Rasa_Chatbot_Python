@@ -1,0 +1,37 @@
+digraph  {
+0 [class="start active", fillcolor=green, fontsize=12, label=START, style=filled];
+"-1" [class=end, fillcolor=red, fontsize=12, label=END, style=filled];
+1 [class=active, fontsize=12, label=action_session_start];
+2 [class=active, fontsize=12, label=utter_greet];
+3 [class=active, fontsize=12, label=utter_ask_cuisine];
+4 [class=active, fontsize=12, label=utter_people];
+5 [class=active, fontsize=12, label=utter_price];
+6 [class=active, fontsize=12, label=action_search_restaurants];
+7 [class=active, fontsize=12, label=utter_goodbye];
+8 [class=active, fontsize=12, label=action_deactivate_form];
+9 [class="intent dashed active", label="  ?  ", shape=rect];
+10 [class="intent active", fillcolor=lightblue, label=hi, shape=rect, style=filled];
+11 [class="intent active", fillcolor=lightblue, label="I am looking for a resturant to eat in Delhi", shape=rect, style=filled];
+12 [class="intent active", fillcolor=lightblue, label=Chinese, shape=rect, style=filled];
+13 [class="intent active", fillcolor=lightblue, label=2, shape=rect, style=filled];
+14 [class="intent active", fillcolor=lightblue, label="500-1000", shape=rect, style=filled];
+15 [class="intent active", fillcolor=lightblue, label="/stop", shape=rect, style=filled];
+16 [class="intent active", fillcolor=lightblue, label=bye, shape=rect, style=filled];
+0 -> "-1"  [class="", key=NONE, label=""];
+0 -> 1  [class=active, key=NONE, label=""];
+1 -> 10  [class=active, key=0];
+2 -> 11  [class=active, key=0];
+3 -> 12  [class=active, key=0];
+4 -> 13  [class=active, key=0];
+5 -> 14  [class=active, key=0];
+6 -> 15  [class=active, key=0];
+7 -> 16  [class=active, key=0];
+8 -> 9  [class=active, key=NONE, label=""];
+10 -> 2  [class=active, key=0];
+11 -> 3  [class=active, key=0];
+12 -> 4  [class=active, key=0];
+13 -> 5  [class=active, key=0];
+14 -> 6  [class=active, key=0];
+15 -> 7  [class=active, key=0];
+16 -> 8  [class=active, key=0];
+}
