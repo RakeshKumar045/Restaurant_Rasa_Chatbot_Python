@@ -1,0 +1,88 @@
+## VS
+Python development
+Desktop development with C++ 
+Game development with C++ 
+.NET desktop development
+
+### Linux 
+sudo apt-get intall gcc python3-dev libxml2-dev libxslt1-dev zlib1g-dev g++
+
+
+conda info --envs
+conda create -n rasa python=3.7
+conda activate rasa
+##
+pip install rasa-x --extra-index-url https://pypi.rasa.com/simple
+####
+pip install rasa==1.9.5
+pip install rasa-sdk==1.9.0
+pip install ujson==1.35
+pip install tensorflow==2.1.0
+pip install rasa[spacy]==1.9.5
+
+python -m spacy download en_core_web_md
+python -m spacy link en_core_web_md en
+
+##
+conda remove --all -n rasademo
+
+pip freeze
+
+
+## mail
+https://myaccount.google.com/lesssecureapps?pli=1
+
+
+#Oauth
+https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-slack?view=azure-bot-service-4.0&tabs=abs
+
+app_mentions:read
+channels:history
+channels:read
+chat:write
+groups:history
+groups:read
+im:history
+mpim:history
+
+
+
+#connector 
+https://forum.rasa.com/t/slack-integration-500-error/12318/10
+
+rasa run actions & rasa run --connector slack
+
+
+#ngrok
+
+ngrok http 5055
+https://bd7f2adc03ec.ngrok.io/webhooks/slack/webhook
+
+
+## rasa slack doc
+https://rasa.com/docs/rasa/user-guide/connectors/slack/
+
+
+## Mail
+https://www.tutorialspoint.com/send-mail-from-your-gmail-account-using-python
+
+## GCP
+https://towardsdatascience.com/running-jupyter-notebook-in-google-cloud-platform-in-15-min-61e16da34d52
+
+## ENV steps 
+
+## rasa 1.9.5
+conda info --envs
+conda create -n rasa python=3.7.7
+conda activate rasa
+pip install -r req.txt
+
+deactivate
+conda remove --all -n rasa
+
+
+## rasa 1.10.5
+conda info --envs
+conda create -n rasa python=3.7.7
+conda activate rasa
+pip install -r req.txt
