@@ -47,7 +47,7 @@ class ActionSearchRestaurants(Action):
 		if d['results_found'] == 0:
 			response = "no results"
 		else:
-			for restaurant in d['restaurants']:
+			for restaurant in d['resturants']:
 				response = response + "Found " + restaurant['restaurant']['name'] + " in " + \
 						   restaurant['restaurant']['location']['address'] + "\n"
 
@@ -56,7 +56,37 @@ class ActionSearchRestaurants(Action):
 		print("Type 7   : ", response)
 		print("Type 8 : ", [SlotSet('location', loc)])
 
+		response = "We will add later response result"
+		try:
+			file = open("body.txt", "w")
+			counter = 1
+			for restaurant in d['resturants']:
+				response = response + "Found " + restaurant['restaurant']['name'] + " in " + \
+						   restaurant['restaurant']['location']['address'] + "\n"
+
+
+			for restaurant in d['resturants']:
+				file.write("{}. Restaurant Name: {}\n Restaurant locality address: {}\n Average budget for two people: {}\n Zomato user rating: {}\n\n".format(
+						counter,restaurant['restaurant']['name'], restaurant['restaurant']['location']['address'], "2 people ", "4.6"))
+				counter += 1
+			file.close()
+		except:
+			response = "no results"
+
+			dispatcher.utter_message("Foodie Rasa Chatbot Assignment : ", response)
+
 		return [SlotSet('location', loc)]
+
+# ## ****
+# 	for restaurant in restaurant_final_list:
+# 				file.write(
+# 					"{}. Restaurant Name: {}\n Restaurant locality address: {}\n Average budget for two people: {}\n Zomato user rating: {}\n\n".format(
+# 						counter, restaurant[0], restaurant[1], restaurant[2], restaurant[3]))
+# 				counter += 1
+# 			file.close()
+# ##********
+
+
 
 
 class VerifyLocation(Action):
@@ -64,114 +94,126 @@ class VerifyLocation(Action):
 	TIER_2 = []
 
 	def __init__(self):
-		# self.TIER_1 = ['ahmedabad', 'bangalore', 'chennai',
-		#  'delhi', 'hyderabad', 'kolkata', 'mumbai', 'pune']
-		self.TIER_2 = ['Agra', 'Ajmer', 'Aligarh',
-					   'Amravati',
-					   'Amritsar',
-					   'Asansol',
-					   'Aurangabad',
-					   'Bareilly',
-					   'Belgaum',
-					   'Bhavnagar',
-					   'Bhiwandi',
-					   'Bhopal',
-					   'Bhubaneswar',
-					   'Bikaner',
-					   'Bilaspur',
-					   'Bokaro Steel City',
-					   'Chandigarh',
-					   'Coimbatore',
-					   'Cuttack',
-					   'Dehradun',
-					   'Dhanbad',
-					   'Bhilai',
-					   'Durgapur',
-					   'Erode',
-					   'Faridabad',
-					   'Firozabad',
-					   'Ghaziabad',
-					   'Gorakhpur',
-					   'Gulbarga',
-					   'Guntur',
-					   'Gwalior',
-					   'Gurgaon',
-					   'Guwahati',
-					   'Hamirpur',
-					   'Hubli–Dharwad',
-					   'Indore',
-					   'Jabalpur',
-					   'Jaipur',
-					   'Jalandhar',
-					   'Jammu',
-					   'Jamnagar',
-					   'Jamshedpur',
-					   'Jhansi',
-					   'Jodhpur',
-					   'Kakinada',
-					   'Kannur',
-					   'Kanpur',
-					   'Kochi',
-					   'Kolhapur',
-					   'Kollam',
-					   'Kozhikode',
-					   'Kurnool',
-					   'Ludhiana',
-					   'Lucknow',
-					   'Madurai',
-					   'Malappuram',
-					   'Mathura',
-					   'Goa',
-					   'Mangalore',
-					   'Meerut',
-					   'Moradabad',
-					   'Mysore',
-					   'Nagpur',
-					   'Nanded',
-					   'Nashik',
-					   'Nellore',
-					   'Noida',
-					   'Patna',
-					   'Pondicherry',
-					   'Purulia',
-					   'Prayagraj',
-					   'Raipur',
-					   'Rajkot',
-					   'Rajahmundry',
-					   'Ranchi',
-					   'Rourkela',
-					   'Salem',
-					   'Sangli',
-					   'Shimla',
-					   'Siliguri',
-					   'Solapur',
-					   'Srinagar',
-					   'Surat',
-					   'Thiruvananthapuram',
-					   'Thrissur',
-					   'Tiruchirappalli',
-					   'Tiruppur',
-					   'Ujjain',
-					   'Bijapur',
-					   'Vadodara',
-					   'Varanasi',
-					   'Vasai-Virar City',
-					   'Vijayawada',
-					   'Visakhapatnam',
-					   'Vellore',
-					   'Warangal']
+		self.TIER_1 = ['ahmedabad', 'bangalore', 'chennai', 'delhi', 'hyderabad', 'kolkata', 'mumbai', 'pune']
+		self.TIER_2 = ['agra', 'ajmer', 'aligarh', 'amravati', 'amritsar', 'asansol', 'aurangabad', 'bareilly',
+					   'belgaum',
+					   'bhavnagar', 'bhiwandi', 'bhopal', 'bhubaneswar', 'bikaner', 'bilaspur', 'bokaro steel city',
+					   'chandigarh',
+					   'coimbatore', 'cuttack', 'dehradun', 'dhanbad', 'bhilai', 'durgapur', 'erode', 'faridabad',
+					   'firozabad',
+					   'ghaziabad', 'gorakhpur', 'gulbarga', 'guntur', 'gwalior', 'gurgaon', 'guwahati', 'hamirpur',
+					   'hubli–dharwad',
+					   'indore', 'jabalpur', 'jaipur', 'jalandhar', 'jammu', 'jamnagar', 'jamshedpur', 'jhansi',
+					   'jodhpur',
+					   'kakinada', 'kannur', 'kanpur', 'kochi', 'kolhapur', 'kollam', 'kozhikode', 'kurnool',
+					   'ludhiana', 'lucknow',
+					   'madurai', 'malappuram', 'mathura', 'goa', 'mangalore', 'meerut', 'moradabad', 'mysore',
+					   'nagpur', 'nanded',
+					   'nashik', 'nellore', 'noida', 'patna', 'pondicherry', 'purulia', 'prayagraj', 'raipur', 'rajkot',
+					   'rajahmundry', 'ranchi', 'rourkela', 'salem', 'sangli', 'shimla', 'siliguri', 'solapur',
+					   'srinagar', 'surat',
+					   'thiruvananthapuram', 'thrissur', 'tiruchirappalli', 'tiruppur', 'ujjain', 'bijapur', 'vadodara',
+					   'varanasi',
+					   'vasai-virar city', 'vijayawada', 'visakhapatnam', 'vellore', 'warangal']
 
 	def name(self):
 		return "verify_location"
 
 	def run(self, dispatcher, tracker, domain):
 		loc = tracker.get_slot('location')
+
 		if not (self.verify_location(loc)):
-			dispatcher.utter_message(
-				"We do not operate in " + loc + " yet. Please try some other city.")
+			dispatcher.utter_message("Sorry, we do not operate in " + loc + " yet. Please try some other city.")
 			return [SlotSet('location', None), SlotSet("location_ok", False)]
 		else:
 			return [SlotSet('location', loc), SlotSet("location_ok", True)]
 
 	def verify_location(self, loc):
 		return loc.lower() in self.TIER_1 or loc.lower() in self.TIER_2
+
+class ActionRestarted(Action):
+	def name(self):
+		return 'action_restart'
+
+	def run(self, dispatcher, tracker, domain):
+		return[Restarted()]
+
+class ActionSlotReset(Action):
+	def name(self):
+		return 'action_slot_reset'
+
+	def run(self, dispatcher, tracker, domain):
+		return[AllSlotsReset()]
+
+class ActionValidateEmail(Action):
+	def name(self):
+		return 'action_validate_email'
+
+	def run(self, dispatcher, tracker, domain):
+		pattern = "(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)"
+		email_check = tracker.get_slot('email')
+		if email_check is not None:
+			if re.search("(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)", email_check):
+				return [SlotSet('email', email_check)]
+			else:
+				dispatcher.utter_message("Sorry this is not a valid email. please check for typing errors")
+				return [SlotSet('email', None)]
+		else:
+			dispatcher.utter_message(
+				"Sorry I could not understand the email address which you provided? Please provide again")
+			return [SlotSet('email', None)]
+
+
+
+class ActionSendMail(Action):
+	def name(self):
+		return 'action_send_mail'
+
+	def run(self, dispatcher, tracker, domain):
+
+		body = ""
+		file = open('body.txt', 'r')
+
+		for line in file.readlines():
+			body += line
+		file.close()
+
+		# Credential Detail
+		mail_user_name = "rakesh.sit045@gmail.com"
+		mail_password = "Rakeshkumar@06184"
+
+		# Reciever
+		receiver_rakesh_mail = "27002rakesh@gmail.com"
+		receiver_trishala_mail = "trishla.singh035@gmail.com"
+		receiver_raka_mail = "raka006184@gmail.com"
+
+		gmail_user = mail_user_name
+		gmail_password = mail_password
+
+		sent_from = gmail_user
+		to = tracker.get_slot('email_id')
+		subject = " Restaurant recommendations in " + tracker.get_slot("location").title()
+
+		email_text = """\  
+		From: %s  
+		To: %s  
+		Subject: %s
+		%s
+		""" % (sent_from, to, subject, body)
+
+		try:
+			server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
+			server.ehlo()
+			server.login(gmail_user, gmail_password)
+			server.sendmail(sent_from, to, email_text)
+			server.close()
+			dispatcher.utter_template("utter_email_Sent", tracker)
+
+		except:
+
+			dispatcher.utter_template("utter_email_error", tracker)
+
+		return [SlotSet('email', to)]
+
+
+
