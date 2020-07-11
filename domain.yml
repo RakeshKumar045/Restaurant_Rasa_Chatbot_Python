@@ -120,5 +120,5 @@ slots:
   location_ok:
     type: bool
     initial_value: False
-  email_id: text
-    text: text
+  email_id:
+    type: text
