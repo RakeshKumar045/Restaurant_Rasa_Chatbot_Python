@@ -1,5 +1,6 @@
 actions:
   - action_search_restaurants
+  - verify_location
   - utter_ask_cuisine
   - utter_ask_howcanhelp
   - utter_ask_location
@@ -8,6 +9,7 @@ actions:
   - utter_greet
   - utter_people
   - utter_price
+  - utter_other_cities
 entities:
   - cuisine
   - location
@@ -71,6 +73,8 @@ responses:
     - text: hello sunshine ! what information I can fetch for you ?
   utter_people:
     - text: How many people are there ?
+  utter_other_cities:
+    - text: Please enter the city name ?
   utter_price:
     - text: what is your price range ?
 session_config:
@@ -85,3 +89,6 @@ slots:
     type: text
   price:
     type: text
+  location_ok:
+    type: bool
+    initial_value: False
