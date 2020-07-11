@@ -66,9 +66,7 @@ class VerifyLocation(Action):
 	def __init__(self):
 		# self.TIER_1 = ['ahmedabad', 'bangalore', 'chennai',
 		#  'delhi', 'hyderabad', 'kolkata', 'mumbai', 'pune']
-		self.TIER_2 = ['Agra',
-					   'Ajmer',
-					   'Aligarh',
+		self.TIER_2 = ['Agra', 'Ajmer', 'Aligarh',
 					   'Amravati',
 					   'Amritsar',
 					   'Asansol',
