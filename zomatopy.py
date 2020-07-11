@@ -226,6 +226,9 @@ class Zomato:
             raise ValueError('LimitNotInteger')
         headers = {'Accept': 'application/json', 'user-key': self.user_key}
         r = (requests.get(base_url + "search?q=" + str(query) + "&count=" + str(limit) + "&lat=" + str(latitude) + "&lon=" + str(longitude) + "&cuisines=" + str(cuisines), headers=headers).content).decode("utf-8")
+
+        print("result 45 testing : ",r)
+
         return r#a = ast.literal_eval(r)
 
 

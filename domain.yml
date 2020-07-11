@@ -23,7 +23,7 @@ entities:
   - location
   - people
   - price
-  - email_id
+  - email
 intents:
   - restaurant_search
   - greet
@@ -120,5 +120,5 @@ slots:
   location_ok:
     type: bool
     initial_value: False
-  email_id:
+  email:
     type: text

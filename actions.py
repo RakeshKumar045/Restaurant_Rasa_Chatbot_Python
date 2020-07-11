@@ -5,6 +5,7 @@ from __future__ import unicode_literals
 import json
 from rasa_sdk import Action
 from rasa_sdk.events import SlotSet
+import re
 
 import zomatopy
 
@@ -132,24 +133,20 @@ class ActionSendMail(Action):
 		mail_user_name = "rakesh.sit045@gmail.com"
 		mail_password = "Rakeshkumar@06184"
 
-		# Reciever
-		receiver_rakesh_mail = "27002rakesh@gmail.com"
-		receiver_trishala_mail = "trishla.singh035@gmail.com"
-		receiver_raka_mail = "raka006184@gmail.com"
-
 		gmail_user = mail_user_name
 		gmail_password = mail_password
 
 		sent_from = gmail_user
-		to = tracker.get_slot('email_id')
-		subject = " Restaurant recommendations in " + tracker.get_slot("location").title()
+		to = tracker.get_slot('email')
+		# subject = " Restaurant recommendations in " + tracker.get_slot("location").title()
+		subject = " Restaurant recommendations in "
 
 		email_text = """\  
 		From: %s  
 		To: %s  
 		Subject: %s
 		%s
-		""" % (sent_from, to, subject, body)
+		""" % (sent_from, to, subject, "testing 45")
 
 		try:
 			server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
@@ -157,13 +154,13 @@ class ActionSendMail(Action):
 			server.login(gmail_user, gmail_password)
 			server.sendmail(sent_from, to, email_text)
 			server.close()
-			dispatcher.utter_template("utter_email_Sent", tracker)
+			dispatcher.utter_message("utter_email_Sent", tracker)
 
 		except:
 
-			dispatcher.utter_template("utter_email_error", tracker)
+			dispatcher.utter_message("utter_email_error", tracker)
 
-		return [SlotSet('email_id', to)]
+		return [SlotSet('email', to)]
 
 
 
