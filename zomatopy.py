@@ -29,8 +29,6 @@ class Zomato:
         for category in a['categories']:
             categories.update({category['categories']['id']: category['categories']['name']})
 
-        print("Test   1 ")
-
         return categories
 
     def get_city_ID(self, city_name):
