@@ -22,6 +22,7 @@
 - farewell
 - Bye bye
 - have a good one
+- 2702rakesh@gma
 
 ## intent:greet
 - hey
@@ -75,14 +76,22 @@
 - I am looking for a resturant to eat in [Delhi](location)
 - show me some resturants
 - show me some reaturant
-- [Italian](cuisine)
+- show me some resturants to eat ?
+- [Delhi](location)
+- show restaurant
+- [Chinese]{"entity": "cuisine", "value": "chinese"}
 
 ## intent:number_of_person
 - [2](people)
 - [Bangalore](location)
+- [Bangalore](location)
 
 ## intent:price_range
 - [500-1000](price)
+
+## intent:send_email
+- [trishla.singh35@gmail.com](email)
+- 2702rakesh@gmail.com
 
 ## synonym:2
 - two

@@ -3,9 +3,23 @@ from __future__ import division
 from __future__ import unicode_literals
 
 import json
+import re
+import urllib3
 from rasa_sdk import Action
 from rasa_sdk.events import SlotSet
+
+urllib3.disable_warnings()
+
+import smtplib
+import os
 import re
+import requests
+
+import json
+import pandas as pd
+from threading import Thread
+from flask import Flask
+from flask_mail import Mail, Message
 
 import zomatopy
 
@@ -115,52 +129,48 @@ class ActionValidateEmail(Action):
 			return [SlotSet('email', None)]
 
 
+def mail_config():
+	gmail_user = "rakesh.sit045@gmail.com"
+	gmail_pwd = "Rakeshkumar@06184"  # Gmail Password
+	mail_settings = {
 
-class ActionSendMail(Action):
+		"MAIL_SERVER": 'smtp.gmail.com',
+		"MAIL_PORT": 465,
+		"MAIL_USE_TLS": False,
+		"MAIL_USE_SSL": True,
+		"MAIL_USERNAME": gmail_user,
+		"MAIL_PASSWORD": gmail_pwd,
+
+	}
+	return mail_settings
+
+
+app = Flask(__name__)
+app.config.update(mail_config())
+mail = Mail(app)
+
+
+def send_async_email(app, recipient, response):
+	with app.app_context():
+		msg = Message(subject="Restaurant Details", sender="rakesh.sit045@gmail.com", recipients=[recipient])
+		msg.html = u'<h2>Foodie has found few restaurants for you:</h2>'
+		mail.send(msg)
+
+
+def send_email(recipient, response):
+	thr = Thread(target=send_async_email, args=[app, recipient, response])
+	thr.start()
+
+
+class SendMail(Action):
 	def name(self):
 		return 'action_send_mail'
 
 	def run(self, dispatcher, tracker, domain):
+		recipient = tracker.get_slot('email')
 
-		body = ""
-		file = open('body.txt', 'r')
+		# top10 = restaurants.head(10)
+		top10 = "testing 45...."
+		send_email(recipient, top10)
 
-		for line in file.readlines():
-			body += line
-		file.close()
-
-		# Credential Detail
-		mail_user_name = "rakesh.sit045@gmail.com"
-		mail_password = "Rakeshkumar@06184"
-
-		gmail_user = mail_user_name
-		gmail_password = mail_password
-
-		sent_from = gmail_user
-		to = tracker.get_slot('email')
-		# subject = " Restaurant recommendations in " + tracker.get_slot("location").title()
-		subject = " Restaurant recommendations in "
-
-		email_text = """\  
-		From: %s  
-		To: %s  
-		Subject: %s
-		%s
-		""" % (sent_from, to, subject, "testing 45")
-
-		try:
-			server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
-			server.ehlo()
-			server.login(gmail_user, gmail_password)
-			server.sendmail(sent_from, to, email_text)
-			server.close()
-			dispatcher.utter_message("utter_email_Sent", tracker)
-
-		except:
-
-			dispatcher.utter_message("utter_email_error", tracker)
-
-		return [SlotSet('email', to)]
-
-
-
+		dispatcher.utter_message("Have a great day! Mail is sent")
