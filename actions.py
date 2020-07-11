@@ -73,7 +73,7 @@ class ActionSearchRestaurants(Action):
 		except:
 			response = "no results"
 
-			dispatcher.utter_message("Foodie Rasa Chatbot Assignment : ", response)
+			dispatcher.utter_message("Foodie Rasa Chatbot Assig : ", response)
 
 		return [SlotSet('location', loc)]
 
@@ -213,7 +213,4 @@ class ActionSendMail(Action):
 
 			dispatcher.utter_template("utter_email_error", tracker)
 
-		return [SlotSet('email', to)]
-
-
-
+		return [SlotSet('email_id', to)]

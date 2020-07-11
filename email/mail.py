@@ -1,7 +1,10 @@
 # __author__ = 'Rakesh Kumar Gupta'
 
 from flask import Flask, render_template
-from flask_mail import Mail, Message
+from flask_Message
+
+mail
+import Mail,
 
 # Credential Detail
 mail_user_name = "rakesh.sit0045@gmail.com"
