@@ -7,11 +7,11 @@ from flask_mail import Mail, Message
 # mail_user_name = "rakesh.sit0045@gmail.com"
 # mail_password = "Rakeshkumar"
 
-mail_user_name = "rakesh.sit045@gmail.com"
-mail_password = "Rakeshkumar@06184"
+mail_user_name = "rakesh.sit0045@gmail.com"
+mail_password = "Rakeshkumar36@12#"
 
 # Reciever
-receiver_trishala_mail = "trishla.singh35@gmail.com"
+receiver_trishala_mail = "trishla.singh035@gmail.com"
 receiver_raka_mail = "raka006184@gmail.com"
 
 # Initialize the app.
