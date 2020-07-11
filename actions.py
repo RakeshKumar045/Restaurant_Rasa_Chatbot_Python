@@ -57,3 +57,123 @@ class ActionSearchRestaurants(Action):
 		print("Type 8 : ", [SlotSet('location', loc)])
 
 		return [SlotSet('location', loc)]
+
+
+class VerifyLocation(Action):
+	TIER_1 = []
+	TIER_2 = []
+
+	def __init__(self):
+		# self.TIER_1 = ['ahmedabad', 'bangalore', 'chennai',
+		#  'delhi', 'hyderabad', 'kolkata', 'mumbai', 'pune']
+		self.TIER_2 = ['Agra',
+					   'Ajmer',
+					   'Aligarh',
+					   'Amravati',
+					   'Amritsar',
+					   'Asansol',
+					   'Aurangabad',
+					   'Bareilly',
+					   'Belgaum',
+					   'Bhavnagar',
+					   'Bhiwandi',
+					   'Bhopal',
+					   'Bhubaneswar',
+					   'Bikaner',
+					   'Bilaspur',
+					   'Bokaro Steel City',
+					   'Chandigarh',
+					   'Coimbatore',
+					   'Cuttack',
+					   'Dehradun',
+					   'Dhanbad',
+					   'Bhilai',
+					   'Durgapur',
+					   'Erode',
+					   'Faridabad',
+					   'Firozabad',
+					   'Ghaziabad',
+					   'Gorakhpur',
+					   'Gulbarga',
+					   'Guntur',
+					   'Gwalior',
+					   'Gurgaon',
+					   'Guwahati',
+					   'Hamirpur',
+					   'Hubli–Dharwad',
+					   'Indore',
+					   'Jabalpur',
+					   'Jaipur',
+					   'Jalandhar',
+					   'Jammu',
+					   'Jamnagar',
+					   'Jamshedpur',
+					   'Jhansi',
+					   'Jodhpur',
+					   'Kakinada',
+					   'Kannur',
+					   'Kanpur',
+					   'Kochi',
+					   'Kolhapur',
+					   'Kollam',
+					   'Kozhikode',
+					   'Kurnool',
+					   'Ludhiana',
+					   'Lucknow',
+					   'Madurai',
+					   'Malappuram',
+					   'Mathura',
+					   'Goa',
+					   'Mangalore',
+					   'Meerut',
+					   'Moradabad',
+					   'Mysore',
+					   'Nagpur',
+					   'Nanded',
+					   'Nashik',
+					   'Nellore',
+					   'Noida',
+					   'Patna',
+					   'Pondicherry',
+					   'Purulia',
+					   'Prayagraj',
+					   'Raipur',
+					   'Rajkot',
+					   'Rajahmundry',
+					   'Ranchi',
+					   'Rourkela',
+					   'Salem',
+					   'Sangli',
+					   'Shimla',
+					   'Siliguri',
+					   'Solapur',
+					   'Srinagar',
+					   'Surat',
+					   'Thiruvananthapuram',
+					   'Thrissur',
+					   'Tiruchirappalli',
+					   'Tiruppur',
+					   'Ujjain',
+					   'Bijapur',
+					   'Vadodara',
+					   'Varanasi',
+					   'Vasai-Virar City',
+					   'Vijayawada',
+					   'Visakhapatnam',
+					   'Vellore',
+					   'Warangal']
+
+	def name(self):
+		return "verify_location"
+
+	def run(self, dispatcher, tracker, domain):
+		loc = tracker.get_slot('location')
+		if not (self.verify_location(loc)):
+			dispatcher.utter_message(
+				"We do not operate in " + loc + " yet. Please try some other city.")
+			return [SlotSet('location', None), SlotSet("location_ok", False)]
+		else:
+			return [SlotSet('location', loc), SlotSet("location_ok", True)]
+
+	def verify_location(self, loc):
+		return loc.lower() in self.TIER_1 or loc.lower() in self.TIER_2
