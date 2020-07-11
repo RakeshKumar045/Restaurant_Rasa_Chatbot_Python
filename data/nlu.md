@@ -73,10 +73,13 @@
 - please show me a few [italian](cuisine) restaurants in [bangalore](location)
 - I am hungry. Lookout for some good resturants?
 - I am looking for a resturant to eat in [Delhi](location)
-- [Chinese]{"entity": "cuisine", "value": "chinese"}
+- show me some resturants
+- show me some reaturant
+- [Italian](cuisine)
 
 ## intent:number_of_person
 - [2](people)
+- [Bangalore](location)
 
 ## intent:price_range
 - [500-1000](price)
