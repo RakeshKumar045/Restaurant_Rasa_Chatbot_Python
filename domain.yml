@@ -47,6 +47,7 @@ responses:
         - payload: Delhi
           title: Delhi
 
+
       text: In what location?
   utter_default:
     - text: i cannot understand.
