@@ -1,6 +1,10 @@
 actions:
   - action_search_restaurants
   - verify_location
+  - action_restart
+  - action_slot_reset
+  - action_validate_email
+  - action_send_mail
   - utter_ask_cuisine
   - utter_ask_howcanhelp
   - utter_ask_location
@@ -10,11 +14,16 @@ actions:
   - utter_people
   - utter_price
   - utter_other_cities
+  - utter_ask_ifmail
+  - utter_ask_mail
+  - utter_email_Sent
+  - utter_email_error
 entities:
   - cuisine
   - location
   - people
   - price
+  - email_id
 intents:
   - restaurant_search
   - greet
@@ -23,6 +32,7 @@ intents:
   - price_range
   - stop
   - affirm
+  - send_email
 responses:
   utter_ask_cuisine:
     - buttons:
@@ -77,6 +87,24 @@ responses:
     - text: Please enter the city name ?
   utter_price:
     - text: what is your price range ?
+  utter_ask_ifmail:
+    - text: Shall I send you the top 10 results via email?
+    - text: Would you like me to send the top 10 results via email?
+    - text: Would you like to have the top 10 results emailed to you?
+    - text: Would you be interested in having top 10 results emailed to you?
+  utter_ask_mail:
+    - text: Could you please share your email address then?
+    - text: What is your email address?
+    - text: Please provide your email address
+    - text: Provide your email address please
+    - text: Please enter your email address
+  utter_email_Sent:
+    - text: The details have been emailed to you
+    - text: Email has been sent to the address provided by you
+  utter_email_error:
+    - text: Sorry, something went wrong, could not send the email.
+    - text: Email could not be sent, apologise for the inconvenience.
+
 session_config:
   carry_over_slots_to_new_session: true
   session_expiration_time: 0
@@ -92,3 +120,5 @@ slots:
   location_ok:
     type: bool
     initial_value: False
+  email_id: text
+    text: text

@@ -100,3 +100,90 @@ class VerifyLocation(Action):
 
 	def verify_location(self, loc):
 		return loc.lower() in self.TIER_1 or loc.lower() in self.TIER_2
+
+class ActionRestarted(Action):
+	def name(self):
+		return 'action_restart'
+
+	def run(self, dispatcher, tracker, domain):
+		return[Restarted()]
+
+class ActionSlotReset(Action):
+	def name(self):
+		return 'action_slot_reset'
+
+	def run(self, dispatcher, tracker, domain):
+		return[AllSlotsReset()]
+
+class ActionValidateEmail(Action):
+	def name(self):
+		return 'action_validate_email'
+
+	def run(self, dispatcher, tracker, domain):
+		pattern = "(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)"
+		email_check = tracker.get_slot('email')
+		if email_check is not None:
+			if re.search("(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)", email_check):
+				return [SlotSet('email', email_check)]
+			else:
+				dispatcher.utter_message("Sorry this is not a valid email. please check for typing errors")
+				return [SlotSet('email', None)]
+		else:
+			dispatcher.utter_message(
+				"Sorry I could not understand the email address which you provided? Please provide again")
+			return [SlotSet('email', None)]
+
+
+
+class ActionSendMail(Action):
+	def name(self):
+		return 'action_send_mail'
+
+	def run(self, dispatcher, tracker, domain):
+
+		body = ""
+		file = open('body.txt', 'r')
+
+		for line in file.readlines():
+			body += line
+		file.close()
+
+		# Credential Detail
+		mail_user_name = "rakesh.sit045@gmail.com"
+		mail_password = "Rakeshkumar@06184"
+
+		# Reciever
+		receiver_rakesh_mail = "27002rakesh@gmail.com"
+		receiver_trishala_mail = "trishla.singh035@gmail.com"
+		receiver_raka_mail = "raka006184@gmail.com"
+
+		gmail_user = mail_user_name
+		gmail_password = mail_password
+
+		sent_from = gmail_user
+		to = tracker.get_slot('email_id')
+		subject = " Restaurant recommendations in " + tracker.get_slot("location").title()
+
+		email_text = """\  
+		From: %s  
+		To: %s  
+		Subject: %s
+		%s
+		""" % (sent_from, to, subject, body)
+
+		try:
+			server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
+			server.ehlo()
+			server.login(gmail_user, gmail_password)
+			server.sendmail(sent_from, to, email_text)
+			server.close()
+			dispatcher.utter_template("utter_email_Sent", tracker)
+
+		except:
+
+			dispatcher.utter_template("utter_email_error", tracker)
+
+		return [SlotSet('email', to)]
+
+
+
