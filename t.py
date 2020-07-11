@@ -8,107 +8,45 @@
 # print(b)
 
 
-TIER_2 = ['Agra', 'Ajmer', 'Aligarh',
-					   'Amravati',
-					   'Amritsar',
-					   'Asansol',
-					   'Aurangabad',
-					   'Bareilly',
-					   'Belgaum',
-					   'Bhavnagar',
-					   'Bhiwandi',
-					   'Bhopal',
-					   'Bhubaneswar',
-					   'Bikaner',
-					   'Bilaspur',
-					   'Bokaro Steel City',
-					   'Chandigarh',
-					   'Coimbatore',
-					   'Cuttack',
-					   'Dehradun',
-					   'Dhanbad',
-					   'Bhilai',
-					   'Durgapur',
-					   'Erode',
-					   'Faridabad',
-					   'Firozabad',
-					   'Ghaziabad',
-					   'Gorakhpur',
-					   'Gulbarga',
-					   'Guntur',
-					   'Gwalior',
-					   'Gurgaon',
-					   'Guwahati',
-					   'Hamirpur',
-					   'Hubli–Dharwad',
-					   'Indore',
-					   'Jabalpur',
-					   'Jaipur',
-					   'Jalandhar',
-					   'Jammu',
-					   'Jamnagar',
-					   'Jamshedpur',
-					   'Jhansi',
-					   'Jodhpur',
-					   'Kakinada',
-					   'Kannur',
-					   'Kanpur',
-					   'Kochi',
-					   'Kolhapur',
-					   'Kollam',
-					   'Kozhikode',
-					   'Kurnool',
-					   'Ludhiana',
-					   'Lucknow',
-					   'Madurai',
-					   'Malappuram',
-					   'Mathura',
-					   'Goa',
-					   'Mangalore',
-					   'Meerut',
-					   'Moradabad',
-					   'Mysore',
-					   'Nagpur',
-					   'Nanded',
-					   'Nashik',
-					   'Nellore',
-					   'Noida',
-					   'Patna',
-					   'Pondicherry',
-					   'Purulia',
-					   'Prayagraj',
-					   'Raipur',
-					   'Rajkot',
-					   'Rajahmundry',
-					   'Ranchi',
-					   'Rourkela',
-					   'Salem',
-					   'Sangli',
-					   'Shimla',
-					   'Siliguri',
-					   'Solapur',
-					   'Srinagar',
-					   'Surat',
-					   'Thiruvananthapuram',
-					   'Thrissur',
-					   'Tiruchirappalli',
-					   'Tiruppur',
-					   'Ujjain',
-					   'Bijapur',
-					   'Vadodara',
-					   'Varanasi',
-					   'Vasai-Virar City',
-					   'Vijayawada',
-					   'Visakhapatnam',
-					   'Vellore',
-					   'Warangal']
+class ActionSendEmail(Action):
+	def name(self):
+		return 'action_send_email'
 
+	def run(self, dispatcher, tracker, domain):
+		# Get user's email id
+		to_email = tracker.get_slot('emailid')
 
-l2 = []
-for i in TIER_2:
-    l2.append(i.lower())
+		# Get location and cuisines to put in the email
+		loc = tracker.get_slot('location')
+		cuisine = tracker.get_slot('cuisine')
+		global d_email_rest
+		email_rest_count = len(d_email_rest)
+		# Construct the email 'subject' and the contents.
+		d_email_subj = "Top " + str(email_rest_count) + " " + cuisine.capitalize() + " restaurants in " + str(
+			loc).capitalize()
+		d_email_msg = "Hi there! Here are the " + d_email_subj + "." + "\n" + "\n" + "\n"
+		for restaurant in d_email_rest:
+			d_email_msg = d_email_msg + restaurant['restaurant']['name'] + " in " + \
+						  restaurant['restaurant']['location']['address'] + " has been rated " + \
+						  restaurant['restaurant']['user_rating']['aggregate_rating'] + "\n" + "\n"
 
-print(l2)
+		# Open SMTP connection to our email id.
+		s = smtplib.SMTP("smtp.gmail.com", 587)
+		s.starttls()
+		s.login("asaupgrad.chatbot@gmail.com", "pgdmlaiupgrad")
 
+		# Create the msg object
+		msg = EmailMessage()
 
-['agra', 'ajmer', 'aligarh', 'amravati', 'amritsar', 'asansol', 'aurangabad', 'bareilly', 'belgaum', 'bhavnagar', 'bhiwandi', 'bhopal', 'bhubaneswar', 'bikaner', 'bilaspur', 'bokaro steel city', 'chandigarh', 'coimbatore', 'cuttack', 'dehradun', 'dhanbad', 'bhilai', 'durgapur', 'erode', 'faridabad', 'firozabad', 'ghaziabad', 'gorakhpur', 'gulbarga', 'guntur', 'gwalior', 'gurgaon', 'guwahati', 'hamirpur', 'hubli–dharwad', 'indore', 'jabalpur', 'jaipur', 'jalandhar', 'jammu', 'jamnagar', 'jamshedpur', 'jhansi', 'jodhpur', 'kakinada', 'kannur', 'kanpur', 'kochi', 'kolhapur', 'kollam', 'kozhikode', 'kurnool', 'ludhiana', 'lucknow', 'madurai', 'malappuram', 'mathura', 'goa', 'mangalore', 'meerut', 'moradabad', 'mysore', 'nagpur', 'nanded', 'nashik', 'nellore', 'noida', 'patna', 'pondicherry', 'purulia', 'prayagraj', 'raipur', 'rajkot', 'rajahmundry', 'ranchi', 'rourkela', 'salem', 'sangli', 'shimla', 'siliguri', 'solapur', 'srinagar', 'surat', 'thiruvananthapuram', 'thrissur', 'tiruchirappalli', 'tiruppur', 'ujjain', 'bijapur', 'vadodara', 'varanasi', 'vasai-virar city', 'vijayawada', 'visakhapatnam', 'vellore', 'warangal']
+		# Fill in the message properties
+		msg['Subject'] = d_email_subj
+		msg['From'] = "asaupgrad.chatbot@gmail.com"
+
+		# Fill in the message content
+		msg.set_content(d_email_msg)
+		msg['To'] = to_email
+
+		s.send_message(msg)
+		s.quit()
+		dispatcher.utter_message("** EMAIL SENT! HAPPY DINING :) **")
+		return []

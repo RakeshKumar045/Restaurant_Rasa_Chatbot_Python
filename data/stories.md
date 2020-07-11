@@ -170,3 +170,51 @@
     - action_deactivate_form
     - form{"name": null}
     - slot{"requested_slot": null}
+
+## interactive_story_1
+* greet
+    - utter_greet
+* restaurant_search
+    - utter_ask_location
+* restaurant_search{"location": "Delhi"}
+    - slot{"location": "Delhi"}
+    - verify_location
+    - slot{"location": "Delhi"}
+    - slot{"location_ok": true}
+    - utter_ask_cuisine
+* restaurant_search{"cuisine": "Italian"}
+    - slot{"cuisine": "Italian"}
+    - action_search_restaurants
+    - slot{"location": "Delhi"}
+    - utter_ask_ifmail
+    - utter_ask_mail
+* send_email{"email": "trishla.singh35@gmail.com"}
+    - slot{"email": "trishla.singh35@gmail.com"}
+    - action_send_mail
+    - utter_goodbye
+    - utter_stop
+
+## interactive_story_1
+* greet
+    - utter_greet
+* restaurant_search
+    - utter_ask_location
+* number_of_person{"location": "Bangalore"}
+    - slot{"location": "Bangalore"}
+    - verify_location
+    - slot{"location": "Bangalore"}
+    - slot{"location_ok": true}
+    - utter_ask_cuisine
+* restaurant_search{"cuisine": "chinese"}
+    - slot{"cuisine": "chinese"}
+    - utter_ask_mail
+    - utter_goodbye
+    - action_deactivate_form
+    - form{"name": null}
+    - slot{"requested_slot": null}
+* send_email
+    - utter_greet
+* goodbye
+    - utter_ask_mail
+* send_email
+    - utter_stop

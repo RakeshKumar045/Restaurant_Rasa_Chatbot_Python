@@ -1,38 +1,39 @@
 actions:
-  - action_search_restaurants
-  - verify_location
-  - action_restart
-  - action_slot_reset
-  - action_validate_email
-  - action_send_mail
-  - utter_ask_cuisine
-  - utter_ask_howcanhelp
-  - utter_ask_location
-  - utter_default
-  - utter_goodbye
-  - utter_greet
-  - utter_people
-  - utter_price
-  - utter_other_cities
-  - utter_ask_ifmail
-  - utter_ask_mail
-  - utter_email_Sent
-  - utter_email_error
+- action_restart
+- action_search_restaurants
+- action_send_mail
+- action_slot_reset
+- action_validate_email
+- utter_ask_cuisine
+- utter_ask_howcanhelp
+- utter_ask_ifmail
+- utter_ask_location
+- utter_ask_mail
+- utter_default
+- utter_email_Sent
+- utter_email_error
+- utter_goodbye
+- utter_greet
+- utter_other_cities
+- utter_people
+- utter_price
+- utter_stop
+- verify_location
 entities:
   - cuisine
+  - email
   - location
   - people
   - price
-  - email_id
 intents:
-  - restaurant_search
   - greet
+  - send_email
+  - restaurant_search
   - goodbye
   - number_of_person
   - price_range
   - stop
   - affirm
-  - send_email
 responses:
   utter_ask_cuisine:
     - buttons:
@@ -47,6 +48,11 @@ responses:
       text: what kind of cuisine would you like?
   utter_ask_howcanhelp:
     - text: -text
+  utter_ask_ifmail:
+    - text: Shall I send you the top 10 results via email?
+    - text: Would you like me to send the top 10 results via email?
+    - text: Would you like to have the top 10 results emailed to you?
+    - text: Would you be interested in having top 10 results emailed to you?
   utter_ask_location:
     - -payload: locations title:locations
       buttons:
@@ -68,10 +74,21 @@ responses:
           title: Kolkata
         - payload: Other_cities
           title: Other_cities
-
       text: In what location?
+  utter_ask_mail:
+    - text: Could you please share your email address then?
+    - text: What is your email address?
+    - text: Please provide your email address
+    - text: Provide your email address please
+    - text: Please enter your email address
   utter_default:
     - text: i cannot understand.
+  utter_email_Sent:
+    - text: The details have been emailed to you
+    - text: Email has been sent to the address provided by you
+  utter_email_error:
+    - text: Sorry, something went wrong, could not send the email.
+    - text: Email could not be sent, apologise for the inconvenience.
   utter_goodbye:
     - text: goodbye :(
     - text: Bye-bye.
@@ -81,44 +98,29 @@ responses:
     - text: Hey, How is it going. How May I help you Today
     - text: Hey there ! feeling famished ? how can I help you ?
     - text: hello sunshine ! what information I can fetch for you ?
-  utter_people:
-    - text: How many people are there ?
   utter_other_cities:
     - text: Please enter the city name ?
+  utter_people:
+    - text: How many people are there ?
   utter_price:
     - text: what is your price range ?
-  utter_ask_ifmail:
-    - text: Shall I send you the top 10 results via email?
-    - text: Would you like me to send the top 10 results via email?
-    - text: Would you like to have the top 10 results emailed to you?
-    - text: Would you be interested in having top 10 results emailed to you?
-  utter_ask_mail:
-    - text: Could you please share your email address then?
-    - text: What is your email address?
-    - text: Please provide your email address
-    - text: Provide your email address please
-    - text: Please enter your email address
-  utter_email_Sent:
-    - text: The details have been emailed to you
-    - text: Email has been sent to the address provided by you
-  utter_email_error:
-    - text: Sorry, something went wrong, could not send the email.
-    - text: Email could not be sent, apologise for the inconvenience.
-
+  utter_stop:
+    - text: '/stop'
+    - text: /stop
 session_config:
   carry_over_slots_to_new_session: true
   session_expiration_time: 0
 slots:
   cuisine:
     type: text
+  email:
+    type: text
   location:
     type: text
+  location_ok:
+    initial_value: false
+    type: bool
   people:
     type: text
   price:
-    type: text
-  location_ok:
-    type: bool
-    initial_value: False
-  email_id:
     type: text

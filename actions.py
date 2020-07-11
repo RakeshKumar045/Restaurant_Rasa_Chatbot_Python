@@ -3,8 +3,23 @@ from __future__ import division
 from __future__ import unicode_literals
 
 import json
+import re
+import urllib3
 from rasa_sdk import Action
 from rasa_sdk.events import SlotSet
+
+urllib3.disable_warnings()
+
+import smtplib
+import os
+import re
+import requests
+
+import json
+import pandas as pd
+from threading import Thread
+from flask import Flask
+from flask_mail import Mail, Message
 
 import zomatopy
 
@@ -19,74 +34,23 @@ class ActionSearchRestaurants(Action):
 		zomato = zomatopy.initialize_app(config)
 		loc = tracker.get_slot('location')
 		cuisine = tracker.get_slot('cuisine')
-
-		print("Type 1 : ", loc)
-		print("Type 2 : ", cuisine)
-
 		location_detail = zomato.get_location(loc, 1)
-
-		print("Type 3 : ", location_detail)
-
 		d1 = json.loads(location_detail)
-
-		print("Type 4 : ", d1)
-
 		lat = d1["location_suggestions"][0]["latitude"]
 		lon = d1["location_suggestions"][0]["longitude"]
 		cuisines_dict = {'bakery': 5, 'chinese': 25, 'cafe': 30, 'italian': 55, 'biryani': 7, 'north indian': 50,
 						 'south indian': 85}
 		results = zomato.restaurant_search("", lat, lon, str(cuisines_dict.get(cuisine)), 5)
-
-		print("Type 5 : ", results)
-
 		d = json.loads(results)
-
-		print("Type    6 : ", d)
-
 		response = ""
 		if d['results_found'] == 0:
 			response = "no results"
 		else:
-			for restaurant in d['resturants']:
-				response = response + "Found " + restaurant['restaurant']['name'] + " in " + \
-						   restaurant['restaurant']['location']['address'] + "\n"
+			for restaurant in d['restaurants']:
+				response = response + "Found " + restaurant['restaurant']['name'] + " in " + restaurant['restaurant']['location']['address'] + "\n"
 
 		dispatcher.utter_message("-----" + response)
-
-		print("Type 7   : ", response)
-		print("Type 8 : ", [SlotSet('location', loc)])
-
-		response = "We will add later response result"
-		try:
-			file = open("body.txt", "w")
-			counter = 1
-			for restaurant in d['resturants']:
-				response = response + "Found " + restaurant['restaurant']['name'] + " in " + \
-						   restaurant['restaurant']['location']['address'] + "\n"
-
-
-			for restaurant in d['resturants']:
-				file.write("{}. Restaurant Name: {}\n Restaurant locality address: {}\n Average budget for two people: {}\n Zomato user rating: {}\n\n".format(
-						counter,restaurant['restaurant']['name'], restaurant['restaurant']['location']['address'], "2 people ", "4.6"))
-				counter += 1
-			file.close()
-		except:
-			response = "no results"
-
-			dispatcher.utter_message("Foodie Rasa Chatbot Assignment : ", response)
-
 		return [SlotSet('location', loc)]
-
-# ## ****
-# 	for restaurant in restaurant_final_list:
-# 				file.write(
-# 					"{}. Restaurant Name: {}\n Restaurant locality address: {}\n Average budget for two people: {}\n Zomato user rating: {}\n\n".format(
-# 						counter, restaurant[0], restaurant[1], restaurant[2], restaurant[3]))
-# 				counter += 1
-# 			file.close()
-# ##********
-
-
 
 
 class VerifyLocation(Action):
@@ -130,6 +94,7 @@ class VerifyLocation(Action):
 
 	def verify_location(self, loc):
 		return loc.lower() in self.TIER_1 or loc.lower() in self.TIER_2
+		# return loc.str.lower() in self.TIER_1 or loc.str.lower() in self.TIER_2
 
 class ActionRestarted(Action):
 	def name(self):
@@ -164,56 +129,48 @@ class ActionValidateEmail(Action):
 			return [SlotSet('email', None)]
 
 
+def mail_config():
+	gmail_user = "rakesh.sit045@gmail.com"
+	gmail_pwd = "Rakeshkumar@06184"  # Gmail Password
+	mail_settings = {
 
-class ActionSendMail(Action):
+		"MAIL_SERVER": 'smtp.gmail.com',
+		"MAIL_PORT": 465,
+		"MAIL_USE_TLS": False,
+		"MAIL_USE_SSL": True,
+		"MAIL_USERNAME": gmail_user,
+		"MAIL_PASSWORD": gmail_pwd,
+
+	}
+	return mail_settings
+
+
+app = Flask(__name__)
+app.config.update(mail_config())
+mail = Mail(app)
+
+
+def send_async_email(app, recipient, response):
+	with app.app_context():
+		msg = Message(subject="Restaurant Details", sender="rakesh.sit045@gmail.com", recipients=[recipient])
+		msg.html = u'<h2>Foodie has found few restaurants for you:</h2>'
+		mail.send(msg)
+
+
+def send_email(recipient, response):
+	thr = Thread(target=send_async_email, args=[app, recipient, response])
+	thr.start()
+
+
+class SendMail(Action):
 	def name(self):
 		return 'action_send_mail'
 
 	def run(self, dispatcher, tracker, domain):
+		recipient = tracker.get_slot('email')
 
-		body = ""
-		file = open('body.txt', 'r')
+		# top10 = restaurants.head(10)
+		top10 = "testing 45...."
+		send_email(recipient, top10)
 
-		for line in file.readlines():
-			body += line
-		file.close()
-
-		# Credential Detail
-		mail_user_name = "rakesh.sit045@gmail.com"
-		mail_password = "Rakeshkumar@06184"
-
-		# Reciever
-		receiver_rakesh_mail = "27002rakesh@gmail.com"
-		receiver_trishala_mail = "trishla.singh035@gmail.com"
-		receiver_raka_mail = "raka006184@gmail.com"
-
-		gmail_user = mail_user_name
-		gmail_password = mail_password
-
-		sent_from = gmail_user
-		to = tracker.get_slot('email_id')
-		subject = " Restaurant recommendations in " + tracker.get_slot("location").title()
-
-		email_text = """\  
-		From: %s  
-		To: %s  
-		Subject: %s
-		%s
-		""" % (sent_from, to, subject, body)
-
-		try:
-			server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
-			server.ehlo()
-			server.login(gmail_user, gmail_password)
-			server.sendmail(sent_from, to, email_text)
-			server.close()
-			dispatcher.utter_template("utter_email_Sent", tracker)
-
-		except:
-
-			dispatcher.utter_template("utter_email_error", tracker)
-
-		return [SlotSet('email', to)]
-
-
-
+		dispatcher.utter_message("Have a great day! Mail is sent")
