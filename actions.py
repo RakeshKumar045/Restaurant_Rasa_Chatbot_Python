@@ -19,45 +19,24 @@ class ActionSearchRestaurants(Action):
 		zomato = zomatopy.initialize_app(config)
 		loc = tracker.get_slot('location')
 		cuisine = tracker.get_slot('cuisine')
-
 		location_detail = zomato.get_location(loc, 1)
-
 		d1 = json.loads(location_detail)
-
 		lat = d1["location_suggestions"][0]["latitude"]
 		lon = d1["location_suggestions"][0]["longitude"]
 		cuisines_dict = {'bakery': 5, 'chinese': 25, 'cafe': 30, 'italian': 55, 'biryani': 7, 'north indian': 50,
 						 'south indian': 85}
 		results = zomato.restaurant_search("", lat, lon, str(cuisines_dict.get(cuisine)), 5)
-
 		d = json.loads(results)
-
 		response = ""
 		if d['results_found'] == 0:
 			response = "no results"
 		else:
-			for restaurant in d['resturants']:
-				response = response + "Found " + restaurant['restaurant']['name'] + " in " + \
-						   restaurant['restaurant']['location']['address'] + "\n"
+			for restaurant in d['restaurants']:
+				response = response + "Found " + restaurant['restaurant']['name'] + " in " + restaurant['restaurant']['location']['address'] + "\n"
 
 		dispatcher.utter_message("-----" + response)
-
-		# response = "We will add later response result"
-		# try:
-		# 	file = open("body.txt", "w")
-		# 	counter = 1
-		#
-		# 	for restaurant in d['resturants']:
-		# 		file.write("{}. Restaurant Name: {}\n Restaurant locality address: {}\n Average budget for two people: {}\n Zomato user rating: {}\n\n".format(
-		# 				counter,restaurant['restaurant']['name'], restaurant['restaurant']['location']['address'], "2 people ", "4.6"))
-		# 		counter += 1
-		# 	file.close()
-		# except:
-		# 	response = "no results"
-		#
-		# 	dispatcher.utter_message("Foodie Rasa Chatbot Assignment : ", response)
-
 		return [SlotSet('location', loc)]
+
 
 class VerifyLocation(Action):
 	TIER_1 = []
@@ -100,6 +79,7 @@ class VerifyLocation(Action):
 
 	def verify_location(self, loc):
 		return loc.lower() in self.TIER_1 or loc.lower() in self.TIER_2
+		# return loc.str.lower() in self.TIER_1 or loc.str.lower() in self.TIER_2
 
 class ActionRestarted(Action):
 	def name(self):
