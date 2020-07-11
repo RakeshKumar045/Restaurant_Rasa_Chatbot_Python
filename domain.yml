@@ -1,4 +1,3 @@
----
 actions:
   - action_search_restaurants
   - utter_ask_cuisine
@@ -15,38 +14,29 @@ entities:
   - people
   - price
 intents:
-  - greet
   - restaurant_search
-  - affirm
+  - greet
   - goodbye
+  - number_of_person
+  - price_range
   - stop
-slots:
-  cuisine:
-    type: text
-  location:
-    type: text
-  people:
-    type: text
-  price:
-    type: text
-templates:
+  - affirm
+responses:
   utter_ask_cuisine:
     - buttons:
         - payload: Chinese
           title: Chinese
         - payload: Italian
           title: Italian
-        - payload: "South Indian"
-          title: "South Indian"
-        - payload: "North Indian"
-          title: "North Indian"
-      text: "what kind of cuisine would you like?"
+        - payload: South Indian
+          title: South Indian
+        - payload: North Indian
+          title: North Indian
+      text: what kind of cuisine would you like?
   utter_ask_howcanhelp:
-    ? "-text"
-      : "how can I help you?"
+    - text: -text
   utter_ask_location:
-    - ? "-payload"
-        : "locations title:locations"
+    - -payload: locations title:locations
       buttons:
         - payload: Ahmedabad
           title: Ahmedabad
@@ -56,19 +46,31 @@ templates:
           title: Chennai
         - payload: Delhi
           title: Delhi
-      text: "In what location?"
+      text: In what location?
   utter_default:
-    - text: "i cannot understand."
+    - text: i cannot understand.
   utter_goodbye:
-    - text: "goodbye :("
+    - text: goodbye :(
     - text: Bye-bye.
   utter_greet:
-    - text: "hey there! How may i help you"
-    - text: "Hi, How can I help you!"
-    - text: "Hey, How is it going. How May I help you Today"
-    - text: "Hey there ! feeling famished ? how can I help you ?"
-    - text: "hello sunshine ! what I information can fetch for you ?"
+    - text: hey there! How may i help you
+    - text: Hi, How can I help you!
+    - text: Hey, How is it going. How May I help you Today
+    - text: Hey there ! feeling famished ? how can I help you ?
+    - text: hello sunshine ! what I information can fetch for you ?
   utter_people:
-    - "How many people are there ?"
+    - text: How many people are there ?
   utter_price:
-    - "what is your price range ?"
+    - text: what is your price range ?
+session_config:
+  carry_over_slots_to_new_session: true
+  session_expiration_time: 0
+slots:
+  cuisine:
+    type: text
+  location:
+    type: text
+  people:
+    type: text
+  price:
+    type: text
