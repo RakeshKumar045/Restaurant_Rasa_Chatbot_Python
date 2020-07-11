@@ -183,7 +183,7 @@ class ActionSendMail(Action):
 
 			dispatcher.utter_template("utter_email_error", tracker)
 
-		return [SlotSet('email', to)]
+		return [SlotSet('email_id', to)]
 
 
 
