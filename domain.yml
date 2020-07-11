@@ -46,6 +46,17 @@ responses:
           title: Chennai
         - payload: Delhi
           title: Delhi
+        - payload: Mumbai
+          title: Mumbai
+        - payload: Hyderabad
+          title: Hyderabad
+        - payload: Pune
+          title: Pune
+        - payload: Kolkata
+          title: Kolkata
+        - payload: Other_cities
+          title: Other_cities
+
       text: In what location?
   utter_default:
     - text: i cannot understand.
@@ -57,7 +68,7 @@ responses:
     - text: Hi, How can I help you!
     - text: Hey, How is it going. How May I help you Today
     - text: Hey there ! feeling famished ? how can I help you ?
-    - text: hello sunshine ! what I information can fetch for you ?
+    - text: hello sunshine ! what information I can fetch for you ?
   utter_people:
     - text: How many people are there ?
   utter_price:
