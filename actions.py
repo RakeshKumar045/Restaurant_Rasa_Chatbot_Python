@@ -47,7 +47,7 @@ class ActionSearchRestaurants(Action):
 		if d['results_found'] == 0:
 			response = "no results"
 		else:
-			for restaurant in d['restaurants']:
+			for restaurant in d['resturants']:
 				response = response + "Found " + restaurant['restaurant']['name'] + " in " + \
 						   restaurant['restaurant']['location']['address'] + "\n"
 
@@ -56,7 +56,37 @@ class ActionSearchRestaurants(Action):
 		print("Type 7   : ", response)
 		print("Type 8 : ", [SlotSet('location', loc)])
 
+		response = "We will add later response result"
+		try:
+			file = open("body.txt", "w")
+			counter = 1
+			for restaurant in d['resturants']:
+				response = response + "Found " + restaurant['restaurant']['name'] + " in " + \
+						   restaurant['restaurant']['location']['address'] + "\n"
+
+
+			for restaurant in d['resturants']:
+				file.write("{}. Restaurant Name: {}\n Restaurant locality address: {}\n Average budget for two people: {}\n Zomato user rating: {}\n\n".format(
+						counter,restaurant['restaurant']['name'], restaurant['restaurant']['location']['address'], "2 people ", "4.6"))
+				counter += 1
+			file.close()
+		except:
+			response = "no results"
+
+			dispatcher.utter_message("Foodie Rasa Chatbot Assignment : ", response)
+
 		return [SlotSet('location', loc)]
+
+# ## ****
+# 	for restaurant in restaurant_final_list:
+# 				file.write(
+# 					"{}. Restaurant Name: {}\n Restaurant locality address: {}\n Average budget for two people: {}\n Zomato user rating: {}\n\n".format(
+# 						counter, restaurant[0], restaurant[1], restaurant[2], restaurant[3]))
+# 				counter += 1
+# 			file.close()
+# ##********
+
+
 
 
 class VerifyLocation(Action):

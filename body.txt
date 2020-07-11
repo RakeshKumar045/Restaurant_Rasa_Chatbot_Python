@@ -1,0 +1,51 @@
+1. Restaurant Name: Avista Cafe Pizzeria
+ Restaurant locality address: 356, 1st Floor, Hennur Main Road, Opposite Grace Garden Apartment, Hennur, Bangalore
+ Average budget for two people: 600.0
+ Zomato user rating: 4.6
+
+2. Restaurant Name: The Bundle Co.
+ Restaurant locality address: Church Street, Shanthala Nagar, Ashok Nagar, MG Road, Bangalore
+ Average budget for two people: 700.0
+ Zomato user rating: 4.4
+
+3. Restaurant Name: La Pino'z Pizza
+ Restaurant locality address: Shop 24,Shankar Plaza, 80 feet road, Koramangala 4th Block, Bangalore
+ Average budget for two people: 600.0
+ Zomato user rating: 4.3
+
+4. Restaurant Name: Bready Steady Go
+ Restaurant locality address: No 8/30, 30th Cross, Jayanagar 4th Block, Bengaluru
+ Average budget for two people: 300.0
+ Zomato user rating: 4.3
+
+5. Restaurant Name: Vinny's
+ Restaurant locality address: No 22,1st Floor ,MSR Nagar ITI layout, New BEL Road, Bangalore
+ Average budget for two people: 700.0
+ Zomato user rating: 4.2
+
+6. Restaurant Name: Wolf'ish
+ Restaurant locality address: 1A, Church Street, Bangalore
+ Average budget for two people: 600.0
+ Zomato user rating: 4.2
+
+7. Restaurant Name: Cheffu N Stuffu
+ Restaurant locality address: 1, First Floor, 
+Ideal homes Township, Next to Sangeeta Showroom, Rajarajeshwari Nagar, Bangalore
+ Average budget for two people: 650.0
+ Zomato user rating: 4.2
+
+8. Restaurant Name: The Charcoal Factory
+ Restaurant locality address: Koramangala 6th Block, Near Bharat Residency, MM Garden, Koramangala 6th Block, Bangalore
+ Average budget for two people: 600.0
+ Zomato user rating: 4.2
+
+9. Restaurant Name: Vera Italiano
+ Restaurant locality address: 2nd Floor, 5M-402/A, HRBR 2nd Block, 5th Main Road, Kalyan Nagar, Bangalore
+ Average budget for two people: 600.0
+ Zomato user rating: 4.2
+
+10. Restaurant Name: Northam's Pizza.Pita
+ Restaurant locality address: 778, 22nd Main, 22nd Cross, Club Road, HSR, Bangalore
+ Average budget for two people: 450.0
+ Zomato user rating: 4.1
+
