@@ -82,16 +82,16 @@
 - [Chinese]{"entity": "cuisine", "value": "chinese"}
 
 ## intent:number_of_person
-- [2](people)
-- [Bangalore](location)
-- [Bangalore](location)
+- [<=2]{"entity": "no_of_person" , "value": "<=2"}
+- [>2] {"entity": "no_of_person" , "value": ">2"}
+
 
 ## intent:price_range
 - [500-1000](price)
 
 ## intent:send_email
 - [trishla.singh35@gmail.com](email)
-- 2702rakesh@gmail.com
+- [2702rakesh@gmail.com](email)
 
 ## synonym:2
 - two

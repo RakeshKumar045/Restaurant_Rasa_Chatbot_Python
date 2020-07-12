@@ -38,19 +38,65 @@ class ActionSearchRestaurants(Action):
 		d1 = json.loads(location_detail)
 		lat = d1["location_suggestions"][0]["latitude"]
 		lon = d1["location_suggestions"][0]["longitude"]
-		cuisines_dict = {'bakery': 5, 'chinese': 25, 'cafe': 30, 'italian': 55, 'biryani': 7, 'north indian': 50,
+		cuisines_dict = {'american': 1, 'chinese': 25, 'italian': 55, 'mexican': 73, 'north indian': 50,
 						 'south indian': 85}
-		results = zomato.restaurant_search("", lat, lon, str(cuisines_dict.get(cuisine)), 5)
+		results = zomato.restaurant_search("", lat, lon, str(cuisines_dict.get(cuisine)), 20)
 		d = json.loads(results)
 		response = ""
+		restaurant_response = ""
 		if d['results_found'] == 0:
 			response = "no results"
 		else:
+			restaurant_response = restaurant_result(d)
 			for restaurant in d['restaurants']:
-				response = response + "Found " + restaurant['restaurant']['name'] + " in " + restaurant['restaurant']['location']['address'] + "\n"
+				response = response + "Found " + restaurant['restaurant']['name'] + " in " + \
+						   restaurant['restaurant']['location']['address'] + "\n"
 
+		# dispatcher.utter_message("-----" + restaurant_response)
 		dispatcher.utter_message("-----" + response)
 		return [SlotSet('location', loc)]
+
+
+def restaurant_result(responses):
+	df = pd.DataFrame()
+	for r in responses["restaurants"]:
+		df1 = pd.DataFrame([{'Restaurant Name': r['restaurant']['name'],
+							 "Address": r['restaurant']['location']['address'],
+							 "Phone": r['restaurant']["phone_numbers"],
+							 "Timing": r['restaurant']["timings"],
+							 "Cuisines": r['restaurant']["cuisines"],
+							 "Rating": r['restaurant']["user_rating"]["aggregate_rating"],
+							 "Total Reviews": r['restaurant']["all_reviews_count"],
+							 "Avg_Cost_for_Two": r['restaurant']["average_cost_for_two"],
+							 "Comment": r['restaurant']["user_rating"]["rating_text"],
+							 "image": r['restaurant']["featured_image"]
+							 }])
+
+		df = df.append(df1)
+
+	df = df.reset_index()
+	df = df.drop(["index"], axis=1)
+	return df
+
+
+def budget_group(row):
+	if row['Avg_Cost_for_Two'] < 300:
+		return 'lesser than 300'
+	elif 300 <= row['Avg_Cost_for_Two'] < 700:
+		return 'between 300 to 700'
+	else:
+		return 'more than 700'
+
+
+def restaurant_budget(dataset, price_budget):
+	dataset['Budget'] = dataset.apply(lambda row: budget_group(row), axis=1)
+	restaurant_df = dataset[(dataset.Budget == price_budget)]
+	restaurant_df = restaurant_df.sort_values(['Rating'], ascending=0)
+	restaurant_df = restaurant_df.drop_duplicates()
+	return restaurant_df
+
+
+# restaurant_budget(restaurant_result, 'more than 700')
 
 
 class VerifyLocation(Action):
@@ -84,13 +130,20 @@ class VerifyLocation(Action):
 		return "verify_location"
 
 	def run(self, dispatcher, tracker, domain):
-		loc = tracker.get_slot('location')
+		self.loc = tracker.get_slot('location')
 
-		if not (self.verify_location(loc)):
-			dispatcher.utter_message("Sorry, we do not operate in " + loc + " yet. Please try some other city.")
+		# if loc == "Other_cities":
+		# 	dispatcher.utter_message("Please enter the city name")
+
+		if self.loc == "Other_cities":
+			dispatcher.utter_message("Please enter the city name")
+			self.loc = None
+
+		elif not (self.verify_location(self.loc)):
+			dispatcher.utter_message("Sorry, we do not operate in " + self.loc + " yet. Please try some other city.")
 			return [SlotSet('location', None), SlotSet("location_ok", False)]
 		else:
-			return [SlotSet('location', loc), SlotSet("location_ok", True)]
+			return [SlotSet('location', self.loc), SlotSet("location_ok", True)]
 
 	def verify_location(self, loc):
 		return loc.lower() in self.TIER_1 or loc.lower() in self.TIER_2
