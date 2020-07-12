@@ -85,6 +85,11 @@
 - [<=2]{"entity": "no_of_person" , "value": "<=2"}
 - [>2] {"entity": "no_of_person" , "value": ">2"}
 
+## intent:price_range
+- [More than 700]{"entity": "price" , "value": "More than 700"}
+- [Rs. 300 to 700] {"entity": "price" , "value": "Rs. 300 to 700"}
+- [More than 700] {"entity": "price" , "value": "More than 700"}
+
 
 ## intent:price_range
 - [500-1000](price)
@@ -92,6 +97,9 @@
 ## intent:send_email
 - [trishla.singh35@gmail.com](email)
 - [2702rakesh@gmail.com](email)
+
+
+
 
 ## synonym:2
 - two

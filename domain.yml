@@ -19,6 +19,7 @@ actions:
 - action_send_mail
 - action_slot_reset
 - action_validate_email
+- verify_budget
 entities:
   - cuisine
   - email
@@ -126,11 +127,11 @@ responses:
     - text: Please tell me your maximum budget?
   utter_ask_budget_for_two:
     - buttons:
-        - payload: '/restaurant_search{"budgetmin":"0","budgetmax":"300"}'
+        - payload: Less than Rs. 300
           title: Less than Rs. 300
-        - payload: '/restaurant_search{"budgetmin":"300","budgetmax":"700"}'
+        - payload: Rs. 300 to 700
           title: Rs. 300 to 700
-        - payload: '/restaurant_search{"budgetmin":"700","budgetmax":"10000"}'
+        - payload: More than 700
           title: More than 700
       text: What price range are you looking for 2 person?
 session_config:

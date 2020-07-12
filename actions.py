@@ -38,7 +38,7 @@ class ActionSearchRestaurants(Action):
 		d1 = json.loads(location_detail)
 		lat = d1["location_suggestions"][0]["latitude"]
 		lon = d1["location_suggestions"][0]["longitude"]
-		cuisines_dict = {'american': 1, 'chinese': 25, 'italian': 55, 'mexican': 73, 'north indian': 50,
+		cuisines_dict = {'american': 1, 'chinese': 25, 'italian': 55, 'mexican': 73, 'north indian': 50, 'thai': 95,
 						 'south indian': 85}
 		results = zomato.restaurant_search("", lat, lon, str(cuisines_dict.get(cuisine)), 20)
 		d = json.loads(results)
@@ -47,10 +47,18 @@ class ActionSearchRestaurants(Action):
 		if d['results_found'] == 0:
 			response = "no results"
 		else:
-			restaurant_response = restaurant_result(d)
+
 			for restaurant in d['restaurants']:
 				response = response + "Found " + restaurant['restaurant']['name'] + " in " + \
 						   restaurant['restaurant']['location']['address'] + "\n"
+
+			restaurant_response = restaurant_result(d)
+
+			budget_price_type = tracker.get_slot("price")
+
+			budget_min, budget_max = budget_price(budget_price_type)
+
+			restaurant_final = restaurant_budget_price(restaurant_response.copy(), budget_min, budget_max)
 
 		# dispatcher.utter_message("-----" + restaurant_response)
 		dispatcher.utter_message("-----" + response)
@@ -79,6 +87,26 @@ def restaurant_result(responses):
 	return df
 
 
+def budget_price(price_value):
+	if price_value == "lesser than 300":
+		budgetmin = 0
+		budgetmax = 300
+		return budgetmin, budgetmax
+	elif price_value == "between 300 to 700":
+		budgetmin = 300
+		budgetmax = 700
+		return budgetmin, budgetmax
+	elif price_value == "more than 700":
+		budgetmin = 700
+		budgetmax = 10000
+		return budgetmin, budgetmax
+
+
+def restaurant_budget_price(dataset, min_value, max_value):
+	dataset = dataset[(dataset.Avg_Cost_for_Two > min_value) & (dataset.Avg_Cost_for_Two < max_value)]
+	return dataset
+
+
 def budget_group(row):
 	if row['Avg_Cost_for_Two'] < 300:
 		return 'lesser than 300'
@@ -88,14 +116,21 @@ def budget_group(row):
 		return 'more than 700'
 
 
-def restaurant_budget(dataset, price_budget):
-	dataset['Budget'] = dataset.apply(lambda row: budget_group(row), axis=1)
-	restaurant_df = dataset[(dataset.Budget == price_budget)]
-	restaurant_df = restaurant_df.sort_values(['Rating'], ascending=0)
-	restaurant_df = restaurant_df.drop_duplicates()
-	return restaurant_df
+class VerifyBudget(Action):
+	def name(self):
+		return 'verify_budget'
+
+	def run(self, dispatcher, tracker, domain):
+		budget_price_value = tracker.get_slot("price")
+		return [SlotSet("price", budget_price_value)]
 
 
+# def restaurant_budget(dataset, price_budget):
+# 	dataset['Budget'] = dataset.apply(lambda row: budget_group(row), axis=1)
+# 	restaurant_df = dataset[(dataset.Budget == price_budget)]
+# 	restaurant_df = restaurant_df.sort_values(['Rating'], ascending=0)
+# 	restaurant_df = restaurant_df.drop_duplicates()
+# 	return restaurant_df
 # restaurant_budget(restaurant_result, 'more than 700')
 
 
