@@ -67,25 +67,7 @@
     - slot{"location": "delhi"}
     - export
 	
-## complete path 5
-* greet
-    - utter_greet
-* restaurant_search
-    - utter_ask_location
-* restaurant_search{"location": "delhi"}
-    - slot{"location": "delhi"}
-    - utter_ask_cuisine
-* restaurant_search{"people": "4"}
-    - slot{"people": "4"}
-    - utter_people
-* restaurant_search{"price": "1000"}
-    - slot{"price": "1000"}
-    - utter_price
-* restaurant_search{"cuisine": "chinese"}
-    - slot{"cuisine": "chinese"}
-    - action_search_restaurants
-    - slot{"location": "delhi"}
-    - export
+
 
 ## interactive_story_1
 * greet
@@ -149,27 +131,6 @@
 * affirm
     - utter_goodbye
 
-## interactive_story_1
-* greet
-    - utter_greet
-* restaurant_search{"location": "Delhi"}
-    - slot{"location": "Delhi"}
-    - utter_ask_cuisine
-* restaurant_search{"cuisine": "chinese"}
-    - slot{"cuisine": "chinese"}
-    - utter_people
-* number_of_person{"people": "2"}
-    - slot{"people": "2"}
-    - utter_price
-* price_range{"price": "500-1000"}
-    - slot{"price": "500-1000"}
-    - action_search_restaurants
-* stop
-    - utter_goodbye
-* goodbye
-    - action_deactivate_form
-    - form{"name": null}
-    - slot{"requested_slot": null}
 
 ## interactive_story_1
 * greet
