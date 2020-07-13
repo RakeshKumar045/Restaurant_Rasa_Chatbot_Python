@@ -12,6 +12,7 @@ actions:
 - utter_ask_location
 - utter_ask_max_budget
 - utter_ask_min_budget
+- utter_confirm_email
 - utter_default
 - utter_email_Sent
 - utter_email_error
@@ -29,12 +30,12 @@ entities:
 - location
 - people
 intents:
-- restaurant_search
 - affirm
-- goodbye
+- restaurant_search
 - greet
 - send_email
 - people
+- goodbye
 - stop
 responses:
   utter_ask_budget_for_two:
@@ -67,7 +68,6 @@ responses:
   - text: Could you please share your email address?
   - text: What is your email address?
   - text: Please provide your email address.
-
   utter_ask_howcanhelp:
   - text: how can I help you ?
   utter_ask_ifmail:
@@ -104,6 +104,8 @@ responses:
   utter_ask_min_budget:
   - text: What is your minimum budget?
   - text: Please tell me your minimum budget?
+  utter_confirm_email:
+  - text: Email id is valid.
   utter_default:
   - text: i cannot understand.
   utter_email_Sent:
@@ -130,9 +132,6 @@ responses:
     - payload: >2
       title: more than 2
     text: How many people are there ?
-  utter_confirm_email:
-    - text : Email id is valid.
-
 session_config:
   carry_over_slots_to_new_session: true
   session_expiration_time: 0
@@ -142,7 +141,7 @@ slots:
     type: bool
   budgetmax:
     initial_value: 10000.0
-    max_value: 1.0
+    max_value: 10000.0
     min_value: 0.0
     type: float
   budgetmin:

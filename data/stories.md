@@ -163,3 +163,38 @@
     - action_send_mail
 * goodbye
     - utter_goodbye
+
+## interactive_story_1
+* greet
+    - utter_greet
+* restaurant_search
+    - utter_ask_location
+* restaurant_search{"location": "Other_cities"}
+    - slot{"location": "Other_cities"}
+
+## interactive_story_2
+* greet
+    - utter_greet
+* restaurant_search{"location": "Agra"}
+    - slot{"location": "Agra"}
+    - verify_location
+    - slot{"location": "Agra"}
+    - slot{"location_ok": true}
+    - utter_ask_budget_for_two
+* restaurant_search{"budgetmin": "300", "budgetmax": "700"}
+    - slot{"budgetmax": "700"}
+    - slot{"budgetmin": "300"}
+    - verify_budget
+    - slot{"budgetmin": 300}
+    - slot{"budgetmax": 700}
+    - slot{"budget_ok": true}
+    - utter_people
+* people
+    - utter_ask_email
+* send_email{"email": "trishsin03@gmail.com"}
+    - slot{"email": "trishsin03@gmail.com"}
+    - action_validate_email
+    - slot{"email_ok": true}
+    - action_send_mail
+* affirm
+    - utter_goodbye

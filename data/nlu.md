@@ -12,6 +12,7 @@
 - sounds really good.
 - thanks
 - Yes
+- Thanks
 
 ## intent:goodbye
 - bye
@@ -37,6 +38,7 @@
 - Hey Buddy!
 - hola
 - Hi
+- Heyyy
 
 ## intent:restaurant_search
 - i'm looking for a place to eat
@@ -87,18 +89,19 @@
 - show me some resturants
 - [Delhi](location)
 - show me some [chinese](cuisine) resturants in [Delhi](location)
+- Show resturants
+- [Other_cities](location)
+- show me some resturants in [Agra](location)
 
 ## intent:people
 - [<=2](people)
 - [>2] {"entity": "people" , "value": ">2"}
 
+
 ## intent:send_email
 - [trishla.singh35@gmail.com](email)
 - [2702rakesh@gmail.com](email)
-- [trishla.singh35@gmail.com](email)
-
-## lookup:location  
-C:\Users\trishala\Desktop\Restaurant_Rasa_Chatbot_Python\data\cities.txt
+- [trishsin03@gmail.com](email)
 
 ## synonym:2
 - two
@@ -146,3 +149,6 @@ C:\Users\trishala\Desktop\Restaurant_Rasa_Chatbot_Python\data\cities.txt
 
 ## regex:pincode
 - [0-9]{6}
+
+## lookup:location
+  C:\Users\trishala\Desktop\Restaurant_Rasa_Chatbot_Python\data\cities.txt
