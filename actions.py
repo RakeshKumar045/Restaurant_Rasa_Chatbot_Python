@@ -274,31 +274,14 @@ def send_async_email(app, recipient, top_10_restaurant_df):
         msg = Message(subject="Restaurant Details", sender=gmail_credentials[0], recipients=[recipient])
         msg.html = u'<h2>Foodie has found few restaurants for you:</h2>'
 
-        # ['Restaurant Name', 'Address', 'Phone', 'Timing', 'Cuisines', 'Rating',
-        #  'Total Reviews', 'Avg_Cost_for_Two', 'Comment', 'image']
-
-        # restaurant_names = top_10_restaurant_df['Restaurant Name'].values
-        # restaurant_photo = top_10_restaurant_df['Featured_Image'].values
-        # restaurant_location = top_10_restaurant_df['Address'].values
-        # restaurant_url = top_10_restaurant_df['URL'].values
-        # restaurant_budget = top_10_restaurant_df['Avg_Cost_for_Two'].values
-        # restaurant_rating = top_10_restaurant_df['Rating'].values
-        # for i in range(len(restaurant_names)):
-
         for ind, val in top_10_restaurant_df.iterrows():
-            # for i in range(len(restaurant_names)):
             name = top_10_restaurant_df['Restaurant Name'][ind]
             location = top_10_restaurant_df['Address'][ind]
             budget = top_10_restaurant_df['Avg_Cost_for_Two'][ind]
             rating = top_10_restaurant_df['Rating'][ind]
             image = top_10_restaurant_df['Featured_Image'][ind]
             url = top_10_restaurant_df['URL'][ind]
-            # location = restaurant_location[i]
-            # image = restaurant_photo[i]
-            # url = restaurant_url[i]
-            # budget = restaurant_budget[i]
-            # rating = restaurant_rating[i]
-            # msg.body +="This is final test"
+
             msg.html += u'<h3>{name} (Rating: {rating})</h3>'.format(name=name, rating=rating)
             msg.html += u'<h4>Address: {locality}</h4>'.format(locality=location)
             msg.html += u'<h4>Average Budget for 2 people: Rs{budget}</h4>'.format(budget=str(budget))
@@ -306,7 +289,6 @@ def send_async_email(app, recipient, top_10_restaurant_df):
                 url=url, image=image)
 
         mail.send(msg)
-
 
 def send_email(recipient, response):
     thr = Thread(target=send_async_email, args=[app, recipient, response])
@@ -320,9 +302,9 @@ class SendMail(Action):
     def run(self, dispatcher, tracker, domain):
         recipient = tracker.get_slot('email')
 
-        # top10 = restaurants.head(10)
-        # top10 = "testing 45...."
-        restaurant_top_10_details = d_email_rest.copy()
-        send_email(recipient, restaurant_top_10_details)
-
-        dispatcher.utter_message("Have a great day! Mail is sent")
+        try:
+            restaurant_top_10_details = d_email_rest.copy()
+            send_email(recipient, restaurant_top_10_details)
+            dispatcher.utter_message("Have a great day! Mail is sent")
+        except:
+            dispatcher.utter_message("Email address is not valid")
