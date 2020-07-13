@@ -89,30 +89,33 @@ class ActionSearchRestaurants(Action):
         executor.shutdown()
         return d_rest
 
-    def restaurant_result(responses):
-        df = pd.DataFrame()
-        for r in responses:
-            df1 = pd.DataFrame([{'Restaurant Name': r['restaurant']['name'],
-                                 "Address": r['restaurant']['location']['address'],
-                                 "Phone": r['restaurant']["phone_numbers"],
-                                 "Timing": r['restaurant']["timings"],
-                                 "Cuisines": r['restaurant']["cuisines"],
-                                 "Rating": r['restaurant']["user_rating"]["aggregate_rating"],
-                                 "Total Reviews": r['restaurant']["all_reviews_count"],
-                                 "Avg_Cost_for_Two": r['restaurant']["average_cost_for_two"],
-                                 "Comment": r['restaurant']["user_rating"]["rating_text"],
-                                 "image": r['restaurant']["featured_image"]
-                                 }])
 
-            df = df.append(df1)
-        df = df.reset_index()
-        df = df.drop(["index"], axis=1)
-        return df
+def restaurant_result(responses):
+    df = pd.DataFrame()
+    for r in responses:
+        df1 = pd.DataFrame([{'Restaurant Name': r['restaurant']['name'],
+                             "Address": r['restaurant']['location']['address'],
+                             "Phone": r['restaurant']["phone_numbers"],
+                             "Timing": r['restaurant']["timings"],
+                             "Cuisines": r['restaurant']["cuisines"],
+                             "Rating": r['restaurant']["user_rating"]["aggregate_rating"],
+                             "Total Reviews": r['restaurant']["all_reviews_count"],
+                             "Avg_Cost_for_Two": r['restaurant']["average_cost_for_two"],
+                             "Comment": r['restaurant']["user_rating"]["rating_text"],
+                             "Featured_Image": r['restaurant']["featured_image"],
+                             "URL": r['restaurant']["url"]
+                             }])
 
-    def restaurant_budget_price(dataset, min_value, max_value):
-        dataset = dataset[(dataset.Avg_Cost_for_Two > min_value) & (dataset.Avg_Cost_for_Two < max_value)]
-        dataset = dataset.sort_values(by=['Rating'], ascending=False)
-        return dataset
+        df = df.append(df1)
+    df = df.reset_index()
+    df = df.drop(["index"], axis=1)
+    return df
+
+
+def restaurant_budget_price(dataset, min_value, max_value):
+    dataset = dataset[(dataset.Avg_Cost_for_Two > min_value) & (dataset.Avg_Cost_for_Two < max_value)]
+    dataset = dataset.sort_values(by=['Rating'], ascending=False)
+    return dataset
 
 
 def retrieve_restaurant(lat, lon, cuisines_dict, cuisine, res_key, d_rest):
@@ -236,7 +239,14 @@ class ActionValidateEmail(Action):
             return [SlotSet('email', None)]
 
 
-def mail_config():
+def config():
+    gmail_user = "rakesh.sit045@gmail.com"
+    gmail_pwd = "Rakeshkumar@06184"  # Gmail Password
+    gmail_config = (gmail_user, gmail_pwd)
+    return gmail_config
+
+
+def mail_config(gmail_credential_detail):
     gmail_user = "rakesh.sit045@gmail.com"
     gmail_pwd = "Rakeshkumar@06184"  # Gmail Password
     mail_settings = {
@@ -245,22 +255,56 @@ def mail_config():
         "MAIL_PORT": 465,
         "MAIL_USE_TLS": False,
         "MAIL_USE_SSL": True,
-        "MAIL_USERNAME": gmail_user,
-        "MAIL_PASSWORD": gmail_pwd,
+        "MAIL_USERNAME": gmail_credential_detail[0],
+        "MAIL_PASSWORD": gmail_credential_detail[1],
 
     }
     return mail_settings
 
 
+gmail_credentials = config()
+
 app = Flask(__name__)
-app.config.update(mail_config())
+app.config.update(mail_config(gmail_credentials))
 mail = Mail(app)
 
 
-def send_async_email(app, recipient, response):
+def send_async_email(app, recipient, top_10_restaurant_df):
     with app.app_context():
-        msg = Message(subject="Restaurant Details", sender="rakesh.sit045@gmail.com", recipients=[recipient])
+        msg = Message(subject="Restaurant Details", sender=gmail_credentials[0], recipients=[recipient])
         msg.html = u'<h2>Foodie has found few restaurants for you:</h2>'
+
+        # ['Restaurant Name', 'Address', 'Phone', 'Timing', 'Cuisines', 'Rating',
+        #  'Total Reviews', 'Avg_Cost_for_Two', 'Comment', 'image']
+
+        # restaurant_names = top_10_restaurant_df['Restaurant Name'].values
+        # restaurant_photo = top_10_restaurant_df['Featured_Image'].values
+        # restaurant_location = top_10_restaurant_df['Address'].values
+        # restaurant_url = top_10_restaurant_df['URL'].values
+        # restaurant_budget = top_10_restaurant_df['Avg_Cost_for_Two'].values
+        # restaurant_rating = top_10_restaurant_df['Rating'].values
+        # for i in range(len(restaurant_names)):
+
+        for ind, val in top_10_restaurant_df.iterrows():
+            # for i in range(len(restaurant_names)):
+            name = top_10_restaurant_df['Restaurant Name'][ind]
+            location = top_10_restaurant_df['Address'][ind]
+            budget = top_10_restaurant_df['Avg_Cost_for_Two'][ind]
+            rating = top_10_restaurant_df['Rating'][ind]
+            image = top_10_restaurant_df['Featured_Image'][ind]
+            url = top_10_restaurant_df['URL'][ind]
+            # location = restaurant_location[i]
+            # image = restaurant_photo[i]
+            # url = restaurant_url[i]
+            # budget = restaurant_budget[i]
+            # rating = restaurant_rating[i]
+            # msg.body +="This is final test"
+            msg.html += u'<h3>{name} (Rating: {rating})</h3>'.format(name=name, rating=rating)
+            msg.html += u'<h4>Address: {locality}</h4>'.format(locality=location)
+            msg.html += u'<h4>Average Budget for 2 people: Rs{budget}</h4>'.format(budget=str(budget))
+            msg.html += u'<div dir="ltr">''<a href={url}><img height = "325", width = "450", src={image}></a><br></div>'.format(
+                url=url, image=image)
+
         mail.send(msg)
 
 
@@ -277,7 +321,8 @@ class SendMail(Action):
         recipient = tracker.get_slot('email')
 
         # top10 = restaurants.head(10)
-        top10 = "testing 45...."
-        send_email(recipient, top10)
+        # top10 = "testing 45...."
+        restaurant_top_10_details = d_email_rest.copy()
+        send_email(recipient, restaurant_top_10_details)
 
         dispatcher.utter_message("Have a great day! Mail is sent")
