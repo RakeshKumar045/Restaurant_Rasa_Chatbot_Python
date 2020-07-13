@@ -154,6 +154,8 @@ class VerifyBudget(Action):
             return [SlotSet('budgetmin', 0), SlotSet('budgetmax', 10000), SlotSet('budget_ok', False)]
 
 
+
+
 class VerifyLocation(Action):
     TIER_1 = []
     TIER_2 = []
