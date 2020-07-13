@@ -255,7 +255,6 @@ def mail_config(gmail_credential_detail):
     }
     return mail_settings
 
-
 gmail_credentials = config()
 
 app = Flask(__name__)
