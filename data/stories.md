@@ -132,3 +132,34 @@
     - utter_goodbye
 
 
+
+## interactive_story_1
+* greet
+    - utter_greet
+* restaurant_search{"cuisine": "chinese", "location": "Delhi"}
+    - slot{"cuisine": "chinese"}
+    - slot{"location": "Delhi"}
+    - verify_location
+    - slot{"location": "Delhi"}
+    - slot{"location_ok": true}
+    - utter_ask_budget_for_two
+* restaurant_search{"budgetmin": "300", "budgetmax": "700"}
+    - slot{"budgetmax": "700"}
+    - slot{"budgetmin": "300"}
+    - verify_budget
+    - slot{"budgetmin": 300}
+    - slot{"budgetmax": 700}
+    - slot{"budget_ok": true}
+    - action_search_restaurants
+    - slot{"location": "Delhi"}
+    - slot{"restaurant_exist": true}
+    - utter_ask_ifmail
+* affirm
+    - utter_ask_email
+* send_email{"email": "trishla.singh35@gmail.com"}
+    - slot{"email": "trishla.singh35@gmail.com"}
+    - action_validate_email
+    - slot{"email": "trishla.singh35@gmail.com"}
+    - action_send_mail
+* goodbye
+    - utter_goodbye

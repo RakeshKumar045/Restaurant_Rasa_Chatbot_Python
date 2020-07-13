@@ -11,6 +11,7 @@
 - great choice!
 - sounds really good.
 - thanks
+- Yes
 
 ## intent:goodbye
 - bye
@@ -21,8 +22,8 @@
 - end
 - farewell
 - Bye bye
-- have a good one
-- 2702rakesh@gma
+- have a good one!
+- Thanks. bye-bye
 
 ## intent:greet
 - hey
@@ -35,6 +36,7 @@
 - dear pal
 - Hey Buddy!
 - hola
+- Hi
 
 ## intent:restaurant_search
 - i'm looking for a place to eat
@@ -57,37 +59,46 @@
 - [Chinese]{"entity": "cuisine", "value": "chinese"}
 - [chinese](cuisine)
 - [Lithuania](location)
+- [Chennai](location)
+- [Hyderabad](location)
+- [Kolkata](location)
+- I want to eat in some [thai](cuisine) resturant in [Pune](location)
+- I am looking for some [American](cuisine) food in [Kolkata](location)
+- [Other_cities](location)
 - Oh, sorry, in [Italy](location)
 - in [delhi](location)
 - I am looking for some restaurants in [Mumbai](location)
 - I am looking for [mexican indian fusion](cuisine)
-- can you book a table in [rome](location) in a [moderate]{"entity": "price", "value": "mid"} price range with [british](cuisine) food for [four]{"entity": "people", "value": "4"} people
+- can you book a table in [Chennai](location) in a [moderate]{"entity": "price", "value": "mid"} price range with [british](cuisine) food for [four]{"entity": "people", "value": "4"} people
 - [central](location) [indian](cuisine) restaurant
 - please help me to find restaurants in [pune](location)
 - Please find me a restaurantin [bangalore](location)
 - [mumbai](location)
 - show me restaurants
-- please find me [chinese](cuisine) restaurant in [delhi](location)
-- can you find me a [chinese](cuisine) restaurant
+- please find me [American](cuisine) restaurant in [delhi](location)
+- can you find me a [Mexican](cuisine) restaurant
 - [delhi](location)
+- [american](cuisine)
+- [mexican](cuisine)
 - please find me a restaurant in [ahmedabad](location)
 - please show me a few [italian](cuisine) restaurants in [bangalore](location)
 - I am hungry. Lookout for some good resturants?
 - I am looking for a resturant to eat in [Delhi](location)
 - show me some resturants
-- show me some reaturant
-- show me some resturants to eat ?
 - [Delhi](location)
-- show restaurant
-- [Chinese]{"entity": "cuisine", "value": "chinese"}
+- show me some [chinese](cuisine) resturants in [Delhi](location)
 
 ## intent:people
-- [<=2]{"entity": "people" , "value": "<=2"}
+- [<=2](people)
 - [>2] {"entity": "people" , "value": ">2"}
 
 ## intent:send_email
 - [trishla.singh35@gmail.com](email)
 - [2702rakesh@gmail.com](email)
+- [trishla.singh35@gmail.com](email)
+
+## lookup:location  
+C:\Users\trishala\Desktop\Restaurant_Rasa_Chatbot_Python\data\cities.txt
 
 ## synonym:2
 - two
@@ -127,6 +138,7 @@
 ## synonym:vegetarian
 - veggie
 - vegg
+- vegan
 
 ## regex:greet
 - hey[^\s]*
