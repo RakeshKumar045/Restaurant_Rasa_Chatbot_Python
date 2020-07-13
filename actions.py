@@ -3,7 +3,6 @@ from __future__ import division
 from __future__ import unicode_literals
 
 import json
-import re
 import urllib3
 from rasa_sdk import Action
 from rasa_sdk.events import SlotSet
@@ -14,18 +13,16 @@ import smtplib
 import os
 import re
 import requests
-
 import json
 import pandas as pd
 from threading import Thread
 from flask import Flask
 from flask_mail import Mail, Message
-
+from time import sleep
 import zomatopy
-
 from concurrent.futures import ThreadPoolExecutor
 
-d_email_rest = []
+top_10_restaurant_details = []
 
 
 # Action search
@@ -72,9 +69,9 @@ class ActionSearchRestaurants(Action):
 
             dispatcher.utter_message("Top 5 Restaurant : " + "\n" + response)
 
-            global d_email_rest
-            d_email_rest = restaurant_df[:10]
-            if len(d_email_rest) > 0:
+            global top_10_restaurant_details
+            top_10_restaurant_details = restaurant_df[:10]
+            if len(top_10_restaurant_details) > 0:
                 restaurant_exist = True
 
         return [SlotSet('location', loc), SlotSet('restaurant_exist', restaurant_exist)]
@@ -154,6 +151,8 @@ class VerifyBudget(Action):
             return [SlotSet('budgetmin', 0), SlotSet('budgetmax', 10000), SlotSet('budget_ok', False)]
 
 
+
+
 class VerifyLocation(Action):
     TIER_1 = []
     TIER_2 = []
@@ -186,15 +185,14 @@ class VerifyLocation(Action):
 
     def run(self, dispatcher, tracker, domain):
         loc = tracker.get_slot('location')
-
-        # if loc == "Other_cities":
-        # 	dispatcher.utter_message("Please enter the city name")
-
         if loc == "Other_cities":
-            dispatcher.utter_message("Please enter the city name")
+            dispatcher.utter_template("utter_other_cities", tracker)
+            loc = tracker.get_slot('location')
+            return [SlotSet('location', loc), SlotSet("location_ok", False)]
+
         # loc = None
 
-        elif not (self.verify_location(loc)):
+        if not (self.verify_location(loc)):
             dispatcher.utter_message("Sorry, we do not operate in " + loc + " yet. Please try some other city.")
             return [SlotSet('location', None), SlotSet("location_ok", False)]
         else:
@@ -229,26 +227,23 @@ class ActionValidateEmail(Action):
         email_check = tracker.get_slot('email')
         if email_check is not None:
             if re.search("(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)", email_check):
-                return [SlotSet('email', email_check)]
+                return [SlotSet('email_ok', True)]
             else:
                 dispatcher.utter_message("Sorry this is not a valid email. please check for typing errors")
-                return [SlotSet('email', None)]
+                return [SlotSet('email', None),SlotSet("email_ok", False)]
         else:
-            dispatcher.utter_message(
-                "Sorry I could not understand the email address which you provided? Please provide again")
+            dispatcher.utter_message("Sorry I could'nt understand the email address you provided? Please provide again")
             return [SlotSet('email', None)]
 
 
 def config():
-    gmail_user = "rakesh.sit045@gmail.com"
-    gmail_pwd = "Rakeshkumar@06184"  # Gmail Password
+    gmail_user = "foodeebotraka@gmail.com"
+    gmail_pwd = "QAZX@100"  # Gmail Password
     gmail_config = (gmail_user, gmail_pwd)
     return gmail_config
 
 
 def mail_config(gmail_credential_detail):
-    gmail_user = "rakesh.sit045@gmail.com"
-    gmail_pwd = "Rakeshkumar@06184"  # Gmail Password
     mail_settings = {
 
         "MAIL_SERVER": 'smtp.gmail.com',
@@ -261,7 +256,6 @@ def mail_config(gmail_credential_detail):
     }
     return mail_settings
 
-
 gmail_credentials = config()
 
 app = Flask(__name__)
@@ -269,47 +263,33 @@ app.config.update(mail_config(gmail_credentials))
 mail = Mail(app)
 
 
-def send_async_email(app, recipient, top_10_restaurant_df):
-    with app.app_context():
-        msg = Message(subject="Restaurant Details", sender=gmail_credentials[0], recipients=[recipient])
-        msg.html = u'<h2>Foodie has found few restaurants for you:</h2>'
-
-        # ['Restaurant Name', 'Address', 'Phone', 'Timing', 'Cuisines', 'Rating',
-        #  'Total Reviews', 'Avg_Cost_for_Two', 'Comment', 'image']
-
-        # restaurant_names = top_10_restaurant_df['Restaurant Name'].values
-        # restaurant_photo = top_10_restaurant_df['Featured_Image'].values
-        # restaurant_location = top_10_restaurant_df['Address'].values
-        # restaurant_url = top_10_restaurant_df['URL'].values
-        # restaurant_budget = top_10_restaurant_df['Avg_Cost_for_Two'].values
-        # restaurant_rating = top_10_restaurant_df['Rating'].values
-        # for i in range(len(restaurant_names)):
-
-        for ind, val in top_10_restaurant_df.iterrows():
-            # for i in range(len(restaurant_names)):
-            name = top_10_restaurant_df['Restaurant Name'][ind]
-            location = top_10_restaurant_df['Address'][ind]
-            budget = top_10_restaurant_df['Avg_Cost_for_Two'][ind]
-            rating = top_10_restaurant_df['Rating'][ind]
-            image = top_10_restaurant_df['Featured_Image'][ind]
-            url = top_10_restaurant_df['URL'][ind]
-            # location = restaurant_location[i]
-            # image = restaurant_photo[i]
-            # url = restaurant_url[i]
-            # budget = restaurant_budget[i]
-            # rating = restaurant_rating[i]
-            # msg.body +="This is final test"
-            msg.html += u'<h3>{name} (Rating: {rating})</h3>'.format(name=name, rating=rating)
-            msg.html += u'<h4>Address: {locality}</h4>'.format(locality=location)
-            msg.html += u'<h4>Average Budget for 2 people: Rs{budget}</h4>'.format(budget=str(budget))
-            msg.html += u'<div dir="ltr">''<a href={url}><img height = "325", width = "450", src={image}></a><br></div>'.format(
-                url=url, image=image)
-
+def send_async_email(flask_app, msg):
+    with flask_app.app_context():
+        # block only for testing parallel thread
+        for i in range(10, -1, -1):
+            sleep(2)
         mail.send(msg)
 
 
-def send_email(recipient, response):
-    thr = Thread(target=send_async_email, args=[app, recipient, response])
+def send_email(recipient, top_10_restaurant_df):
+    msg = Message(subject="Restaurant Details", sender=gmail_credentials[0], recipients=[recipient])
+    msg.html = u'<h2>Foodie has found few restaurants for you:</h2>'
+
+    for ind, val in top_10_restaurant_df.iterrows():
+        name = top_10_restaurant_df['Restaurant Name'][ind]
+        location = top_10_restaurant_df['Address'][ind]
+        budget = top_10_restaurant_df['Avg_Cost_for_Two'][ind]
+        rating = top_10_restaurant_df['Rating'][ind]
+        image = top_10_restaurant_df['Featured_Image'][ind]
+        url = top_10_restaurant_df['URL'][ind]
+
+        msg.html += u'<h3>{name} (Rating: {rating})</h3>'.format(name=name, rating=rating)
+        msg.html += u'<h4>Address: {locality}</h4>'.format(locality=location)
+        msg.html += u'<h4>Average Budget for 2 people: Rs{budget}</h4>'.format(budget=str(budget))
+        msg.html += u'<div dir="ltr">''<a href={url}><img height = "325", width = "450", src={image}></a><br></div>'.format(
+            url=url, image=image)
+
+    thr = Thread(target=send_async_email, args=[app, msg])
     thr.start()
 
 
@@ -320,9 +300,12 @@ class SendMail(Action):
     def run(self, dispatcher, tracker, domain):
         recipient = tracker.get_slot('email')
 
-        # top10 = restaurants.head(10)
-        # top10 = "testing 45...."
-        restaurant_top_10_details = d_email_rest.copy()
-        send_email(recipient, restaurant_top_10_details)
-
-        dispatcher.utter_message("Have a great day! Mail is sent")
+        try:
+            restaurant_top_10_details = top_10_restaurant_details.copy()
+            send_email(recipient, restaurant_top_10_details)
+            dispatcher.utter_message("Have a great day! Mail is sent")
+        except:
+            dispatcher.utter_message("Email not sent, "
+                                     ""
+                                     ""
+                                     "address is not valid")

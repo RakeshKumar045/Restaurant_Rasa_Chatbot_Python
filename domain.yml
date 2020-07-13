@@ -1,154 +1,155 @@
----
 actions:
-  - action_restart
-  - action_search_restaurants
-  - action_send_mail
-  - action_slot_reset
-  - action_validate_email
-  - utter_ask_cuisine
-  - utter_ask_howcanhelp
-  - utter_ask_ifmail
-  - utter_ask_location
-  - utter_ask_email
-  - utter_default
-  - utter_email_Sent
-  - utter_email_error
-  - utter_goodbye
-  - utter_greet
-  - utter_other_cities
-  - utter_people
-  - utter_ask_min_budget
-  - utter_ask_max_budget
-  - verify_location
-  - verify_budget
+- action_restart
+- action_search_restaurants
+- action_send_mail
+- action_slot_reset
+- action_validate_email
+- utter_ask_budget_for_two
+- utter_ask_cuisine
+- utter_ask_email
+- utter_ask_howcanhelp
+- utter_ask_ifmail
+- utter_ask_location
+- utter_ask_max_budget
+- utter_ask_min_budget
+- utter_confirm_email
+- utter_default
+- utter_email_Sent
+- utter_email_error
+- utter_goodbye
+- utter_greet
+- utter_other_cities
+- utter_people
+- verify_budget
+- verify_location
 entities:
-  - cuisine
-  - email
-  - location
-  - people
-  - budgetmin
-  - budgetmax
+- budgetmax
+- budgetmin
+- cuisine
+- email
+- location
+- people
 intents:
-  - greet
-  - send_email
-  - restaurant_search
-  - goodbye
-  - people
-  - stop
-  - affirm
+- greet
+- budget
+- goodbye
+- affirm
+- restaurant_search
+- send_email
+- people
+- stop
 responses:
   utter_ask_budget_for_two:
-    - buttons:
-        - title: "Less than Rs. 300"
-          payload: '/restaurant_search{"budgetmin":"0","budgetmax":"300"}'
-        - title: "Rs. 300 to 700"
-          payload: '/restaurant_search{"budgetmin":"300","budgetmax":"700"}'
-        - title: "More than 700"
-          payload: '/restaurant_search{"budgetmin":"700","budgetmax":"10000"}'
-      text: "What price range are you looking at?"
-
-
-  #    - text: "What's the average budget for two people \n1. Lesser than 300 \n2. between 300 to 700\n3. More than 700"
-  #      buttons:
-  #        -
-  #          payload: lesser than 300
-  #          title: Less than 300
-  #        -
-  #          payload: between 300 to 700
-  #          title: between 300 to 700
-  #        -
-  #          payload: more than 700
-  #          title: more than 700
-  #      text: "What price range are you looking for 2 person?"
+  - buttons:
+    - payload: /restaurant_search{"budgetmin":"0","budgetmax":"300"}
+      title: Less than Rs. 300
+    - payload: /restaurant_search{"budgetmin":"300","budgetmax":"700"}
+      title: Rs. 300 to 700
+    - payload: /restaurant_search{"budgetmin":"700","budgetmax":"10000"}
+      title: More than 700
+    text: What price range are you looking at?
   utter_ask_cuisine:
-    - buttons:
-        - payload: Chinese
-          title: Chinese
-        - payload: Mexican
-          title: Mexican
-        - payload: American
-          title: American
-        - payload: Italian
-          title: Italian
-        - payload: "South Indian"
-          title: "South Indian"
-        - payload: "North Indian"
-          title: "North Indian"
-        - payload: Thai
-          title: Thai
-      text: "what kind of cuisine would you like?"
+  - buttons:
+    - payload: Chinese
+      title: Chinese
+    - payload: Mexican
+      title: Mexican
+    - payload: American
+      title: American
+    - payload: Italian
+      title: Italian
+    - payload: South Indian
+      title: South Indian
+    - payload: North Indian
+      title: North Indian
+    - payload: Thai
+      title: Thai
+    text: what kind of cuisine would you like?
   utter_ask_email:
-    - text: "Could you please share your email address then?"
-    - text: "What is your email address?"
-    - text: "Please provide your email address"
-    - text: "Provide your email address please"
-    - text: "Please enter your email address"
+  - text: Could you please share your email address?
+  - text: What is your email address?
+  - text: Please provide your email address.
   utter_ask_howcanhelp:
-    - text: "how can I help you ?"
-  utter_ask_location:
-    - buttons:
-        - payload: Ahmedabad
-          title: Ahmedabad
-        - payload: Bangalore
-          title: Bangalore
-        - payload: Chennai
-          title: Chennai
-        - payload: Delhi
-          title: Delhi
-        - payload: Mumbai
-          title: Mumbai
-        - payload: Hyderabad
-          title: Hyderabad
-        - payload: Pune
-          title: Pune
-        - payload: Kolkata
-          title: Kolkata
-        - payload: Other_cities
-          title: Other_cities
-      text: "In what location?"
-  utter_ask_max_budget:
-    - text: "What is your maximum budget?"
-    - text: "Please tell me your maximum budget?"
-  utter_ask_min_budget:
-    - text: "What is your minimum budget?"
-    - text: "Please tell me your minimum budget?"
-  utter_default:
-    - text: "i cannot understand."
-  utter_email_Sent:
-    - text: "The details have been emailed to you."
-    - text: "Successfully sent search results to your email address."
-  utter_email_error:
-    - text: "Sorry, something went wrong, could not send the email."
-    - text: "Email could not be sent, apologise for the inconvenience."
-  utter_goodbye:
-    - text: "goodbye :("
-    - text: Bye-bye.
-  utter_greet:
-    - text: "hey there! How may i help you"
-    - text: "Hi, How can I help you!"
-    - text: "Hey, How is it going. How May I help you Today ?"
-    - text: "Hey there ! feeling famished ? how can I help you ?"
-    - text: "hello sunshine ! what information I can fetch for you ?"
-  utter_other_cities:
-    - text: "Please enter the city name ?"
-  utter_people:
-    - buttons:
-        - payload: <=2
-          title: "single or double"
-        - payload: >2
-          title: "more than 2"
-      text: "How many people are there ?"
+  - text: how can I help you ?
   utter_ask_ifmail:
-    - buttons:
-        - payload: Yes
-          title: "Yes"
-        - payload: No
-          title: "No"
-      text: "Shall I send you the top 10 search results via email?"
+  - buttons:
+    - payload: Yes
+      title: Yes
+    - payload: No
+      title: No
+    text: Shall I send you the top 10 search results via email?
+  utter_ask_location:
+  - buttons:
+    - payload: Ahmedabad
+      title: Ahmedabad
+    - payload: Bangalore
+      title: Bangalore
+    - payload: Chennai
+      title: Chennai
+    - payload: Delhi
+      title: Delhi
+    - payload: Mumbai
+      title: Mumbai
+    - payload: Hyderabad
+      title: Hyderabad
+    - payload: Pune
+      title: Pune
+    - payload: Kolkata
+      title: Kolkata
+    - payload: Other_cities
+      title: Other_cities
+    text: In what location?
+  utter_ask_max_budget:
+  - text: What is your maximum budget?
+  - text: Please tell me your maximum budget?
+  utter_ask_min_budget:
+  - text: What is your minimum budget?
+  - text: Please tell me your minimum budget?
+  utter_confirm_email:
+  - text: Email id is valid.
+  utter_default:
+  - text: i cannot understand.
+  utter_email_Sent:
+  - text: The details have been emailed to you.
+  - text: Successfully sent search results to your email address.
+  utter_email_error:
+  - text: Sorry, something went wrong, could not send the email.
+  - text: Email could not be sent, apologise for the inconvenience.
+  utter_goodbye:
+  - text: goodbye :(
+  - text: Bye-bye.
+  utter_greet:
+  - text: hey there! How may i help you
+  - text: Hi, How can I help you!
+  - text: Hey, How is it going. How May I help you Today ?
+  - text: Hey there ! feeling famished ? how can I help you ?
+  - text: hello sunshine ! what information I can fetch for you ?
+  utter_other_cities:
+  - text: Please enter the city name ?
+  utter_people:
+  - buttons:
+    - payload: <=2
+      title: single or double
+    - payload: ''
+      title: more than 2
+    text: How many people are there ?
 session_config:
   carry_over_slots_to_new_session: true
   session_expiration_time: 0
 slots:
+  budget_ok:
+    initial_value: false
+    type: bool
+  budgetmax:
+    initial_value: 10000.0
+    max_value: 10000.0
+    min_value: 0.0
+    type: float
+  budgetmin:
+    initial_value: 0.0
+    max_value: 1.0
+    min_value: 0.0
+    type: float
   cuisine:
     type: text
   email:
@@ -163,15 +164,6 @@ slots:
     type: bool
   people:
     type: text
-  budgetmin:
-    type: float
-    initial_value: 0.0
-  budgetmax:
-    type: float
-    initial_value:  10000.0
-  budget_ok:
-    type: bool
-    initial_value: False
   restaurant_exist:
+    initial_value: false
     type: bool
-    initial_value: False

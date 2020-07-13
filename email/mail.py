@@ -4,15 +4,12 @@ from flask import Flask, render_template
 from flask_mail import Mail, Message
 
 # Credential Detail
-# mail_user_name = "rakesh.sit0045@gmail.com"
-# mail_password = "Rakeshkumar"
-
-mail_user_name = "rakesh.sit0045@gmail.com"
-mail_password = "Rakeshkumar36@12#"
+mail_user_name = "foodeebotraka@gmail.com"
+mail_password = "QAZX@100"
 
 # Reciever
-receiver_trishala_mail = "trishla.singh035@gmail.com"
-receiver_raka_mail = "raka006184@gmail.com"
+receiver_trishala_mail = "trishla.singh0035@gmail.com"
+receiver_raka_mail = "raka0006184@gmail.com"
 
 # Initialize the app.
 app = Flask(__name__)
@@ -33,7 +30,7 @@ mail = Mail(app)
 @app.route("/")
 def send():
     msg = Message("Hi! Welcome to Flask Mail!", sender=mail_user_name,
-                  recipients=[receiver_trishala_mail])
+                  recipients=[receiver_raka_mail])
     msg.body = "This is the email body"
     mail.send(msg)
     print("Mail sent")
@@ -52,7 +49,7 @@ def send_image_body():
     with app.open_resource("s3.jpg") as fp:
         msg.attach("s3.jpg", "image/jpg", fp.read())
 
-    msg.body = "This is the email body"
+    msg.body = "This is the email body  working"
 
     msg.html = """   
 
