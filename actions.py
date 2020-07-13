@@ -18,6 +18,7 @@ import pandas as pd
 from threading import Thread
 from flask import Flask
 from flask_mail import Mail, Message
+from time import sleep
 import zomatopy
 from concurrent.futures import ThreadPoolExecutor
 
@@ -188,9 +189,12 @@ class VerifyLocation(Action):
 
         if loc == "Other_cities":
             dispatcher.utter_template("utter_other_cities", tracker)
+            loc = tracker.get_slot('location')
+            return [SlotSet('location', loc), SlotSet("location_ok", False)]
+
         # loc = None
 
-        elif not (self.verify_location(loc)):
+        if not (self.verify_location(loc)):
             dispatcher.utter_message("Sorry, we do not operate in " + loc + " yet. Please try some other city.")
             return [SlotSet('location', None), SlotSet("location_ok", False)]
         else:
@@ -261,30 +265,33 @@ app.config.update(mail_config(gmail_credentials))
 mail = Mail(app)
 
 
-def send_async_email(app, recipient, top_10_restaurant_df):
-    with app.app_context():
-        msg = Message(subject="Restaurant Details", sender=gmail_credentials[0], recipients=[recipient])
-        msg.html = u'<h2>Foodie has found few restaurants for you:</h2>'
-
-        for ind, val in top_10_restaurant_df.iterrows():
-            name = top_10_restaurant_df['Restaurant Name'][ind]
-            location = top_10_restaurant_df['Address'][ind]
-            budget = top_10_restaurant_df['Avg_Cost_for_Two'][ind]
-            rating = top_10_restaurant_df['Rating'][ind]
-            image = top_10_restaurant_df['Featured_Image'][ind]
-            url = top_10_restaurant_df['URL'][ind]
-
-            msg.html += u'<h3>{name} (Rating: {rating})</h3>'.format(name=name, rating=rating)
-            msg.html += u'<h4>Address: {locality}</h4>'.format(locality=location)
-            msg.html += u'<h4>Average Budget for 2 people: Rs{budget}</h4>'.format(budget=str(budget))
-            msg.html += u'<div dir="ltr">''<a href={url}><img height = "325", width = "450", src={image}></a><br></div>'.format(
-                url=url, image=image)
-
+def send_async_email(flask_app, msg):
+    with flask_app.app_context():
+        # block only for testing parallel thread
+        for i in range(10, -1, -1):
+            sleep(2)
         mail.send(msg)
 
 
-def send_email(recipient, response):
-    thr = Thread(target=send_async_email, args=[app, recipient, response])
+def send_email(recipient, top_10_restaurant_df):
+    msg = Message(subject="Restaurant Details", sender=gmail_credentials[0], recipients=[recipient])
+    msg.html = u'<h2>Foodie has found few restaurants for you:</h2>'
+
+    for ind, val in top_10_restaurant_df.iterrows():
+        name = top_10_restaurant_df['Restaurant Name'][ind]
+        location = top_10_restaurant_df['Address'][ind]
+        budget = top_10_restaurant_df['Avg_Cost_for_Two'][ind]
+        rating = top_10_restaurant_df['Rating'][ind]
+        image = top_10_restaurant_df['Featured_Image'][ind]
+        url = top_10_restaurant_df['URL'][ind]
+
+        msg.html += u'<h3>{name} (Rating: {rating})</h3>'.format(name=name, rating=rating)
+        msg.html += u'<h4>Address: {locality}</h4>'.format(locality=location)
+        msg.html += u'<h4>Average Budget for 2 people: Rs{budget}</h4>'.format(budget=str(budget))
+        msg.html += u'<div dir="ltr">''<a href={url}><img height = "325", width = "450", src={image}></a><br></div>'.format(
+            url=url, image=image)
+
+    thr = Thread(target=send_async_email, args=[app, msg])
     thr.start()
 
 

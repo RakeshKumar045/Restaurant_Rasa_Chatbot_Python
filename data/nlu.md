@@ -98,7 +98,7 @@
 - [trishla.singh35@gmail.com](email)
 
 ## lookup:location  
-C:\Users\trishala\Desktop\Restaurant_Rasa_Chatbot_Python\data\cities.txt
+./data/cities.txt
 
 ## synonym:2
 - two
