@@ -12,6 +12,7 @@
 - sounds really good.
 - thanks
 - Yes
+- thank you
 
 ## intent:goodbye
 - bye
@@ -87,6 +88,9 @@
 - show me some resturants
 - [Delhi](location)
 - show me some [chinese](cuisine) resturants in [Delhi](location)
+- show restaurant
+- [Delhi](location)
+- [Chinese]{"entity": "cuisine", "value": "chinese"}
 
 ## intent:people
 - [<=2](people)
@@ -95,10 +99,7 @@
 ## intent:send_email
 - [trishla.singh35@gmail.com](email)
 - [2702rakesh@gmail.com](email)
-- [trishla.singh35@gmail.com](email)
-
-## lookup:location  
-./data/cities.txt
+- [2702rakesh@gmail.com](email)
 
 ## synonym:2
 - two
@@ -146,3 +147,6 @@
 
 ## regex:pincode
 - [0-9]{6}
+
+## lookup:location
+  ./data/cities.txt

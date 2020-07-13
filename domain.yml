@@ -12,6 +12,7 @@ actions:
 - utter_ask_location
 - utter_ask_max_budget
 - utter_ask_min_budget
+- utter_confirm_email
 - utter_default
 - utter_email_Sent
 - utter_email_error
@@ -29,11 +30,11 @@ entities:
 - location
 - people
 intents:
+  - goodbye
 - restaurant_search
-- affirm
-- goodbye
 - greet
 - send_email
+  - affirm
 - people
 - stop
 responses:
@@ -67,7 +68,6 @@ responses:
   - text: Could you please share your email address?
   - text: What is your email address?
   - text: Please provide your email address.
-
   utter_ask_howcanhelp:
   - text: how can I help you ?
   utter_ask_ifmail:
@@ -99,21 +99,23 @@ responses:
       title: Other_cities
     text: In what location?
   utter_ask_max_budget:
-  - text: What is your maximum budget?
-  - text: Please tell me your maximum budget?
+    - text: What is your maximum budget?
+    - text: Please tell me your maximum budget?
   utter_ask_min_budget:
-  - text: What is your minimum budget?
-  - text: Please tell me your minimum budget?
+    - text: What is your minimum budget?
+    - text: Please tell me your minimum budget?
+  utter_confirm_email:
+    - text: Email id is valid.
   utter_default:
-  - text: i cannot understand.
+    - text: i cannot understand.
   utter_email_Sent:
-  - text: The details have been emailed to you.
-  - text: Successfully sent search results to your email address.
+    - text: The details have been emailed to you.
+    - text: Successfully sent search results to your email address.
   utter_email_error:
-  - text: Sorry, something went wrong, could not send the email.
-  - text: Email could not be sent, apologise for the inconvenience.
+    - text: Sorry, something went wrong, could not send the email.
+    - text: Email could not be sent, apologise for the inconvenience.
   utter_goodbye:
-  - text: goodbye :(
+    - text: goodbye :(
   - text: Bye-bye.
   utter_greet:
   - text: hey there! How may i help you
@@ -127,12 +129,9 @@ responses:
   - buttons:
     - payload: <=2
       title: single or double
-    - payload: >2
+    - payload: ''
       title: more than 2
     text: How many people are there ?
-  utter_confirm_email:
-    - text : Email id is valid.
-
 session_config:
   carry_over_slots_to_new_session: true
   session_expiration_time: 0

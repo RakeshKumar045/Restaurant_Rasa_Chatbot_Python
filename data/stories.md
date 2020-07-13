@@ -163,3 +163,44 @@
     - action_send_mail
 * goodbye
     - utter_goodbye
+
+## interactive_story_1
+* greet
+    - utter_greet
+* restaurant_search
+    - utter_ask_location
+* restaurant_search{"location": "Delhi"}
+    - slot{"location": "Delhi"}
+    - utter_ask_cuisine
+* restaurant_search{"cuisine": "chinese"}
+    - slot{"cuisine": "chinese"}
+    - verify_location
+    - slot{"location": "Delhi"}
+    - slot{"location_ok": true}
+    - utter_ask_budget_for_two
+    - verify_budget
+    - slot{"budgetmin": 0}
+    - slot{"budgetmax": 10000}
+    - slot{"budget_ok": true}
+    - action_search_restaurants
+    - slot{"location": "Delhi"}
+    - slot{"restaurant_exist": true}
+    - utter_ask_budget_for_two
+* restaurant_search{"budgetmin": "300", "budgetmax": "700"}
+    - slot{"budgetmax": "700"}
+    - slot{"budgetmin": "300"}
+    - action_search_restaurants
+    - slot{"location": "Delhi"}
+    - slot{"restaurant_exist": true}
+    - utter_ask_email
+* send_email{"email": "2702rakesh@gmail.com"}
+    - slot{"email": "2702rakesh@gmail.com"}
+    - utter_ask_email
+    - action_validate_email
+    - slot{"email_ok": true}
+    - action_validate_email
+    - slot{"email_ok": true}
+    - action_send_mail
+* affirm
+    - utter_goodbye
+* goodbye
