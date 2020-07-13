@@ -3,7 +3,6 @@ from __future__ import division
 from __future__ import unicode_literals
 
 import json
-import re
 import urllib3
 from rasa_sdk import Action
 from rasa_sdk.events import SlotSet
@@ -14,18 +13,15 @@ import smtplib
 import os
 import re
 import requests
-
 import json
 import pandas as pd
 from threading import Thread
 from flask import Flask
 from flask_mail import Mail, Message
-
 import zomatopy
-
 from concurrent.futures import ThreadPoolExecutor
 
-d_email_rest = []
+top_10_restaurant_details = []
 
 
 # Action search
@@ -72,9 +68,9 @@ class ActionSearchRestaurants(Action):
 
             dispatcher.utter_message("Top 5 Restaurant : " + "\n" + response)
 
-            global d_email_rest
-            d_email_rest = restaurant_df[:10]
-            if len(d_email_rest) > 0:
+            global top_10_restaurant_details
+            top_10_restaurant_details = restaurant_df[:10]
+            if len(top_10_restaurant_details) > 0:
                 restaurant_exist = True
 
         return [SlotSet('location', loc), SlotSet('restaurant_exist', restaurant_exist)]
@@ -240,15 +236,13 @@ class ActionValidateEmail(Action):
 
 
 def config():
-    gmail_user = "rakesh.sit045@gmail.com"
-    gmail_pwd = "Rakeshkumar@06184"  # Gmail Password
+    gmail_user = "foodeebotraka@gmail.com"
+    gmail_pwd = "QAZX@100"  # Gmail Password
     gmail_config = (gmail_user, gmail_pwd)
     return gmail_config
 
 
 def mail_config(gmail_credential_detail):
-    gmail_user = "rakesh.sit045@gmail.com"
-    gmail_pwd = "Rakeshkumar@06184"  # Gmail Password
     mail_settings = {
 
         "MAIL_SERVER": 'smtp.gmail.com',
@@ -290,6 +284,7 @@ def send_async_email(app, recipient, top_10_restaurant_df):
 
         mail.send(msg)
 
+
 def send_email(recipient, response):
     thr = Thread(target=send_async_email, args=[app, recipient, response])
     thr.start()
@@ -303,7 +298,7 @@ class SendMail(Action):
         recipient = tracker.get_slot('email')
 
         try:
-            restaurant_top_10_details = d_email_rest.copy()
+            restaurant_top_10_details = top_10_restaurant_details.copy()
             send_email(recipient, restaurant_top_10_details)
             dispatcher.utter_message("Have a great day! Mail is sent")
         except:
