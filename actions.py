@@ -305,4 +305,7 @@ class SendMail(Action):
             send_email(recipient, restaurant_top_10_details)
             dispatcher.utter_message("Have a great day! Mail is sent")
         except:
-            dispatcher.utter_message("Email not sent, address is not valid")
+            dispatcher.utter_message("Email not sent, "
+                                     ""
+                                     ""
+                                     "address is not valid")

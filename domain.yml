@@ -31,11 +31,12 @@ entities:
 - people
 intents:
 - greet
-- affirm
-- send_email
-- restaurant_search
-- people
+- budget
 - goodbye
+- affirm
+- restaurant_search
+- send_email
+- people
 - stop
 responses:
   utter_ask_budget_for_two:

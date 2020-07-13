@@ -236,3 +236,73 @@
     - action_send_mail
 * affirm
     - utter_goodbye
+
+## interactive_story_1
+* greet
+    - utter_greet
+* restaurant_search
+    - utter_ask_location
+* affirm{"location": "Bangalore"}
+    - slot{"location": "Bangalore"}
+    - verify_location
+    - slot{"location": "Bangalore"}
+    - slot{"location_ok": true}
+    - utter_ask_cuisine
+* restaurant_search{"cuisine": "Thai"}
+    - slot{"cuisine": "Thai"}
+    - utter_ask_budget_for_two
+* restaurant_search{"budgetmin": "300", "budgetmax": "700"}
+    - slot{"budgetmax": "700"}
+    - slot{"budgetmin": "300"}
+    - verify_budget
+    - slot{"budgetmin": 300}
+    - slot{"budgetmax": 700}
+    - slot{"budget_ok": true}
+    - action_search_restaurants
+    - slot{"location": "Bangalore"}
+    - slot{"restaurant_exist": true}
+    - utter_ask_ifmail
+* send_email{"email": "trishla.singh35@gmail.com"}
+    - slot{"email": "trishla.singh35@gmail.com"}
+    - action_send_mail
+* affirm
+    - utter_goodbye
+
+## interactive_story_1
+* greet
+    - utter_greet
+* restaurant_search{"location": "Rishikesh"}
+    - slot{"location": "Rishikesh"}
+    - verify_location
+    - slot{"location": null}
+    - slot{"location_ok": false}
+    - utter_ask_location
+* restaurant_search{"location": "Allahabad"}
+    - slot{"location": "Allahabad"}
+    - verify_location
+    - slot{"location": null}
+    - slot{"location_ok": false}
+    - utter_ask_cuisine
+* restaurant_search{"cuisine": "chinese"}
+    - slot{"cuisine": "chinese"}
+    - utter_ask_budget_for_two
+* budget{"budgetmin": "700"}
+    - slot{"budgetmin": "700"}
+    - verify_budget
+    - slot{"budgetmin": 700}
+    - slot{"budgetmax": 10000}
+    - slot{"budget_ok": true}
+    - utter_ask_location
+    - utter_ask_location
+* restaurant_search{"location": "Allahabad"}
+    - slot{"location": "Allahabad"}
+    - verify_location
+    - slot{"location": null}
+    - slot{"location_ok": false}
+    - action_search_restaurants
+    - slot{"location": null}
+    - slot{"restaurant_exist": true}
+    - utter_ask_ifmail
+* affirm
+    - utter_goodbye
+* goodbye
