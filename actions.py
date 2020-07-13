@@ -229,13 +229,12 @@ class ActionValidateEmail(Action):
         email_check = tracker.get_slot('email')
         if email_check is not None:
             if re.search("(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)", email_check):
-                return [SlotSet('email', email_check)]
+                return [SlotSet('email_ok', True)]
             else:
                 dispatcher.utter_message("Sorry this is not a valid email. please check for typing errors")
-                return [SlotSet('email', None)]
+                return [SlotSet('email', None),SlotSet("email_ok", False)]
         else:
-            dispatcher.utter_message(
-                "Sorry I could not understand the email address which you provided? Please provide again")
+            dispatcher.utter_message("Sorry I could'nt understand the email address you provided? Please provide again")
             return [SlotSet('email', None)]
 
 
