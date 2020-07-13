@@ -22,8 +22,7 @@
 - end
 - farewell
 - Bye bye
-- have a good one
-- 2702rakesh@gma
+- have a good one!
 - Thanks. bye-bye
 
 ## intent:greet
@@ -86,10 +85,7 @@
 - I am hungry. Lookout for some good resturants?
 - I am looking for a resturant to eat in [Delhi](location)
 - show me some resturants
-- show me some reaturant
-- show me some resturants to eat ?
 - [Delhi](location)
-- show restaurant
 - show me some [chinese](cuisine) resturants in [Delhi](location)
 
 ## intent:people
@@ -100,6 +96,9 @@
 - [trishla.singh35@gmail.com](email)
 - [2702rakesh@gmail.com](email)
 - [trishla.singh35@gmail.com](email)
+
+## lookup:location  
+C:\Users\trishala\Desktop\Restaurant_Rasa_Chatbot_Python\data\cities.txt
 
 ## synonym:2
 - two
@@ -139,6 +138,7 @@
 ## synonym:vegetarian
 - veggie
 - vegg
+- vegan
 
 ## regex:greet
 - hey[^\s]*

@@ -191,7 +191,7 @@ class VerifyLocation(Action):
         # 	dispatcher.utter_message("Please enter the city name")
 
         if loc == "Other_cities":
-            dispatcher.utter_message("Please enter the city name")
+            dispatcher.utter_template("utter_other_cities", tracker)
         # loc = None
 
         elif not (self.verify_location(loc)):
