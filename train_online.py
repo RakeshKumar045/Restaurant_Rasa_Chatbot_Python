@@ -33,5 +33,5 @@ def run_restaurant_online(input_channel, interpreter,
 
 if __name__ == '__main__':
     logging.basicConfig(level="INFO")
-    nlu_interpreter = RasaNLUInterpreter('./models/nlu/default/restaurantnlu')
+    nlu_interpreter = RasaNLUInterpreter('./restaurant_nlu')
     run_restaurant_online(ConsoleInputChannel(), nlu_interpreter)
