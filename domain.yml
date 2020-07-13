@@ -1,31 +1,31 @@
+---
 actions:
-- utter_ask_cuisine
-- utter_ask_howcanhelp
-- utter_ask_if_email
-- utter_ask_location
-- utter_ask_email
-- utter_default
-- utter_email_Sent
-- utter_email_error
-- utter_goodbye
-- utter_greet
-- utter_other_cities
-- utter_no_of_person
-- utter_ask_min_budget
-- utter_ask_max_budget
-- verify_location
-- action_restart
-- action_search_restaurants
-- action_send_mail
-- action_slot_reset
-- action_validate_email
-- verify_budget
+  - action_restart
+  - action_search_restaurants
+  - action_send_mail
+  - action_slot_reset
+  - action_validate_email
+  - utter_ask_cuisine
+  - utter_ask_howcanhelp
+  - utter_ask_ifmail
+  - utter_ask_location
+  - utter_ask_email
+  - utter_default
+  - utter_email_Sent
+  - utter_email_error
+  - utter_goodbye
+  - utter_greet
+  - utter_other_cities
+  - utter_people
+  - utter_ask_min_budget
+  - utter_ask_max_budget
+  - verify_location
+  - verify_budget
 entities:
   - cuisine
   - email
   - location
-  - no_of_person
-  - price
+  - people
   - budgetmin
   - budgetmax
 intents:
@@ -33,11 +33,33 @@ intents:
   - send_email
   - restaurant_search
   - goodbye
-  - number_of_person
-  - price_range
+  - people
   - stop
   - affirm
 responses:
+  utter_ask_budget_for_two:
+    - buttons:
+        - title: "Less than Rs. 300"
+          payload: '/restaurant_search{"budgetmin":"0","budgetmax":"300"}'
+        - title: "Rs. 300 to 700"
+          payload: '/restaurant_search{"budgetmin":"300","budgetmax":"700"}'
+        - title: "More than 700"
+          payload: '/restaurant_search{"budgetmin":"700","budgetmax":"10000"}'
+      text: "What price range are you looking at?"
+
+
+  #    - text: "What's the average budget for two people \n1. Lesser than 300 \n2. between 300 to 700\n3. More than 700"
+  #      buttons:
+  #        -
+  #          payload: lesser than 300
+  #          title: Less than 300
+  #        -
+  #          payload: between 300 to 700
+  #          title: between 300 to 700
+  #        -
+  #          payload: more than 700
+  #          title: more than 700
+  #      text: "What price range are you looking for 2 person?"
   utter_ask_cuisine:
     - buttons:
         - payload: Chinese
@@ -48,23 +70,21 @@ responses:
           title: American
         - payload: Italian
           title: Italian
-        - payload: South Indian
-          title: South Indian
-        - payload: North Indian
-          title: North Indian
+        - payload: "South Indian"
+          title: "South Indian"
+        - payload: "North Indian"
+          title: "North Indian"
         - payload: Thai
           title: Thai
-      text: what kind of cuisine would you like?
+      text: "what kind of cuisine would you like?"
+  utter_ask_email:
+    - text: "Could you please share your email address then?"
+    - text: "What is your email address?"
+    - text: "Please provide your email address"
+    - text: "Provide your email address please"
+    - text: "Please enter your email address"
   utter_ask_howcanhelp:
-    - text: how can I help you ?
-  utter_ask_if_email:
-    - Button:
-        - Payload: Yes
-          text: Yes
-        - Payload: No
-          text: No
-    - text: Shall I send you the top 10 search results via email?
-
+    - text: "how can I help you ?"
   utter_ask_location:
     - buttons:
         - payload: Ahmedabad
@@ -85,55 +105,46 @@ responses:
           title: Kolkata
         - payload: Other_cities
           title: Other_cities
-      text: In what location?
-  utter_ask_email:
-    - text: Could you please share your email address then?
-    - text: What is your email address?
-    - text: Please provide your email address
-    - text: Provide your email address please
-    - text: Please enter your email address
+      text: "In what location?"
+  utter_ask_max_budget:
+    - text: "What is your maximum budget?"
+    - text: "Please tell me your maximum budget?"
+  utter_ask_min_budget:
+    - text: "What is your minimum budget?"
+    - text: "Please tell me your minimum budget?"
   utter_default:
-    - text: i cannot understand.
+    - text: "i cannot understand."
   utter_email_Sent:
-    - text: The details have been emailed to you.
-    - text: Successfully sent search results to your email address.
+    - text: "The details have been emailed to you."
+    - text: "Successfully sent search results to your email address."
   utter_email_error:
-    - text: Sorry, something went wrong, could not send the email.
-    - text: Email could not be sent, apologise for the inconvenience.
+    - text: "Sorry, something went wrong, could not send the email."
+    - text: "Email could not be sent, apologise for the inconvenience."
   utter_goodbye:
-    - text: goodbye :(
+    - text: "goodbye :("
     - text: Bye-bye.
   utter_greet:
-    - text: hey there! How may i help you
-    - text: Hi, How can I help you!
-    - text: Hey, How is it going. How May I help you Today ?
-    - text: Hey there ! feeling famished ? how can I help you ?
-    - text: hello sunshine ! what information I can fetch for you ?
+    - text: "hey there! How may i help you"
+    - text: "Hi, How can I help you!"
+    - text: "Hey, How is it going. How May I help you Today ?"
+    - text: "Hey there ! feeling famished ? how can I help you ?"
+    - text: "hello sunshine ! what information I can fetch for you ?"
   utter_other_cities:
-    - text: Please enter the city name ?
-  utter_no_of_person:
+    - text: "Please enter the city name ?"
+  utter_people:
     - buttons:
         - payload: <=2
-          title: single or double
+          title: "single or double"
         - payload: >2
-          title: more than 2
-      text: How many people are there ?
-
-  utter_ask_min_budget:
-    - text: What is your minimum budget?
-    - text: Please tell me your minimum budget?
-  utter_ask_max_budget:
-    - text: What is your maximum budget?
-    - text: Please tell me your maximum budget?
-  utter_ask_budget_for_two:
+          title: "more than 2"
+      text: "How many people are there ?"
+  utter_ask_ifmail:
     - buttons:
-        - payload: Less than Rs. 300
-          title: Less than Rs. 300
-        - payload: Rs. 300 to 700
-          title: Rs. 300 to 700
-        - payload: More than 700
-          title: More than 700
-      text: What price range are you looking for 2 person?
+        - payload: Yes
+          title: "Yes"
+        - payload: No
+          title: "No"
+      text: "Shall I send you the top 10 search results via email?"
 session_config:
   carry_over_slots_to_new_session: true
   session_expiration_time: 0
@@ -150,9 +161,7 @@ slots:
   location_ok:
     initial_value: false
     type: bool
-  person:
-    type: text
-  price:
+  people:
     type: text
   budgetmin:
     type: float
@@ -160,6 +169,9 @@ slots:
   budgetmax:
     type: float
     initial_value:  10000.0
-  no_of_person:
-    type: text
-
+  budget_ok:
+    type: bool
+    initial_value: False
+  restaurant_exist:
+    type: bool
+    initial_value: False
