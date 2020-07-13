@@ -290,7 +290,6 @@ def send_email(recipient, top_10_restaurant_df):
     thr = Thread(target=send_async_email, args=[app, msg])
     thr.start()
 
-
 class SendMail(Action):
     def name(self):
         return 'action_send_mail'
