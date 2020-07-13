@@ -183,10 +183,6 @@ class VerifyLocation(Action):
 
     def run(self, dispatcher, tracker, domain):
         loc = tracker.get_slot('location')
-
-        # if loc == "Other_cities":
-        # 	dispatcher.utter_message("Please enter the city name")
-
         if loc == "Other_cities":
             dispatcher.utter_template("utter_other_cities", tracker)
             loc = tracker.get_slot('location')
