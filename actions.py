@@ -292,6 +292,7 @@ def send_email(recipient, top_10_restaurant_df):
     thr = Thread(target=send_async_email, args=[app, msg])
     thr.start()
 
+
 class SendMail(Action):
     def name(self):
         return 'action_send_mail'
@@ -304,4 +305,4 @@ class SendMail(Action):
             send_email(recipient, restaurant_top_10_details)
             dispatcher.utter_message("Have a great day! Mail is sent")
         except:
-            dispatcher.utter_message("Email address is not valid")
+            dispatcher.utter_message("Email not sent, address is not valid")
