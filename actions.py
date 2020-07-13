@@ -271,29 +271,37 @@ mail = Mail(app)
 
 def send_async_email(app, recipient, top_10_restaurant_df):
     with app.app_context():
-        msg = Message(subject="Restaurant Details", sender=gmail_credential_detail[0], recipients=[recipient])
+        msg = Message(subject="Restaurant Details", sender=gmail_credentials[0], recipients=[recipient])
         msg.html = u'<h2>Foodie has found few restaurants for you:</h2>'
 
         # ['Restaurant Name', 'Address', 'Phone', 'Timing', 'Cuisines', 'Rating',
         #  'Total Reviews', 'Avg_Cost_for_Two', 'Comment', 'image']
 
-        restaurant_names = top_10_restaurant_df['Restaurant Name'].values
-        restaurant_photo = top_10_restaurant_df['Featured_Image'].values
-        restaurant_location = top_10_restaurant_df['Address'].values
-        restaurant_url = top_10_restaurant_df['URL'].values
-        restaurant_budget = top_10_restaurant_df['Avg_Cost_for_Two'].values
-        restaurant_rating = top_10_restaurant_df['Rating'].values
-        for i in range(len(restaurant_names)):
-            name = restaurant_names[i]
-            location = restaurant_location[i]
-            image = restaurant_photo[i]
-            url = restaurant_url[i]
-            budget = restaurant_budget[i]
-            rating = restaurant_rating[i]
+        # restaurant_names = top_10_restaurant_df['Restaurant Name'].values
+        # restaurant_photo = top_10_restaurant_df['Featured_Image'].values
+        # restaurant_location = top_10_restaurant_df['Address'].values
+        # restaurant_url = top_10_restaurant_df['URL'].values
+        # restaurant_budget = top_10_restaurant_df['Avg_Cost_for_Two'].values
+        # restaurant_rating = top_10_restaurant_df['Rating'].values
+        # for i in range(len(restaurant_names)):
+
+        for ind, val in top_10_restaurant_df.iterrows():
+            # for i in range(len(restaurant_names)):
+            name = top_10_restaurant_df['Restaurant Name'][ind]
+            location = top_10_restaurant_df['Address'][ind]
+            budget = top_10_restaurant_df['Avg_Cost_for_Two'][ind]
+            rating = top_10_restaurant_df['Rating'][ind]
+            image = top_10_restaurant_df['Featured_Image'][ind]
+            url = top_10_restaurant_df['URL'][ind]
+            # location = restaurant_location[i]
+            # image = restaurant_photo[i]
+            # url = restaurant_url[i]
+            # budget = restaurant_budget[i]
+            # rating = restaurant_rating[i]
             # msg.body +="This is final test"
             msg.html += u'<h3>{name} (Rating: {rating})</h3>'.format(name=name, rating=rating)
             msg.html += u'<h4>Address: {locality}</h4>'.format(locality=location)
-            msg.html += u'<h4>Average Budget for 2 people: Rs{budget}</h4>'.format(budget=budget)
+            msg.html += u'<h4>Average Budget for 2 people: Rs{budget}</h4>'.format(budget=str(budget))
             msg.html += u'<div dir="ltr">''<a href={url}><img height = "325", width = "450", src={image}></a><br></div>'.format(
                 url=url, image=image)
 
