@@ -30,10 +30,10 @@ entities:
 - location
 - people
 intents:
-- affirm
-- restaurant_search
 - greet
+- affirm
 - send_email
+- restaurant_search
 - people
 - goodbye
 - stop
@@ -129,7 +129,7 @@ responses:
   - buttons:
     - payload: <=2
       title: single or double
-    - payload: >2
+    - payload: ''
       title: more than 2
     text: How many people are there ?
 session_config:

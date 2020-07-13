@@ -13,6 +13,18 @@
 - thanks
 - Yes
 - Thanks
+- Thank you
+- Thank you so much
+- Thanks for that
+- cheers
+- ok thanks!
+- perfect thank you
+- thanks a bunch for everything
+- thanks for the help
+- thanks a lot
+- amazing, thanks
+- cool, thanks
+- cool thank you
 
 ## intent:goodbye
 - bye
@@ -39,6 +51,73 @@
 - hola
 - Hi
 - Heyyy
+- Hi
+- Hey
+- Hi bot
+- Hey bot
+- Hello
+- Good morning
+- hi again
+- hi folks
+- hi Mister
+- hi pal!
+- hi there
+- greetings
+- hello everybody
+- hello is anybody there
+- hello robot
+- hallo
+- heeey
+- hi hi
+- hey
+- hey hey
+- hello there
+- hi
+- hello
+- yo
+- hola
+- hi?
+- hey bot!
+- hello friend
+- good morning
+- hii
+- hello sweet boy
+- yoo
+- hey there
+- hiihihi
+- hello sweatheart
+- hellooo
+- helloooo
+- heyo
+- ayyyy whaddup
+- hello?
+- Hallo
+- heya
+- hey bot
+- howdy
+- Hellllooooooo
+- whats up
+- Hei
+- Well hello there ;)
+- I said, helllllloooooO!!!!
+- Heya
+- Whats up my bot
+- hiii
+- heyho
+- hey, let's talk
+- hey let's talk
+- jojojo
+- hey dude
+- hello it is me again
+- what up
+- hi there
+- hi
+- jop
+- hi friend
+- hi there it's me
+- good evening
+- good morning
+- good afternoon
 
 ## intent:restaurant_search
 - i'm looking for a place to eat
@@ -64,7 +143,9 @@
 - [Chennai](location)
 - [Hyderabad](location)
 - [Kolkata](location)
-- I want to eat in some [thai](cuisine) resturant in [Pune](location)
+- [Thai](cuisine)
+- [thai](cuisine)
+- I want to eat in some [Thai](cuisine) resturant in [Pune](location)
 - I am looking for some [American](cuisine) food in [Kolkata](location)
 - [Other_cities](location)
 - Oh, sorry, in [Italy](location)
@@ -90,18 +171,144 @@
 - [Delhi](location)
 - show me some [chinese](cuisine) resturants in [Delhi](location)
 - Show resturants
-- [Other_cities](location)
 - show me some resturants in [Agra](location)
+- Looking for some good resturant in [ahemdabad](location)
+- [Ahmedabad](location)
+- [South Indian](cuisine)
+
+- Find me a place to eat in [Bangalore](location)
+- I need a new restaurant in [Bengaluru](location)
+- [Bhopal](location)
+- help me find restaurant in [Bngalore](location)
+- Could you find me a restaurant to eat at [bngalore](location)?
+- [Bhubaneshwar](location)
+- Can you find me a restaurant in [Bombay](location)?
+- [Amritsar](location)
+- [erode](location)
+- [Jammu](location)
+- [Kurnool](location)
+- Hey, help me find a restaurant in [Mumbai](location)
+- I need to find a restaurant in [Kolkata](location)
+- [Pune](location)
+- [Cyberabad](location)
+- [calcuta](location)
+- Find a restaurant for me in [Calcutta](location)
+- Where should I eat in [Delhi](location)?
+- [Delhi NCR](location)
+- Suggest me a good restaurant around [New Delhi](location)
+- [Bengaluru](location)
+- [Amratsar](location)
+- I need to find this restaurant in [Delhi](location)
+- [Dilli](location)
+- Show me the closest open restaurant in [Chennai](location)
+- [Indore](location)
+- [Jodhpur](location)
+- Hey help me find a restaurant in [Madras](location)
+- Help me find a restaurant in [Surat](location)
+- Recommend me a restaurant around [Pune](location)
+- [Goa](location)
+- Could you find a restaurant for me in [Belgaum](location)? 
+- [Chandigarh](location)
+- [Rajahmundry](location)
+- [Ujjain](location)
+- Could you find a restaurant for me in [Bengaluru](location)? 
+- Would you find me a restaurant in [Allahabad](location)??
+- [vadodara](location)
+- [Srinagar](location)
+- Could you find me a restaurant in [Agra](location)? 
+- Pick a restaurant for me, please in [Kochi](location)
+- [Mysuru](location)
+- How can you help me find a restaurant in [Jamshedpur](location)?
+- [Thrissur](location)
+- Can you find a restaurant for me in [Chandigarh](location)?
+- [Lucknow](location)
+- Would you find me a restaurant in [Visakhapatnam](location)??
+- Could you find me a restaurant to eat at [Gurgaon](location)?
+- [NewDelhi](location)
+- [Surat](location)
+- [Jamshedpur](location)
+- Would you find me a restaurant in [calcutta](location)??
+- Okay. Show me some in [bengaluru](location)
+- Recommend me a restaurant around [Prayagraj](location)
+- [Rourkela](location)
+- [Vijayawada](location)
+- [Ajmer](location)
+- [Allahabad](location)
+- [raurkela](location)
+- Can you suggest some good restaurants in [bombay](location)
+<!-- only 'cuisine' entity : 26 training samples -->
+- I'm gonna need help finding a [indian](cuisine) restaurant
+- [american](cuisine)
+- i'm looking for a [Chinese](cuisine) restaurant
+- Hey, can you help me with locating a [mexican](cuisine) restaurant
+- i want a [french](cuisine) restaurant
+- [chinese](cuisine)
+- What's a good place to eat [mexican](cuisine) food
+- Find a restaurant for me where I can eat [north indian](cuisine)
+- Find a restaurant for me to eat [mexican](cuisine)
+- [italian](cuisine)
+- I am hungry, find me some place to go eat [italian](cuisine)
+- Would you find a [south indian](cuisine) restaurant for me?
+- Would you find a [american](cuisine) restaurant
+- [north indian](cuisine)
+- A place to eat [chinase](cuisine)
+- I want to eat [italian](cuisine) food
+- Please find me a [south-indian](cuisine) restaurant
+- [south indian](cuisine)
+- Quickly get me a [northindian](cuisine) place
+- Where can i get [south-indina](cuisine) food?
+- I need to find a restaurant [southindian](cuisine)
+- [mexican](cuisine)
+- A place to have [italian](cuisine) food
+- Suggest me a good [mexican](cuisine) restaurant
+- how can you help me find a [french](cuisine) restaurant?
+- I'm gonna need help finding a [indian](cuisine) restaurant in [Mysore](location)
+- i'm looking for a [Chinese](cuisine) restaurant in [Lucknow](location)
+- Hey, can you help me with locating a [mexican](cuisine) restaurant in [Lakhanpur](location)
+- i want a [french](cuisine) restaurant in [Vizag](location)
+- What's a good place to eat [mexican](cuisine) food in [Bangalore](location)
+- Find a restaurant for me where I can eat [north indian](cuisine) in [Jaipur](location)
+- Find a restaurant for me to eat [mexican](cuisine) at [Faridabad](location)
+- I am hungry, find me some place to go eat [italian](cuisine) in [Goa](location)
+- Would you find a [south indian](cuisine) restaurant for me in [Kozhikode](location)?
+- Would you find a [american](cuisine) restaurant for me in [Trivandrum](location)?
+- A place to eat [chinase](cuisine) in [Mysuru](location)
+- Hey, can you help me with locating a [north indian](cuisine) restaurant in [calcuta](location)
+- I want to eat [italian](cuisine) food in [cochin](location)
+- Please find me a [south-indian](cuisine) restaurant in [madras](location)
+- Quickly get me a [northindian](cuisine) place in [New Delhi](location)
+- Where can i get [south-indina](cuisine) food in [Mangaluru](location)
+- i'm looking for a [Chinese](cuisine) restaurant in [cyberabad](location)
+- [chinese](cuisine) eating place in [mumbai](location)
+- I want to eat [italian](cuisine) food in [Prayagraj](location)
+- Okay. I want to eat [south indian](cuisine) in [allahabad](location)
+- Okay. Show me some [north indian](cuisine) restaurants in [prayagraj](location)
+- What's a good place to eat [mexican](cuisine) food in [chandighar](location)
 
 ## intent:people
 - [<=2](people)
 - [>2] {"entity": "people" , "value": ">2"}
-
+- ["<=2"](people)
+- [">2"](people)
 
 ## intent:send_email
 - [trishla.singh35@gmail.com](email)
 - [2702rakesh@gmail.com](email)
 - [trishsin03@gmail.com](email)
+- [trishla.singh35@gmail.com](email)
+- [xyz@sth.edu](email)
+- [ ahbcdj@dkj.com](email)
+- [jddk.2jmd@kdl.co.in](email)
+- can u mail me the information to [abc@abc.com](email)?
+- can u mail to [test@tes.com](email)?
+- can u mail me at [test-123.456@dom.123.co.in](email)?
+- email address - [test.some@gmail.co.in.](email) Mail this list.
+- email me at [email-123@domina.com](email)
+- mail me [emial@domain.io](email)
+- please send this to [email.123@123.456.com](email)
+- send this to [abc-email@abc.com](email)
+- send to [abc_123-email@abc123.com](email)
+- this is my email address - email-[abc_123@abc.com.edu](email) send me an email.
 
 ## synonym:2
 - two
@@ -117,14 +324,21 @@
 - New Dili
 - New Dilli
 - Old Delhi
-- Old Dili
-- Old Dilli
-- Dili
+- New Delhi
+- Delhi
+- NewDelhi
 - Dilli
+- Dellhi
+- newdelhi
+- Newdelhi
+- new delhi
+- new Delhi
 
 ## synonym:Mumbai
-- bombai
-- bumbai
+- Bombay
+- Bombai
+- mumbai
+- bombay
 
 ## synonym:bangalore
 - Bengaluru
@@ -135,8 +349,104 @@
 - Chinese
 - Chines
 
-## synonym:mid
-- moderate
+## synonym:Kolkata
+- Calcutta
+- kolkata
+- kolkatta
+- calcutta
+- calcuta
+
+## synonym:Chennai
+- chennai
+- madras
+- Madras
+
+## synonym:Hyderabad
+- hyderabad
+- Secunderabad
+- secunderabad
+- cyberabad
+- Cyberabad
+
+## synonym:Lucknow
+- Lakhanpur
+
+## synonym:Mysore
+- mysore
+- mysuru
+- Mysuru
+
+## synonym Kochi
+- kochi
+- cochin
+- Cochin
+
+## synonym:Mangalore
+- mangalore
+- mangaluru
+- Mangaluru
+
+## synonym:Visakhapatnam
+- visakhapatnam
+- Vizag
+- vizag
+
+## synonym:Thiruvananthapuram
+- thiruvananthapuram
+- trivandrum
+- Trivandrum
+- Travancore
+- travancore
+
+## synonym:Vadodara
+- vadodara
+- Vadodra
+- vadodra
+
+## synonym:Jamshedpur
+- jamshedpur
+- Jamsedpur
+- jamsedpur
+
+## synonym:Rajahmundry
+- rajahmundry
+- Rajahmundri
+- rajahmundri
+- Rajamundry
+- rajamundry
+- Rajamundri
+- rajamundri
+
+## synonym:Rourkela
+- rourkela
+- Raurkela
+- raurkela
+
+## synonym:Amritsar
+- amritsar
+- Amratsar
+- amratsar
+
+## synonym:Chandigarh
+- chandigarh
+- Chandighar
+- chandighar
+
+## synonym:Allahabad
+- prayagraj
+- Prayagraj
+- Allahabad
+- allahabad
+
+## synonym:Nashik
+- nashik
+- Nasik
+- nasik
+
+## synonym:Pondicherry
+- pondicherry
+- puducherry
+- Puducherry
 
 ## synonym:vegetarian
 - veggie
@@ -150,7 +460,9 @@
 ## regex:pincode
 - [0-9]{6}
 
+## regex:email
+- ([\w.-]+)@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.)|(([\w-]+.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(]?)
+
 ## lookup:location
-  C:\Users\trishala\Desktop\Restaurant_Rasa_Chatbot_Python\data\cities.txt
-  
+ ./data/cities.txt
 

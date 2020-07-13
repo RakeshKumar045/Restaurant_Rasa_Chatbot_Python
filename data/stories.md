@@ -198,3 +198,41 @@
     - action_send_mail
 * affirm
     - utter_goodbye
+
+## interactive_story_1
+* greet
+    - utter_greet
+* restaurant_search{"location": "ahemdabad"}
+    - slot{"location": "ahemdabad"}
+    - verify_location
+    - slot{"location": null}
+    - slot{"location_ok": false}
+    - utter_ask_location
+* restaurant_search{"location": "Ahmedabad"}
+    - slot{"location": "Ahmedabad"}
+    - verify_location
+    - slot{"location": "Ahmedabad"}
+    - slot{"location_ok": true}
+    - utter_people
+* people
+    - utter_ask_budget_for_two
+* restaurant_search{"budgetmin": "300", "budgetmax": "700"}
+    - slot{"budgetmax": "700"}
+    - slot{"budgetmin": "300"}
+    - utter_ask_cuisine
+    - utter_ask_cuisine
+* restaurant_search{"cuisine": "South Indian"}
+    - slot{"cuisine": "South Indian"}
+    - action_search_restaurants
+    - slot{"location": "Ahmedabad"}
+    - slot{"restaurant_exist": true}
+    - utter_ask_ifmail
+* affirm
+    - utter_ask_email
+* send_email{"email": "trishla.singh35@gmail.com"}
+    - slot{"email": "trishla.singh35@gmail.com"}
+    - action_validate_email
+    - slot{"email_ok": true}
+    - action_send_mail
+* affirm
+    - utter_goodbye
