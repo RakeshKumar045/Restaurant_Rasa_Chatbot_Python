@@ -11,6 +11,8 @@
 
 # Assignment : Foodie Restaurant Search Case Study:
 
+
+
 #### Restaurant Bot :
 
 A restaurant chatbot using open source chat framework RASA : https://rasa.com/. Integrates with Zomato : https://developers.zomato.com/?lang=tr API to fetch restaurant information.
@@ -149,11 +151,6 @@ Along with policy “slots” which act as bot’s memory(context). It also infl
 
 #### Run RASA server to connect slack channel
 rasa run -m models -p 5004 --connctor slack --credentials credentials.yml
-
-
-
-
-
 
 
 - rasa shell  # test core model
