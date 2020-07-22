@@ -1,0 +1,5 @@
+nltk
+numpy
+keras
+random
+numpy

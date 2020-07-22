@@ -1,0 +1,2706 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "Hi there",
+        "How are you",
+        "Is anyone there?",
+        "Hey",
+        "Hola",
+        "Hello",
+        "Good day"
+      ],
+      "responses": [
+        "Hello, thanks for asking",
+        "Good to see you again",
+        "Hi there, how can I help?"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "who are ",
+      "patterns": [
+        "Who are you ?"
+      ],
+      "responses": [
+        "Hello I am Bot powered by CoronaReport How can I help you ?"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": [
+        "Bye",
+        "See you later",
+        "Goodbye",
+        "Nice chatting to you, bye",
+        "Till next time"
+      ],
+      "responses": [
+        "See you!",
+        "Have a nice day",
+        "Bye! Come back again soon."
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "thanks",
+      "patterns": [
+        "Thanks",
+        "Thank you",
+        "That's helpful",
+        "Awesome, thanks",
+        "Thanks for helping me"
+      ],
+      "responses": [
+        "Happy to help!",
+        "Any time!",
+        "My pleasure"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "noanswer",
+      "patterns": [],
+      "responses": [
+        "Sorry, can't understand you",
+        "Please give me more info",
+        "Not sure I understand"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "options",
+      "patterns": [
+        "How you could help me?",
+        "What you can do?",
+        "What help you provide?",
+        "How you can be helpful?",
+        "What support is offered"
+      ],
+      "responses": [
+        "I can tell you the latest corona report of world. You can ask me by writing any country name."
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Highest Corona country",
+      "patterns": [
+        "Which country has Highest corona cases in the world ?"
+      ],
+      "responses": [
+        "America"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Covid-19 Cases",
+      "patterns": [
+        "I want to know about corona cases in the world.",
+        "I wanna to know about covid-19 cases in the world.",
+        "Please Specify the Corona cases in the world."
+      ],
+      "responses": [
+        "Please Specify the Location"
+      ],
+      "context": [
+        "Location"
+      ]
+    },
+    {
+      "tag": "Cases in USA",
+      "patterns": [
+        "USA"
+      ],
+      "responses": [
+        "Total cases : 4,028,569, Total Recovered : 1,886,583, Total Deaths : 144,953"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in Brazil",
+      "patterns": [
+        "Brazil"
+      ],
+      "responses": [
+        "Total cases : 2,166,532, Total Recovered : 1,465,970, Total Deaths : 81,597"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in India",
+      "patterns": [
+        "India"
+      ],
+      "responses": [
+        "Total cases : 1,194,085, Total Recovered : 753,050, Total Deaths : 28,770"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in Russia",
+      "patterns": [
+        "Russia"
+      ],
+      "responses": [
+        "Total cases : 783,328, Total Recovered : 562,384, Total Deaths : 12,580"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in South Africa",
+      "patterns": [
+        "South Africa"
+      ],
+      "responses": [
+        "Total cases : 381,798, Total Recovered : 208,144, Total Deaths : 5,368"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in Peru",
+      "patterns": [
+        "Peru"
+      ],
+      "responses": [
+        "Total cases : 362,087, Total Recovered : 248,746, Total Deaths : 13,579"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in Mexico",
+      "patterns": [
+        "Mexico"
+      ],
+      "responses": [
+        "Total cases : 356,255, Total Recovered : 227,165, Total Deaths : 40,400"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in Chile",
+      "patterns": [
+        "Chile"
+      ],
+      "responses": [
+        "Total cases : 334,683, Total Recovered : 306,816, Total Deaths : 8,677"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in Spain",
+      "patterns": [
+        "Spain"
+      ],
+      "responses": [
+        "Total cases : 313,274, Total Recovered : N/A, Total Deaths : 28,424"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in UK",
+      "patterns": [
+        "UK"
+      ],
+      "responses": [
+        "Total cases : 295,817, Total Recovered : N/A, Total Deaths : 45,422"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in Iran",
+      "patterns": [
+        "Iran"
+      ],
+      "responses": [
+        "Total cases : 278,827, Total Recovered : 242,351, Total Deaths : 14,634"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in Pakistan",
+      "patterns": [
+        "Pakistan"
+      ],
+      "responses": [
+        "Total cases : 267,428, Total Recovered : 210,468, Total Deaths : 5,677"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in Saudi Arabia",
+      "patterns": [
+        "Saudi Arabia"
+      ],
+      "responses": [
+        "Total cases : 255,825, Total Recovered : 207,259, Total Deaths : 2,557"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in Italy",
+      "patterns": [
+        "Italy"
+      ],
+      "responses": [
+        "Total cases : 244,752, Total Recovered : 197,431, Total Deaths : 35,073"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in Turkey",
+      "patterns": [
+        "Turkey"
+      ],
+      "responses": [
+        "Total cases : 221,500, Total Recovered : 204,011, Total Deaths : 5,526"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in Colombia",
+      "patterns": [
+        "Colombia"
+      ],
+      "responses": [
+        "Total cases : 211,038, Total Recovered : 98,840, Total Deaths : 7,166"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Bangladesh",
+      "patterns": [
+        "Bangladesh"
+      ],
+      "responses": [
+        "Total cases : 210,510, Total Recovered : 115,397, Total Deaths : 2,709"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Germany",
+      "patterns": [
+        "Germany"
+      ],
+      "responses": [
+        "Total cases : 203,890, Total Recovered : 188,100, Total Deaths : 9,180"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  France",
+      "patterns": [
+        "France"
+      ],
+      "responses": [
+        "Total cases : 177,338, Total Recovered : 79,734, Total Deaths : 30,165"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Argentina",
+      "patterns": [
+        "Argentina"
+      ],
+      "responses": [
+        "Total cases : 136,118, Total Recovered : 58,598, Total Deaths : 2,490"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Canada",
+      "patterns": [
+        "Canada"
+      ],
+      "responses": [
+        "Total cases : 111,697, Total Recovered : 97,757, Total Deaths : 8,862"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Qatar",
+      "patterns": [
+        "Qatar"
+      ],
+      "responses": [
+        "Total cases : 107,430, Total Recovered : 104,191, Total Deaths : 160"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in   Iraq",
+      "patterns": [
+        "Iraq"
+      ],
+      "responses": [
+        "Total cases : 97,159, Total Recovered : 64,950, Total Deaths : 3,950"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in   Indonesia",
+      "patterns": [
+        "Indonesia"
+      ],
+      "responses": [
+        "Total cases : 89,869, Total Recovered : 48,466, Total Deaths : 4,320"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in   Egypt",
+      "patterns": [
+        "Egypt"
+      ],
+      "responses": [
+        "Total cases : 89,078, Total Recovered : 29,473, Total Deaths : 4,399"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in   China",
+      "patterns": [
+        "China"
+      ],
+      "responses": [
+        "Total cases : 83,707, Total Recovered : 78,840, Total Deaths : 4,634"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in   Sweden",
+      "patterns": [
+        "Sweden"
+      ],
+      "responses": [
+        "Total cases : 78,166, Total Recovered : N/A, Total Deaths : 5,646"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in   Ecuador",
+      "patterns": [
+        "Ecuador"
+      ],
+      "responses": [
+        "Total cases : 76,217, Total Recovered : 32,725, Total Deaths : 5,366"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in   Kazakhstan",
+      "patterns": [
+        "Kazakhstan"
+      ],
+      "responses": [
+        "Total cases : 75,153, Total Recovered : 46,790, Total Deaths : 585"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in   Philippines",
+      "patterns": [
+        "Philippines"
+      ],
+      "responses": [
+        "Total cases : 70,764, Total Recovered : 23,281, Total Deaths : 1,837"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Oman",
+      "patterns": [
+        "Oman"
+      ],
+      "responses": [
+        "Total cases : 69,887, Total Recovered : 46,608, Total Deaths : 337"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in   Belarus",
+      "patterns": [
+        " Belarus"
+      ],
+      "responses": [
+        "Total cases : 66,348, Total Recovered : 58,592, Total Deaths : 507"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in   Belgium",
+      "patterns": [
+        " Belgium"
+      ],
+      "responses": [
+        "Total cases : 64,258, Total Recovered : 17,330, Total Deaths : 9,805"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in   Bolivia",
+      "patterns": [
+        " Bolivia"
+      ],
+      "responses": [
+        "Total cases : 62,357, Total Recovered : 19,290, Total Deaths : 2,273"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in   Kuwait",
+      "patterns": [
+        " Kuwait"
+      ],
+      "responses": [
+        "Total cases : 60,434, Total Recovered : 50,919, Total Deaths : 412"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in   Ukraine",
+      "patterns": [
+        " Ukraine"
+      ],
+      "responses": [
+        "Total cases : 60,166, Total Recovered : 32,199, Total Deaths : 1,518"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  UAE",
+      "patterns": [
+        "UAE"
+      ],
+      "responses": [
+        "Total cases : 57,498, Total Recovered : 49,964, Total Deaths : 341"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Panama",
+      "patterns": [
+        "Panama"
+      ],
+      "responses": [
+        "Total cases : 55,153, Total Recovered : 30,075, Total Deaths : 1,159"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Dominican Republic",
+      "patterns": [
+        "Dominican Republic"
+      ],
+      "responses": [
+        "Total cases : 54,797, Total Recovered : 25,976, Total Deaths : 999"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in   Israel",
+      "patterns": [
+        " Israel"
+      ],
+      "responses": [
+        "Total cases : 54,042, Total Recovered : 22,743, Total Deaths :  425"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Netherlands",
+      "patterns": [
+        "Netherlands"
+      ],
+      "responses": [
+        "Total cases : 52,073, Total Recovered : N/A, Total Deaths :  6,136  "
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Portugal",
+      "patterns": [
+        "Portugal"
+      ],
+      "responses": [
+        "Total cases : 48,898, Total Recovered : 33,769, Total Deaths :  1,697  "
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in   Singapore",
+      "patterns": [
+        " Singapore"
+      ],
+      "responses": [
+        "Total cases : 48,434, Total Recovered : 44,584, Total Deaths :  27"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in Poland",
+      "patterns": [
+        "Poland"
+      ],
+      "responses": [
+        "Total cases : 40,782    , Total Recovered : 30,771, Total Deaths : 1,636"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in Guatemala",
+      "patterns": [
+        "Guatemala"
+      ],
+      "responses": [
+        "Total cases :40,229, Total Recovered : 26,685, Total Deaths : 1,531 "
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in Romania",
+      "patterns": [
+        "Romania"
+      ],
+      "responses": [
+        "Total cases :39,133, Total Recovered : 24,454, Total Deaths : 2,074"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in Nigeria",
+      "patterns": [
+        "Nigeria"
+      ],
+      "responses": [
+        "Total cases :37,801, Total Recovered : 15,677, Total Deaths : 805"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in Bahrain",
+      "patterns": [
+        "Bahrain"
+      ],
+      "responses": [
+        "Total cases :37,316, Total Recovered : 33,455, Total Deaths : 129"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in Afghanistan",
+      "patterns": [
+        "Afghanistan"
+      ],
+      "responses": [
+        "Total cases :35,615, Total Recovered :23,741, Total Deaths : 1,186"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in Honduras",
+      "patterns": [
+        "Honduras"
+      ],
+      "responses": [
+        "Total cases :35,345, Total Recovered :4,144, Total Deaths : 988"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in Armenia",
+      "patterns": [
+        "Armenia"
+      ],
+      "responses": [
+        "Total cases :35,254, Total Recovered :24,206, Total Deaths : 662"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in Switzerland",
+      "patterns": [
+        "Switzerland"
+      ],
+      "responses": [
+        "Total cases :33,742, Total Recovered :30,300, Total Deaths : 1,972"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in Ghana",
+      "patterns": [
+        "Ghana"
+      ],
+      "responses": [
+        "Total cases :28,989, Total Recovered :25,331, Total Deaths : 153"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in Kyrgyzstan",
+      "patterns": [
+        "Kyrgyzstan"
+      ],
+      "responses": [
+        "Total cases :28,980, Total Recovered :15,536, Total Deaths : 1,111"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in Azerbaijan",
+      "patterns": [
+        "Azerbaijan"
+      ],
+      "responses": [
+        "Total cases :28,242, Total Recovered :19,939, Total Deaths : 376"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in Ireland",
+      "patterns": [
+        "Ireland"
+      ],
+      "responses": [
+        "Total cases :25,802, Total Recovered :23,364, Total Deaths : 1,753"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in Japan",
+      "patterns": [
+        "Japan"
+      ],
+      "responses": [
+        "Total cases :25,736, Total Recovered :20,155, Total Deaths : 988"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in Algeria",
+      "patterns": [
+        "Algeria"
+      ],
+      "responses": [
+        "Total cases :24,278, Total Recovered :16,646, Total Deaths : 1,100"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in Serbia",
+      "patterns": [
+        "Serbia"
+      ],
+      "responses": [
+        "Total cases :21,605, Total Recovered :14,047, Total Deaths : 491"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in   Moldova",
+      "patterns": [
+        " Moldova"
+      ],
+      "responses": [
+        "Total cases :21,442, Total Recovered :14,599, Total Deaths :707"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in Austria",
+      "patterns": [
+        "Austria"
+      ],
+      "responses": [
+        "Total cases :19,827, Total Recovered :17,716, Total Deaths :710"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in Nepal",
+      "patterns": [
+        "Nepal"
+      ],
+      "responses": [
+        "Total cases :17,994 , Total Recovered :12,477, Total Deaths :40 "
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in Uzbekistan",
+      "patterns": [
+        "Uzbekistan"
+      ],
+      "responses": [
+        "Total cases :17,881, Total Recovered :9,521, Total Deaths :95    "
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in Morocco",
+      "patterns": [
+        "Morocco"
+      ],
+      "responses": [
+        "Total cases :17,742, Total Recovered :15,389, Total Deaths :280 "
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in Cameroon",
+      "patterns": [
+        "Cameroon"
+      ],
+      "responses": [
+        "Total cases :16,522, Total Recovered :13,728, Total Deaths :    382 "
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in   Ivory Coast",
+      "patterns": [
+        " Ivory Coast"
+      ],
+      "responses": [
+        "Total cases :14,531, Total Recovered :8,857, Total Deaths : 93  "
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Czechia",
+      "patterns": [
+        " Czechia"
+      ],
+      "responses": [
+        "Total cases :14,324, Total Recovered :8,918, Total Deaths : 360"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Kenya",
+      "patterns": [
+        " Kenya"
+      ],
+      "responses": [
+        "Total cases :14,168, Total Recovered :6,258, Total Deaths :250"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  S. Korea",
+      "patterns": [
+        " S. Korea"
+      ],
+      "responses": [
+        "Total cases :13,879 , Total Recovered :12,698, Total Deaths :297"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in   Denmark",
+      "patterns": [
+        "Denmark"
+      ],
+      "responses": [
+        "Total cases :13,302 , Total Recovered :12,261   , Total Deaths :611"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Australia",
+      "patterns": [
+        " Australia"
+      ],
+      "responses": [
+        "Total cases :12,894  , Total Recovered :8,545   , Total Deaths :128"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in   Venezuela",
+      "patterns": [
+        "Venezuela"
+      ],
+      "responses": [
+        "Total cases :12,774  , Total Recovered :6,983   , Total Deaths :120"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in   El Salvador",
+      "patterns": [
+        "El Salvador"
+      ],
+      "responses": [
+        "Total cases :12,582  , Total Recovered :6,965   , Total Deaths :352"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Costa Rica",
+      "patterns": [
+        " Costa Rica"
+      ],
+      "responses": [
+        "Total cases :11,811 , Total Recovered :3,194  , Total Deaths :68    "
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in   Ethiopia",
+      "patterns": [
+        "Ethiopia"
+      ],
+      "responses": [
+        "Total cases :11,072 , Total Recovered :5,448 , Total Deaths : 180"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in   Sudan",
+      "patterns": [
+        "Sudan"
+      ],
+      "responses": [
+        "Total cases :10,992 , Total Recovered :5,707, Total Deaths :    693 "
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in   North Macedonia",
+      "patterns": [
+        "North Macedonia"
+      ],
+      "responses": [
+        "Total cases :9,412 , Total Recovered :4,940, Total Deaths :4,940"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in   Bulgaria",
+      "patterns": [
+        "Bulgaria"
+      ],
+      "responses": [
+        "Total cases :9,254 , Total Recovered :4,521, Total Deaths :313"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in       Palestine",
+      "patterns": [
+        " Palestine"
+      ],
+      "responses": [
+        "Total cases :9,228, Total Recovered :1,932, Total Deaths :64"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Norway",
+      "patterns": [
+        "Norway"
+      ],
+      "responses": [
+        "Total cases :9,053, Total Recovered :8,138, Total Deaths :255"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Senegal",
+      "patterns": [
+        "Senegal"
+      ],
+      "responses": [
+        "Total cases :8,985  , Total Recovered :6,044, Total Deaths :174 "
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in   Malaysia",
+      "patterns": [
+        " Malaysia"
+      ],
+      "responses": [
+        "Total cases :8,815  , Total Recovered :8,562, Total Deaths :123 "
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in   Bosnia and Herzegovina",
+      "patterns": [
+        " Bosnia and Herzegovina"
+      ],
+      "responses": [
+        "Total cases :8,787  , Total Recovered :4,003, Total Deaths :    264 "
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  DRC",
+      "patterns": [
+        "DRC"
+      ],
+      "responses": [
+        "Total cases :8,534, Total Recovered :4,528, Total Deaths :196"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Madagascar",
+      "patterns": [
+        "Madagascar"
+      ],
+      "responses": [
+        "Total cases :7,548, Total Recovered :4,286, Total Deaths :65"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Finland",
+      "patterns": [
+        "Finland"
+      ],
+      "responses": [
+        "Total cases :7,351, Total Recovered :6,880, Total Deaths :328"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Haiti",
+      "patterns": [
+        "Haiti"
+      ],
+      "responses": [
+        "Total cases :7,146, Total Recovered :4,095, Total Deaths :154"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Tajikistan",
+      "patterns": [
+        "Tajikistan"
+      ],
+      "responses": [
+        "Total cases :6,967, Total Recovered :5,683, Total Deaths :57"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  French Guiana",
+      "patterns": [
+        "French Guiana"
+      ],
+      "responses": [
+        "Total cases :6,851, Total Recovered :4,996, Total Deaths :39 "
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Guinea",
+      "patterns": [
+        "Guinea"
+      ],
+      "responses": [
+        "Total cases :6,652, Total Recovered :5,771, Total Deaths :41"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Gabon",
+      "patterns": [
+        "Gabon"
+      ],
+      "responses": [
+        "Total cases :6,433, Total Recovered :4,034, Total Deaths :46"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Mauritania",
+      "patterns": [
+        "Mauritania"
+      ],
+      "responses": [
+        "Total cases :5,985, Total Recovered :3,826, Total Deaths :155   "
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Luxembourg",
+      "patterns": [
+        "Luxembourg"
+      ],
+      "responses": [
+        "Total cases :5,725  , Total Recovered :4,479, Total Deaths :111"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Djibouti",
+      "patterns": [
+        "Djibouti"
+      ],
+      "responses": [
+        "Total cases :5,027 , Total Recovered :4,884, Total Deaths :56"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  CAR",
+      "patterns": [
+        "CAR"
+      ],
+      "responses": [
+        "Total cases :4,561 , Total Recovered :1,411, Total Deaths :55"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Croatia",
+      "patterns": [
+        "Croatia"
+      ],
+      "responses": [
+        "Total cases :4,422, Total Recovered :3,183, Total Deaths :123"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Hungary",
+      "patterns": [
+        "Hungary"
+      ],
+      "responses": [
+        "Total cases :4,347, Total Recovered :3,257  , Total Deaths :596 "
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Albania",
+      "patterns": [
+        "Albania"
+      ],
+      "responses": [
+        "Total cases :4,290  , Total Recovered :2,397, Total Deaths :    117 "
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Greece",
+      "patterns": [
+        "Greece"
+      ],
+      "responses": [
+        "Total cases :4,048  , Total Recovered :1,374,  Total Deaths :    197 "
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Paraguay",
+      "patterns": [
+        "Paraguay"
+      ],
+      "responses": [
+        "Total cases : 3,817, Total Recovered : 2,307, Total Deaths : 35"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Nicaragua",
+      "patterns": [
+        "Nicaragua"
+      ],
+      "responses": [
+        "Total cases : 3,439, Total Recovered : 2,492, Total Deaths : 108"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Zambia",
+      "patterns": [
+        "Zambia"
+      ],
+      "responses": [
+        "Total cases : 3,386, Total Recovered : 1,620, Total Deaths : 128"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Thailand",
+      "patterns": [
+        "Thailand "
+      ],
+      "responses": [
+        "Total cases : 3,261, Total Recovered : 3,105, Total Deaths : 58"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Somalia",
+      "patterns": [
+        "Somalia"
+      ],
+      "responses": [
+        "Total cases : 3,135, Total Recovered : 1,464, Total Deaths : 93"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Equatorial Guinea ",
+      "patterns": [
+        "Equatorial Guinea"
+      ],
+      "responses": [
+        "Total cases : 3,071, Total Recovered : 842, Total Deaths : 51"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Malawi",
+      "patterns": [
+        "Malawi"
+      ],
+      "responses": [
+        "Total cases : 3,045, Total Recovered : 1,180, Total Deaths : 64"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Maldives",
+      "patterns": [
+        "Maldives"
+      ],
+      "responses": [
+        "Total cases : 3,044, Total Recovered : 2,397, Total Deaths : 15"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Lebanon",
+      "patterns": [
+        "Maldives"
+      ],
+      "responses": [
+        "Total cases : 2,980, Total Recovered : 1,577, Total Deaths : 41"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Congo",
+      "patterns": [
+        "Congo"
+      ],
+      "responses": [
+        "Total cases : 2,851, Total Recovered : 666, Total Deaths : 50"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Mayotte",
+      "patterns": [
+        "Mayotte"
+      ],
+      "responses": [
+        "Total cases : 2,824, Total Recovered : 2,614, Total Deaths : 38"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Sri Lanka",
+      "patterns": [
+        "Sri Lanka"
+      ],
+      "responses": [
+        "Total cases : 2,730, Total Recovered : 2,048, Total Deaths : 11"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Mali",
+      "patterns": [
+        "Mali"
+      ],
+      "responses": [
+        "Total cases : 2,477, Total Recovered : 1,856, Total Deaths : 122"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Cuba",
+      "patterns": [
+        "Cuba"
+      ],
+      "responses": [
+        "Total cases : 2,449, Total Recovered : 2,321, Total Deaths : 87"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Montenegro",
+      "patterns": [
+        "Montenegro"
+      ],
+      "responses": [
+        "Total cases : 2,381, Total Recovered : 426, Total Deaths : 35"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  South Sudan",
+      "patterns": [
+        "South Sudan"
+      ],
+      "responses": [
+        "Total cases : 2,211, Total Recovered : 1,175, Total Deaths : 45"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Cabo Verde",
+      "patterns": [
+        "Cabo Verde"
+      ],
+      "responses": [
+        "Total cases : 2,107, Total Recovered : 1,100, Total Deaths : 21"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Libya",
+      "patterns": [
+        "Libya"
+      ],
+      "responses": [
+        "Total cases : 2,088, Total Recovered : 479, Total Deaths : 50"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Estonia",
+      "patterns": [
+        "Estonia"
+      ],
+      "responses": [
+        "Total cases : 2,022, Total Recovered : 1,912, Total Deaths : 69"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Slovakia",
+      "patterns": [
+        "Slovakia"
+      ],
+      "responses": [
+        "Total cases : 2,021, Total Recovered : 1,538, Total Deaths : 28"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Hong Kong",
+      "patterns": [
+        "Hong Kong"
+      ],
+      "responses": [
+        "Total cases : 2,020, Total Recovered : 1,324, Total Deaths : 14"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Slovenia",
+      "patterns": [
+        "Slovenia"
+      ],
+      "responses": [
+        "Total cases : 1,977, Total Recovered : 1,625, Total Deaths : 114"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Guinea-Bissau",
+      "patterns": [
+        "Guinea-Bissau"
+      ],
+      "responses": [
+        "Total cases : 1,954, Total Recovered : 803, Total Deaths : 26"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Lithuania",
+      "patterns": [
+        "Lithuania"
+      ],
+      "responses": [
+        "Total cases : 1,949, Total Recovered : 1,601, Total Deaths : 80"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Eswatini",
+      "patterns": [
+        "Eswatini"
+      ],
+      "responses": [
+        "Total cases : 1,894, Total Recovered : 855, Total Deaths : 24"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Iceland",
+      "patterns": [
+        "Iceland"
+      ],
+      "responses": [
+        "Total cases : 1,839, Total Recovered : 1,821, Total Deaths : 10"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Zimbabwe",
+      "patterns": [
+        "Zimbabwe"
+      ],
+      "responses": [
+        "Total cases : 1,820, Total Recovered : 488, Total Deaths : 26"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Sierra Leone",
+      "patterns": [
+        "Sierra Leone"
+      ],
+      "responses": [
+        "Total cases : 1,727, Total Recovered : 1,273, Total Deaths : 66"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Rwanda",
+      "patterns": [
+        "Rwanda"
+      ],
+      "responses": [
+        "Total cases : 1,655, Total Recovered : 848, Total Deaths : 5"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Yemen",
+      "patterns": [
+        "Yemen"
+      ],
+      "responses": [
+        "Total cases : 1,629, Total Recovered : 741, Total Deaths : 456"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Benin",
+      "patterns": [
+        "Benin"
+      ],
+      "responses": [
+        "Total cases : 1,602, Total Recovered : 782, Total Deaths : 31"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  New Zealand",
+      "patterns": [
+        "New Zealand"
+      ],
+      "responses": [
+        "Total cases : 1,555, Total Recovered : 1,555, Total Deaths : 22"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Mozambique",
+      "patterns": [
+        "Mozambique"
+      ],
+      "responses": [
+        "Total cases : 1,536, Total Recovered : 506, Total Deaths : 11"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Tunisia",
+      "patterns": [
+        "Tunisia"
+      ],
+      "responses": [
+        "Total cases : 1,389, Total Recovered : 1,103, Total Deaths : 50"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Namibia",
+      "patterns": [
+        "Namibia"
+      ],
+      "responses": [
+        "Total cases : 1,366, Total Recovered : 57, Total Deaths : 7"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Latvia",
+      "patterns": [
+        "Latvia"
+      ],
+      "responses": [
+        "Total cases : 1,193, Total Recovered : 1,045, Total Deaths : 31"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Suriname",
+      "patterns": [
+        "Suriname"
+      ],
+      "responses": [
+        "Total cases : 1,131, Total Recovered : 705, Total Deaths : 21"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Niger",
+      "patterns": [
+        "Niger"
+      ],
+      "responses": [
+        "Total cases : 1,113, Total Recovered : 1,018, Total Deaths : 69"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Jordan",
+      "patterns": [
+        "Jordan"
+      ],
+      "responses": [
+        "Total cases : 1,113, Total Recovered : 1,034, Total Deaths : 11"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Liberia",
+      "patterns": [
+        "Liberia"
+      ],
+      "responses": [
+        "Total cases : 1,108, Total Recovered : 575, Total Deaths : 70"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Uruguay",
+      "patterns": [
+        "Uruguay"
+      ],
+      "responses": [
+        "Total cases : 1,096, Total Recovered : 929, Total Deaths : 33"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Uganda",
+      "patterns": [
+        "Uganda"
+      ],
+      "responses": [
+        "Total cases : 1,072, Total Recovered : 958, Total Deaths : N/A"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Burkina Faso",
+      "patterns": [
+        "Burkina Faso"
+      ],
+      "responses": [
+        "Total cases : 1,065, Total Recovered : 901, Total Deaths : 53"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Georgia",
+      "patterns": [
+        "Georgia"
+      ],
+      "responses": [
+        "Total cases : 1,049, Total Recovered : 903, Total Deaths : 16"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Cyprus",
+      "patterns": [
+        "Cyprus"
+      ],
+      "responses": [
+        "Total cases : 1,040, Total Recovered : 847, Total Deaths : 19"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Chad",
+      "patterns": [
+        "Chad"
+      ],
+      "responses": [
+        "Total cases : 889, Total Recovered : 803, Total Deaths : 75"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Andorra",
+      "patterns": [
+        "Andorra"
+      ],
+      "responses": [
+        "Total cases : 884, Total Recovered : 803, Total Deaths : 52"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Jamaica",
+      "patterns": [
+        "Jamaica"
+      ],
+      "responses": [
+        "Total cases : 810, Total Recovered : 709, Total Deaths : 10"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Togo",
+      "patterns": [
+        "Togo"
+      ],
+      "responses": [
+        "Total cases : 790, Total Recovered : 560, Total Deaths : 15"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Angola",
+      "patterns": [
+        "Angola"
+      ],
+      "responses": [
+        "Total cases : 779, Total Recovered : 221, Total Deaths : 30"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Sao Tome and Principe",
+      "patterns": [
+        "Sao Tome and Principe"
+      ],
+      "responses": [
+        "Total cases : 746, Total Recovered : 588, Total Deaths : 14"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Diamond Princess",
+      "patterns": [
+        "Diamond Princess"
+      ],
+      "responses": [
+        "Total cases : 712, Total Recovered : 651, Total Deaths : 13"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  San Marino",
+      "patterns": [
+        "San Marino"
+      ],
+      "responses": [
+        "Total cases : 699, Total Recovered : 656, Total Deaths : 42"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Malta",
+      "patterns": [
+        "Malta"
+      ],
+      "responses": [
+        "Total cases : 677, Total Recovered : 664, Total Deaths : 9"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Réunion",
+      "patterns": [
+        "Réunion"
+      ],
+      "responses": [
+        "Total cases : 639, Total Recovered : 472, Total Deaths : 3"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Channel Islands",
+      "patterns": [
+        "Channel Islands"
+      ],
+      "responses": [
+        "Total cases : 583, Total Recovered : 529, Total Deaths : 47"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Syria",
+      "patterns": [
+        "Syria"
+      ],
+      "responses": [
+        "Total cases : 540, Total Recovered : 160, Total Deaths : 31"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Botswana",
+      "patterns": [
+        "Botswana"
+      ],
+      "responses": [
+        "Total cases : 522, Total Recovered : 48, Total Deaths : 1"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Tanzania",
+      "patterns": [
+        "Tanzania"
+      ],
+      "responses": [
+        "Total cases : 509, Total Recovered : 183, Total Deaths : 21"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Taiwan",
+      "patterns": [
+        "Taiwan"
+      ],
+      "responses": [
+        "Total cases : 455, Total Recovered : 440, Total Deaths : 7"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Vietnam",
+      "patterns": [
+        "Vietnam"
+      ],
+      "responses": [
+        "Total cases : 401, Total Recovered : 365, Total Deaths : N/A"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Lesotho",
+      "patterns": [
+        "Lesotho"
+      ],
+      "responses": [
+        "Total cases : 359, Total Recovered : 69, Total Deaths : 6"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Mauritius",
+      "patterns": [
+        "Mauritius"
+      ],
+      "responses": [
+        "Total cases : 343, Total Recovered : 332, Total Deaths : 10"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Myanmar",
+      "patterns": [
+        "Myanmar"
+      ],
+      "responses": [
+        "Total cases : 341, Total Recovered : 280, Total Deaths : 6"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Guyana",
+      "patterns": [
+        "Guyana"
+      ],
+      "responses": [
+        "Total cases : 339, Total Recovered : 163, Total Deaths : 19"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Comoros",
+      "patterns": [
+        "Comoros"
+      ],
+      "responses": [
+        "Total cases : 337, Total Recovered : 319, Total Deaths : 7"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Isle of Man",
+      "patterns": [
+        "Isle of Man"
+      ],
+      "responses": [
+        "Total cases : 336, Total Recovered : 312, Total Deaths : 24"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Burundi",
+      "patterns": [
+        "Burundi"
+      ],
+      "responses": [
+        "Total cases : 328, Total Recovered : 207, Total Deaths : 1"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Mongolia",
+      "patterns": [
+        "Mongolia"
+      ],
+      "responses": [
+        "Total cases : 287, Total Recovered : 213, Total Deaths : N/A"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Martinique",
+      "patterns": [
+        "Martinique"
+      ],
+      "responses": [
+        "Total cases : 262, Total Recovered : 98, Total Deaths : 15"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Eritrea",
+      "patterns": [
+        "Eritrea"
+      ],
+      "responses": [
+        "Total cases : 251, Total Recovered : 155, Total Deaths : N/A"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Cayman Islands",
+      "patterns": [
+        "Cayman Islands"
+      ],
+      "responses": [
+        "Total cases : 203, Total Recovered : 201, Total Deaths : 1"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Cambodia",
+      "patterns": [
+        "Cambodia"
+      ],
+      "responses": [
+        "Total cases : 197, Total Recovered : 140, Total Deaths : N/A"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Guadeloupe",
+      "patterns": [
+        "Guadeloupe"
+      ],
+      "responses": [
+        "Total cases : 195, Total Recovered : 172, Total Deaths : 14"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Bahamas",
+      "patterns": [
+        "Bahamas"
+      ],
+      "responses": [
+        "Total cases : 194, Total Recovered : 91, Total Deaths : 11"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Faeroe Islands",
+      "patterns": [
+        "Faeroe Islands"
+      ],
+      "responses": [
+        "Total cases : 191, Total Recovered : 188, Total Deaths : N/A"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Gibraltar",
+      "patterns": [
+        "Gibraltar"
+      ],
+      "responses": [
+        "Total cases : 180, Total Recovered : 180, Total Deaths : N/A"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Bermuda",
+      "patterns": [
+        "Bermuda"
+      ],
+      "responses": [
+        "Total cases : 153, Total Recovered : 137, Total Deaths : 9"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Brunei",
+      "patterns": [
+        "Brunei"
+      ],
+      "responses": [
+        "Total cases : 141, Total Recovered : 138, Total Deaths : 3"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Trinidad and Tobago",
+      "patterns": [
+        "Trinidad and Tobago"
+      ],
+      "responses": [
+        "Total cases : 139, Total Recovered : 124, Total Deaths : 8"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Aruba",
+      "patterns": [
+        "Aruba"
+      ],
+      "responses": [
+        "Total cases : 117, Total Recovered : 100, Total Deaths : 3"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Gambia",
+      "patterns": [
+        "Gambia"
+      ],
+      "responses": [
+        "Total cases : 112, Total Recovered : 57, Total Deaths : 4"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Monaco",
+      "patterns": [
+        "Monaco"
+      ],
+      "responses": [
+        "Total cases : 111, Total Recovered : 100, Total Deaths : 4"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Seychelles",
+      "patterns": [
+        "Seychelles"
+      ],
+      "responses": [
+        "Total cases : 108, Total Recovered : 27, Total Deaths : N/A"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Barbados",
+      "patterns": [
+        "Barbados"
+      ],
+      "responses": [
+        "Total cases : 106, Total Recovered : 91, Total Deaths : 7"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Bhutan",
+      "patterns": [
+        "Bhutan"
+      ],
+      "responses": [
+        "Total cases : 92, Total Recovered : 83, Total Deaths : N/A"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Liechtenstein",
+      "patterns": [
+        "Liechtenstein"
+      ],
+      "responses": [
+        "Total cases : 86, Total Recovered : 81, Total Deaths : 1"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Turks and Caicos",
+      "patterns": [
+        "Turks and Caicos"
+      ],
+      "responses": [
+        "Total cases : 81, Total Recovered : 22, Total Deaths : 2"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Sint Maarten",
+      "patterns": [
+        "Sint Maarten"
+      ],
+      "responses": [
+        "Total cases : 79, Total Recovered : 63, Total Deaths : 15"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Antigua and Barbuda",
+      "patterns": [
+        "Antigua and Barbuda"
+      ],
+      "responses": [
+        "Total cases : 76, Total Recovered : 57, Total Deaths : 3"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  French Polynesia",
+      "patterns": [
+        "French Polynesia"
+      ],
+      "responses": [
+        "Total cases : 62, Total Recovered : 60, Total Deaths : N/A"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  St. Vincent Grenadines",
+      "patterns": [
+        "St. Vincent Grenadines"
+      ],
+      "responses": [
+        "Total cases : 50, Total Recovered : 29, Total Deaths : N/A"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Saint Martin",
+      "patterns": [
+        "Saint Martin"
+      ],
+      "responses": [
+        "Total cases : 46, Total Recovered : 39, Total Deaths : 3"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Macao",
+      "patterns": [
+        "Macao"
+      ],
+      "responses": [
+        "Total cases : 46, Total Recovered : 46, Total Deaths : N/A"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Belize",
+      "patterns": [
+        "Belize"
+      ],
+      "responses": [
+        "Total cases : 43, Total Recovered : 23, Total Deaths : 2"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Curaçao",
+      "patterns": [
+        "Curaçao"
+      ],
+      "responses": [
+        "Total cases : 28, Total Recovered : 24, Total Deaths : 1"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Papua New Guinea",
+      "patterns": [
+        "Papua New Guinea"
+      ],
+      "responses": [
+        "Total cases : 27, Total Recovered : 8, Total Deaths : N/A"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Fiji",
+      "patterns": [
+        "Fiji"
+      ],
+      "responses": [
+        "Total cases : 27, Total Recovered : 18, Total Deaths : N/A"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Timor-Leste",
+      "patterns": [
+        "Timor-Leste"
+      ],
+      "responses": [
+        "Total cases : 24, Total Recovered : 24, Total Deaths : N/A"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Grenada",
+      "patterns": [
+        "Grenada"
+      ],
+      "responses": [
+        "Total cases : 23, Total Recovered : 23, Total Deaths : N/A"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Saint Lucia",
+      "patterns": [
+        "Saint Lucia"
+      ],
+      "responses": [
+        "Total cases : 23, Total Recovered : 19, Total Deaths : N/A"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  New Caledonia",
+      "patterns": [
+        "New Caledonia"
+      ],
+      "responses": [
+        "Total cases : 22, Total Recovered : 21, Total Deaths : N/A"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Laos",
+      "patterns": [
+        "Laos"
+      ],
+      "responses": [
+        "Total cases : 19, Total Recovered : 19, Total Deaths : N/A"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Dominica",
+      "patterns": [
+        "Dominica"
+      ],
+      "responses": [
+        "Total cases : 18, Total Recovered : 18, Total Deaths : N/A"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Saint Kitts and Nevis",
+      "patterns": [
+        "Saint Kitts and Nevis"
+      ],
+      "responses": [
+        "Total cases : 17, Total Recovered : 15, Total Deaths : N/A"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Falkland Islands",
+      "patterns": [
+        "Falkland Islands"
+      ],
+      "responses": [
+        "Total cases : 13, Total Recovered : 13, Total Deaths : N/A"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Greenland",
+      "patterns": [
+        "Greenland"
+      ],
+      "responses": [
+        "Total cases : 13, Total Recovered : 13, Total Deaths : N/A"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Montserrat",
+      "patterns": [
+        "Montserrat"
+      ],
+      "responses": [
+        "Total cases : 12, Total Recovered : 10, Total Deaths : 1"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Vatican City",
+      "patterns": [
+        "Vatican City"
+      ],
+      "responses": [
+        "Total cases : 12, Total Recovered : 12, Total Deaths : N/A"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Western Sahara",
+      "patterns": [
+        "Western Sahara"
+      ],
+      "responses": [
+        "Total cases : 10, Total Recovered : 8, Total Deaths : 1"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Caribbean Netherlands",
+      "patterns": [
+        "Caribbean Netherlands"
+      ],
+      "responses": [
+        "Total cases : 10, Total Recovered : 7, Total Deaths : N/A"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  MS Zaandam",
+      "patterns": [
+        "MS Zaandam"
+      ],
+      "responses": [
+        "Total cases : 9, Total Recovered : N/A, Total Deaths : 2"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  British Virgin Islands",
+      "patterns": [
+        "British Virgin Islands"
+      ],
+      "responses": [
+        "Total cases : 8, Total Recovered : 7, Total Deaths : 1"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  St. Barth",
+      "patterns": [
+        "St. Barth"
+      ],
+      "responses": [
+        "Total cases : 6, Total Recovered : 6, Total Deaths : N/A"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Saint Pierre Miquelon",
+      "patterns": [
+        "Saint Pierre Miquelon"
+      ],
+      "responses": [
+        "Total cases : 4, Total Recovered : 1, Total Deaths : N/A"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Cases in  Anguilla",
+      "patterns": [
+        "Anguilla"
+      ],
+      "responses": [
+        "Total cases : 3, Total Recovered : 3, Total Deaths : N/A"
+      ],
+      "context": [
+        ""
+      ]
+    }
+  ]
+}
