@@ -277,7 +277,7 @@ twilio==6.26.3
 tzlocal==2.1
 ujson==1.35
 unicodecsv==0.14.1
-urllib3==1.25.9
+urllib3==1.26.5
 uvloop==0.14.0
 wasabi==0.7.0
 webencodings==0.5.1
